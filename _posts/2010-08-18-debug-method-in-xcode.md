@@ -7,7 +7,7 @@ I often find myself add a bunch of <tt>#ifdef</tt>s for code that I only want ex
 
 You would use it like this:
 
-``` objc
+{% highlight objc %}
 /*
  * Simple example of usage
  */
@@ -23,7 +23,7 @@ main(int argc, **argv)
 
     return 0;
 }
-```
+{% endhighlight %}
 
 You can download <tt>debug.[ch]</tt> from <a href="http://gist.github.com/534487">GitHub</a> and simply add them to your project. You also need to edit your project settings for the Debug configuration to set the <tt>DEBUG</tt> macro.
 
