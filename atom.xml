@@ -1,0 +1,32 @@
+---
+layout: nil
+---
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+  <title>Mikael Hallendal</title>
+  <link href="http://micke.hallendal.net/"/>
+  <link type="application/atom+xml" rel="self" href="http://micke.hallendal.net/atom.xml"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>http://micke.hallendal.net/</id>
+  <author>
+    <name>Mikael Hallendal</name>
+    <email>mhallendal@gmail.com</email>
+  </author>
+
+  {% for post in site.posts %}
+  <entry>
+    <id>http://micke.hallendal.net{{ post.id }}</id>
+    <link type="text/html" rel="alternate" href="http://micke.hallendal.net{{ post.url }}"/>
+    <title>{{ post.title }}</title>
+    <published>{{ post.date | date_to_xmlschema }}</published>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <author>
+      <name>Mikael Hallendal</name>
+      <uri>http://micke.hallendal.net/</uri>
+    </author>
+    <content type="html">{{ post.content | xml_escape }}</content>
+  </entry>
+  {% endfor %}
+ 
+</feed>
