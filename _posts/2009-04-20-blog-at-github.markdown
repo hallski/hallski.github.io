@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Blogging at Github and Simply Hacking
+title: Blogging at Github
 comments: true
 ---
 
