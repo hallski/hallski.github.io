@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Initial release of MHConvore
-comments: true
+comments: false
 ---
 Just pushed the first cut of a small framework to connect with the newly launched chatservice [Convore](http://convore.com/). In short Convore is an attempt to create a better way to chat than IRC and also support a web frontend while making it possible to connect with native clients.
 

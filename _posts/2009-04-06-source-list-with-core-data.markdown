@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Source List with Core Data
-comments: true
+comments: false
 ---
 Last week I decided to look into how to create a source list that is backed by Core Data with section headers created from code. New to Cocoa I set out to Google for a solution but surprisingly enough I didn't find a lot about how to achieve this (or I simply googled for the wrong things). After a few days I managed to derive, what I believe, an elegant solution to this and figured it could be useful for others wanting to do this.
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Blogging at Github
-comments: true
+comments: false
 ---
 
 Decided to move my blog to a simpler solution by using Github and the nice [Jekyll](http://github.com/mojombo/jekyll) site generator by [Tom Preston-Werner](http://tom.preston-werner.com/).

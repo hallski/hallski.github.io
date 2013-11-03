@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Macruby Support in any Cocoa Application
-comments: true
+comments: false
 ---
 Yesterday I published a post about [Cocoa Prototyping with Webview](/cocoa-prototyping-with-webview.html) and today I found out about [Macruby](http://www.macruby.org/) thanks to [@sarnesjo](http://twitter.com/sarnesjo). Already looking for ways of prototyping in Cocoa it's hard to not find Macruby very interesting.
 

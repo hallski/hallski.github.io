@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Removing a remote branch in Git
-comments: true
+comments: false
 ---
 
 **This is a repost from my old blog**

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cocoa Prototyping with Webview
-comments: true
+comments: false
 ---
 While Interface Builder makes it really easy to quickly put together and test the overall design of your user interface it doesn't help much when it comes to its overall flow. In any non-trivial application you are likely to have some custom views or view switching.
 

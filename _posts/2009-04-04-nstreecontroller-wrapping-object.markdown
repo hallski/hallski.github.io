@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Retrieving the real object when using NSOutlineView with an NSTreeController
-comments: true
+comments: false
 ---
 As I just started out with Cocoa and started looking into the NSTreeController and NSOutlineView I realized that the objects seen by the outline view isn't the same as the ones you see when working with the tree controller. 
 

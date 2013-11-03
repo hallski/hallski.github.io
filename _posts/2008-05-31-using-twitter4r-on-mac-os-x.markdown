@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Using Twitter4R on Mac OS X
-comments: true
+comments: false
 ---
 
 **This is a repost from my old blog**

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Expanding NSOutlineView nodes at application start
-comments: true
+comments: false
 ---
 A problem when you want to expand some items in an _NSOutlineView_ programatically at application start is that the _NSTreeController_ prepares it's content after `awakeFromNib` is called on your controller.
 

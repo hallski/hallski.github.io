@@ -10,7 +10,6 @@ I decided it was time to create a new Xcode theme and created one that works wel
 
 Feel free to grab it if you like it.
 
-<a href="/files/Spacedust.xccolortheme.zip" onClick="javascript: pageTracker._trackPageview('/files/Spacedust.xccolortheme.zip');">Spacedust.xccolortheme.zip</a>
+[Github repository](https://github.com/mhallendal/spacedust-theme)
 
-To install it, simply unpack it and place `Spacedust.xccolortheme.zip` in: 
-`~/Library/Application Support/Xcode/Color\ Themes`.
+Follow the instructions for each platform in their respective READMEs.
