@@ -1,4 +1,22 @@
-name: Mikael Hallendal
+title:            Mikael Hallendal
+disqus_shortname: mhallendal
+search:           false
+
 markdown: redcarpet
 pygments: true
+
 permalink: /blog/:year/:month/:day/:title.html
+
+owner:
+    name:    Mikael Hallendal
+    email:   hallski@hallendal.net
+    twitter: mhallendal
+    github:  mhallendal
+
+links:
+    - title: Index
+      url: /
+    - title: About
+      url: /about
+    - title: Articles
+      url: /articles
