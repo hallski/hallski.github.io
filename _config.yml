@@ -5,11 +5,11 @@ search:           false
 markdown: redcarpet
 pygments: true
 
-permalink: /blog/:year/:month/:day/:title.html
+permalink: /blog/:title
 
 owner:
     name:    Mikael Hallendal
-    email:   hallski@hallendal.net
+    email:   hallski@hallski.org
     twitter: mhallendal
     github:  mhallendal
 
@@ -18,5 +18,5 @@ links:
       url: /
     - title: About
       url: /about
-    - title: Articles
-      url: /articles
+    - title: Posts
+      url: /posts
