@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -7,48 +7,50 @@
     <meta name="author" content="Mikael Hallendal" />
     <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
 
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
     <!-- syntax highlighting CSS -->
-    <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+    <!--link rel="stylesheet" href="/css/syntax.css" type="text/css" -->
 
     <!-- Homepage CSS -->
-    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+    <!--link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" -->
 
     <!-- Font awesome -->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <!-- Edge Web Fonts -->
-    <script src="//use.edgefonts.net/source-code-pro;montez;inconsolata.js"></script>
+    <!--script src="//use.edgefonts.net/source-code-pro;montez;inconsolata.js"></script-->
+
+    <style type="text/css">
+      body { padding-top: 70px; }
+    </style>
+
   </head>
   <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/posts/">Posts</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
 
-    <div class="site">
-      <div class="title">
-        <a href="/">{{ page.title }}</a>
-        <a class="extra" href="/">home</a>
+    <div class="container">
+      <div class="page-header">
+        <h1>{{ page.title }}</h1>
       </div>
 
       {{ content }}
-
-      <div class="footer">
-        <div class="contact">
-          <p>
-            {{ site.owner.name }}<br />
-            {{ site.owner.email }}
-          </p>
-        </div>
-        <div class="contact">
-          <p>
-            <a href="http://github.com/{{site.owner.github}}/"><i class="fa fa-github fa-2x"></i></a><br />
-            <a href="http://twitter.com/{{site.owner.twitter}}/"><i class="fa fa-twitter fa-2x"></i></a><br />
-          </p>
-        </div>
-        <div class="rss">
-          <a href="/atom.xml">
-            <img src="/images/rss.png" alt="Feed" />
-          </a>
-        </div>
-      </div>
-    </div>
-
+   </div>
   </body>
 </html>

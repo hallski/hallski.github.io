@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 permalink: /about/index.html
 title: About this blog
 modified: 2013-11-10
