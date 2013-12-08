@@ -1,6 +1,5 @@
-title:            Mikael Hallendal
+title:            Hallski's Blog
 disqus_shortname: hallski
-search:           false
 
 markdown: redcarpet
 pygments: true
@@ -8,15 +7,8 @@ pygments: true
 permalink: /blog/:title
 
 owner:
-    name:    Mikael Hallendal
-    email:   hallski@hallski.org
-    twitter: mhallendal
-    github:  mhallendal
-
-links:
-    - title: Index
-      url: /
-    - title: About
-      url: /about
-    - title: Posts
-      url: /posts
+    name:     Mikael Hallendal
+    email:    hallski@hallski.org
+    twitter:  mhallendal
+    github:   mhallendal
+    linkedin: mhallendal
