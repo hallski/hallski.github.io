@@ -29,10 +29,26 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <!-- Edge Web Fonts -->
-    <!--script src="//use.edgefonts.net/source-code-pro;montez;inconsolata.js"></script-->
+    <script src="//use.edgefonts.net/source-code-pro;lobster-two;volkhov.js"></script>
 
     <style type="text/css">
       body { padding-top: 70px; }
+      .page-header {
+     }
+
+      .page-header h1 {
+        font-family: lobster-two, sans-serif;
+        font-style: italic;
+         font-size: 4rem;
+        font-weight: bold;
+      }
+      .page-header h2 {
+        font-family: lobster-two, sans-serif;
+        font-style: italic;
+        font-size: 1.75rem;
+        margin-top: -0.25em;
+        color: rgb(153, 153, 153);
+      }
     </style>
 
   </head>
@@ -45,24 +61,11 @@
       </ul>
     </nav>
     <div class="container">
-
-     <div class="row">
-        <div class="col-sm-9 col-sm-push-3">
-       <div class="page-header">
+      <div class="page-header">
         <h1>{{ page.title }}</h1>
+        <h2 class="text-right">{{ page.date | date: "%B %d, %Y" }}</h2>
       </div>
-
-          {{content}}
-        </div>
-        <div class="col-sm-3 col-sm-pull-9">
-          <span class="glyphicon glyphicon-calendar"></span>{{ page.date | date: "%B %d, %Y" }}<br/>
-            <h4>{{ site.owner.name }}</h4>
-            <ul class="fa-ul">
-              <li><a href="http://github.com/{{site.owner.github}}/"><i class="fa-li fa fa-github"></i>Github</a></li>
-              <li><a href="http://twitter.com/{{site.owner.twitter}}/"><i class="fa-li fa fa-twitter"></i>Twitter</a></li>
-            </ul>
-        </div>
-      </div>
+      {{ content }}
     </div>
   </body>
 </html>
