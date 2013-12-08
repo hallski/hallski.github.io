@@ -20,7 +20,7 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
     <!-- syntax highlighting CSS -->
-    <!--link rel="stylesheet" href="/css/syntax.css" type="text/css" -->
+    <link rel="stylesheet" href="/css/syntax.css" type="text/css" >
 
     <!-- Homepage CSS -->
     <!--link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" -->
@@ -29,43 +29,40 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <!-- Edge Web Fonts -->
-    <script src="//use.edgefonts.net/source-code-pro;lobster-two;volkhov.js"></script>
+    <script src="//use.edgefonts.net/lobster-two.js"></script>
 
-    <style type="text/css">
-      body { padding-top: 70px; }
-      .page-header {
-     }
-
-      .page-header h1 {
-        font-family: lobster-two, sans-serif;
-        font-style: italic;
-         font-size: 4rem;
-        font-weight: bold;
-      }
-      .page-header h2 {
-        font-family: lobster-two, sans-serif;
-        font-style: italic;
-        font-size: 1.75rem;
-        margin-top: -0.25em;
-        color: rgb(153, 153, 153);
-      }
-    </style>
-
+    <!-- Style overrides -->
+    <link rel="stylesheet" href="/css/overrides.css" type="text/css">
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
       <a class="navbar-brand" href="/">{{ site.title }}</a>
       <ul class="nav navbar-nav">
-        <li><a href="/posts/">Posts</a></li>
-        <li><a href="/about/">About</a></li>
+        <li {% if page.section == 'blog' %}class="active"{% endif %}><a href="/blog/">Blog</a></li>
+        <li {% if page.section == 'about' %}class="active"{% endif %}><a href="/about/">About</a></li>
       </ul>
+      <a href="/atom.xml" class="navbar-text navbar-right navbar-link"><i class="fa fa-rss"></i> Feed</a>
     </nav>
     <div class="container">
-      <div class="page-header">
-        <h1>{{ page.title }}</h1>
-        <h2 class="text-right">{{ page.date | date: "%B %d, %Y" }}</h2>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+          <div class="page-header">
+            <h1>{{ page.title }} <small>{{ page.date | date: "%B %d, %Y" }}</small></h1>
+          </div>
+        </div>
       </div>
-      {{ content }}
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+          {{ content }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+       </div>
+      </div>
     </div>
-  </body>
+            <footer class="well well-sm">
+            Find me on <a href="http://github.com/{{site.owner.github}}/">Github</a>, <a href="http://twitter.com/{{site.owner.twitter}}/">Twitter</a> and <a href="http://www.linkedin.com/in/{{site.owner.linkedin}}">LinkedIn</a>.
+          </footer>
+ </body>
 </html>

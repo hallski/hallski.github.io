@@ -1,13 +1,12 @@
 ---
 layout: default
-title: Mikael Hallendal
-description: "A simple and clean responsive Jekyll theme for words and photos."
-tags: [Jekyll, theme, themes, responsive, blog, minimalism]
+title: Welcome
 ---
+You've reached the home of Mikael Hallendal (hallski). Currently only hosting my blog which is getting far to seldom updates but hopefully that will improve in the future.
+<h2>Last posts</h2>
 <ul class="post-list">
-{% for post in site.posts limit:10 %} 
+{% for post in site.posts limit:5 %}
   <li><article><a href="{{ site.url }}{{ post.url }}">{{ post.title }} <span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span></a></article></li>
 {% endfor %}
 </ul>
-
-<a href="/posts" class="text-center">All posts</a>
+Visit the <a href="/blog/">blog index</a> for a full list of posts.
