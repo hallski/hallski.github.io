@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Core Animation Layered Clock
-comments: false
+comments: true
 ---
 I wanted to get into Core Animation a bit over the weekend and decided to write a simple digital clock. With the help from [Richard](http://rhult.github.com/) I set out to hack it up and figured it might be useful for others just starting out with Core Animation.
 
