@@ -2,17 +2,8 @@
 layout: default
 section: blog
 ---
-<!--div class="row">
-<div class="col-sm-9 col-sm-push-3"-->
-    {{content}}
-    <!--h3>Related Posts</h3>
-    <ul class="posts">
-      {% for post in site.related_posts limit:3 %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-      {% endfor %}
-    </ul--> 
-  <!--/div>
-  </div-->
-  {% if page.comments == true %}
-  {% include disqus_comments.html %}
-  {% endif %}
+{{content}}
+
+{% if page.comments == true %}
+{% include disqus_comments.html %}
+{% endif %}
