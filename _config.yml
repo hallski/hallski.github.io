@@ -2,7 +2,7 @@ title:            Hallski's Blog
 disqus_shortname: hallski
 
 markdown: redcarpet
-pygments: true
+highlighter: pygments
 
 permalink: /blog/:title
 
