@@ -1,8 +1,7 @@
 title:            Hallski's Blog
 disqus_shortname: hallski
 
-markdown: redcarpet
-highlighter: pygments
+highlighter: rouge
 
 permalink: /blog/:title
 
