@@ -1,10 +1,10 @@
 title:            Hallski's Blog
-disqus_shortname: hallski
 
 highlighter: rouge
 
 permalink: /blog/:title
 
+disqus_shortname: hallski
 owner:
     name:     Mikael Hallendal
     email:    hallski@hallski.org
