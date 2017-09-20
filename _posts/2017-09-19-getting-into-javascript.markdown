@@ -2,6 +2,8 @@
 layout: post
 title: Getting into Javascript
 comments:
+tags:
+- javascript
 ---
 
 I have never really had any need for getting into Javascript before but after switching job earlier this month it's likely that I will be writing quite a lot of Javascript going forward.

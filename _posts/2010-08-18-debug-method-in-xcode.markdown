@@ -2,6 +2,7 @@
 layout: post
 title: Debug Method in Xcode
 comments: false
+tags: objective-c
 ---
 I often find myself add a bunch of <tt>#ifdef</tt>s for code that I only want executed during the development but not in the shipped products. In order to make the code a bit easier to read I decided to make a small method that takes a C block (available in iOS 4.0 and Mac OS X 10.6) instead.
 

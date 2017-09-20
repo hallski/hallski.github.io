@@ -2,6 +2,8 @@
 layout: post
 title: Source List with Core Data
 comments: false
+tags:
+- objective-c
 ---
 Last week I decided to look into how to create a source list that is backed by Core Data with section headers created from code. New to Cocoa I set out to Google for a solution but surprisingly enough I didn't find a lot about how to achieve this (or I simply googled for the wrong things). After a few days I managed to derive, what I believe, an elegant solution to this and figured it could be useful for others wanting to do this.
 
@@ -19,13 +21,13 @@ The Solution
 ------------
 The idea is to use two different persistent stores, the regular XML store and an in memory store for the code generated entites.
 
-For the purpose of this example the data model is very simple, two entities called *Section* (for the code generated section headers) and *Item* (for the entities that are read from Core Data). 
+For the purpose of this example the data model is very simple, two entities called *Section* (for the code generated section headers) and *Item* (for the entities that are read from Core Data).
 
 *Section* will have a `name` attribute and a one-to-many relationship to *Item* called `children`. *Item* will have a `name` and a reverse to-one relationship back to *Section* called `section`. Make sure you **make this relationship transient** to tell Core Data that this relationship only exists runtime and should not be stored.
- 
+
 ![The data model](/images/posts/sl-cd-datamodel1.png)
 
-The *NSTreeController* has a property called `childrenKeyPath` that defines the key path to retrieve an array of children from each of the nodes in the tree. All nodes displayed in the tree need to respond to this key path. Since *Item*s don't have children it is not included in the data model (though you could have added it in the model designer but in my opinion isn't as nice), I will instead create a subclass of *NSManagedObject* to represent an *Item*. 
+The *NSTreeController* has a property called `childrenKeyPath` that defines the key path to retrieve an array of children from each of the nodes in the tree. All nodes displayed in the tree need to respond to this key path. Since *Item*s don't have children it is not included in the data model (though you could have added it in the model designer but in my opinion isn't as nice), I will instead create a subclass of *NSManagedObject* to represent an *Item*.
 
 Select the *Item* entity in the model designer and create a new file (File->New File and choose Managed Object Class from the Cocoa section). Simply name it Item.m (and check the *Also create "Item.h"*) box. Add a method `children` to your *Item* class.
 
@@ -34,7 +36,7 @@ Select the *Item* entity in the model designer and create a new file (File->New 
 - (id)children;
 
 /* In Item.m */
-- (id)children 
+- (id)children
 {
     return nil;
 }
@@ -44,7 +46,7 @@ This method will be called by the NSTreeController when it is populating the tre
 
 That's it for the model, time to setup the stores.
 
-I extended the method `persistentStoreCoordinator` in the auto generated application delegate to create a second store with the URL _memory://store_. This store should be of the type `NSInMemoryStoreType` which means that any entity tied to it won't be saved to disk. 
+I extended the method `persistentStoreCoordinator` in the auto generated application delegate to create a second store with the URL _memory://store_. This store should be of the type `NSInMemoryStoreType` which means that any entity tied to it won't be saved to disk.
 
 {% highlight objc %}
 url = [NSURL URLWithString:@"memory://store"];
@@ -74,7 +76,7 @@ With the store in place the *Section* entities are created when the application 
     request = [[[NSFetchRequest alloc] init] autorelease];
     [request setEntity:desc];
 
-    return [[self managedObjectContext] executeFetchRequest:request error:error];	
+    return [[self managedObjectContext] executeFetchRequest:request error:error];
 }
 
 - (id)init

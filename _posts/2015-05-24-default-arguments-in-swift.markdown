@@ -2,6 +2,8 @@
 layout: post
 title: Default arguments in Swift
 comments:
+tags:
+- swift
 ---
 
 Inspired by [John Sundell](http://johnsundell.github.io) I figured now would be as good a time as any to write something here.

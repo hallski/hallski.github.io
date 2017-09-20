@@ -2,10 +2,12 @@
 layout: post
 title: Initial release of MHConvore
 comments: false
+tags:
+- objective-c
 ---
 Just pushed the first cut of a small framework to connect with the newly launched chatservice [Convore](http://convore.com/). In short Convore is an attempt to create a better way to chat than IRC and also support a web frontend while making it possible to connect with native clients.
 
-The API will likely change a bit and it's fresh out of the editor so might be a bit flaky still. 
+The API will likely change a bit and it's fresh out of the editor so might be a bit flaky still.
 
 The API makes heavy use of blocks for actions initiated from your code and a client listener for notifications initiated from the server.
 

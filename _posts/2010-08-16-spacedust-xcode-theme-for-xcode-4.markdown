@@ -2,6 +2,9 @@
 layout: post
 title: Spacedust Xcode Theme for Xcode 4
 comments: false
+tags:
+- theme
+- spacedust
 ---
 
 Thanks to <a href="http://gist.github.com/488120">mrevils script</a> to convert Xcode 3 themes to Xcode 4 I updated my [Spacedust](http://hallski/blog/spacedust-xcode-theme) theme to Xcode 4.

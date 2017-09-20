@@ -2,6 +2,8 @@
 layout: post
 title: Understanding 'new' in JS
 comments:
+tags:
+- javascript
 ---
 
 One of the things that confused me most when starting out with Javascript was _constructor_ functions. That's because when used together with `new` they look like a normal class in other langues.

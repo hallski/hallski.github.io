@@ -2,6 +2,8 @@
 layout: post
 title: Macruby Support in any Cocoa Application
 comments: false
+tags:
+- ruby
 ---
 Yesterday I published a post about [Cocoa Prototyping with Webview](/cocoa-prototyping-with-webview.html) and today I found out about [Macruby](http://www.macruby.org/) thanks to [@sarnesjo](http://twitter.com/sarnesjo). Already looking for ways of prototyping in Cocoa it's hard to not find Macruby very interesting.
 
@@ -12,7 +14,7 @@ class SimpleController
     attr_accessor :label
     attr_accessor :button
     attr_accessor :my_view
-    
+
     def buttonPressed(sender)
         label.setStringValue("I am (im)pressed!")
         my_view.backgroundColor = NSColor.redColor
@@ -34,7 +36,7 @@ Next you need to make your project link against the Macruby framework:
 
 ![Add the Macruby framework](/images/posts/macruby-in-xcode-add-framework.png)
 
-That's it for the project settings, let's hook it up in the code. When you use the built-in project template for a Macruby project a small Ruby file called *rb\_main.rb* is created for you. Since I'm using a generic Cocoa application template I needed to create this file and simply copied the file into my new project (its code below). It loads all Ruby files in your bundle and starts the Cocoa main loop. 
+That's it for the project settings, let's hook it up in the code. When you use the built-in project template for a Macruby project a small Ruby file called *rb\_main.rb* is created for you. Since I'm using a generic Cocoa application template I needed to create this file and simply copied the file into my new project (its code below). It loads all Ruby files in your bundle and starts the Cocoa main loop.
 
 {% highlight ruby %}
 # Loading the Cocoa framework. If you need to load more frameworks, you can

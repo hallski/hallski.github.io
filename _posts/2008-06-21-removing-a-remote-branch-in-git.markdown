@@ -2,6 +2,8 @@
 layout: post
 title: Removing a remote branch in Git
 comments: false
+tags:
+- git
 ---
 
 **This is a repost from my old blog**

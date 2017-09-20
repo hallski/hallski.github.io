@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Blog moved
-comments: true
+comments:
+tags:
+- blog
 ---
 After much consideration I came to the conclusion that I wanted to move my blog back to it's original location at [http://micke.hallendal.net/](http://micke.hallendal.net). All the posts were migrated even though they were mostly outdated but I decided to keep them around this time. I left the comments behind though as most of the discussions weren't relevant anymore anyway.
 

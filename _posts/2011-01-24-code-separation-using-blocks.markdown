@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Code Separation Using Blocks
-comments: true
+comments:
+tags:
+- objective-c
 ---
 This is a short blog entry to describe how you can use blocks to seperate a generic code from problem specific using blocks. Those that have been looking at [Project Euler](http://projecteuler.net) might recognize this problem description.
 
@@ -22,7 +24,7 @@ __block int total = 0;
     if (value > STOP_VALUE) {
         *stop = YES;
     }
-    
+
     if (value % 2 == 0) {
         total += value;
     }

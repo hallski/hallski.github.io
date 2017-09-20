@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Core Animation Layered Clock
-comments: true
+comments:
+tags:
+- objective-c
 ---
 I wanted to get into Core Animation a bit over the weekend and decided to write a simple digital clock. With the help from [Richard](http://rhult.github.com/) I set out to hack it up and figured it might be useful for others just starting out with Core Animation.
 
@@ -17,7 +19,7 @@ Layers in Core Animation are built up as a tree where the layer you set to your 
 - (CALayer *)setupLayers
 {
     backgroundLayer = [self setupBackgroundLayer];
-    
+
     [backgroundLayer addSublayer:[self setupClockFaceLayer]];
     [backgroundLayer addSublayer:[self setupBorderLayer]];
     [backgroundLayer addSublayer:[self setupGlossLayer]];
@@ -25,7 +27,7 @@ Layers in Core Animation are built up as a tree where the layer you set to your 
     return backgroundLayer;
 }
 
-- (id)initWithFrame:(NSRect)frame 
+- (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -48,29 +50,29 @@ As you can see the clock is built up from four different layers: The background 
 
 The Background Layer:
 ---------------------
-The background layer is created as a `CAGradientLayer` to give the clock background the nice blue gradient. This layer type was added in 10.6 so it won't work on earlier versions of Mac OS X but should be fairly straight forward to do manually. 
+The background layer is created as a `CAGradientLayer` to give the clock background the nice blue gradient. This layer type was added in 10.6 so it won't work on earlier versions of Mac OS X but should be fairly straight forward to do manually.
 
 In order to help with positioning of layers Core Animation comes with the notion of Layout Managers which can be added to a layer in order to layout its sublayers. The CAConstraintLayoutManager lets us set constraints on the layers sublayers in order to control how they are positioned. In this case the constraints will be set on the clock face to make it centered on the background.
 
 ``` objc
-- (CALayer *)setupBackgroundLayer 
+- (CALayer *)setupBackgroundLayer
 {
     backgroundLayer = [CAGradientLayer layer];
-    
+
     CGColorRef gradientColor1 = CGColorCreateGenericRGB(13.0f / 255.0, 116.0f / 255.0, 1.0, 1.0f);
     CGColorRef gradientColor2 = CGColorCreateGenericRGB(0.0f, 53.0f/255.0f, 126.0f/255.0f, 1.0f);
-    
+
     NSArray *colors = [NSArray arrayWithObjects:(id)gradientColor1, (id)gradientColor2, nil];
-    
+
     CFRelease(gradientColor1);
     CFRelease(gradientColor2);
-    
+
     [(CAGradientLayer *)backgroundLayer setColors:colors];
     [backgroundLayer setCornerRadius:12.0f];
-    
+
     CAConstraintLayoutManager *layout = [CAConstraintLayoutManager layoutManager];
     [backgroundLayer setLayoutManager:layout];
-    
+
     return backgroundLayer;
 }
 ```
@@ -90,18 +92,18 @@ This is also where we setup the constraints mentioned above to make sure that th
     [clockFaceLayer setFont:@"Menlo"];
     [clockFaceLayer setFontSize:60.0f];
     [clockFaceLayer setShadowOpacity:.9f];
-    
+
     // Constrain the text layer in the middle
     CAConstraint *constraint = [CAConstraint constraintWithAttribute:kCAConstraintMidX
                                                           relativeTo:@"superlayer"
-                                                           attribute:kCAConstraintMidX];    
+                                                           attribute:kCAConstraintMidX];
     [clockFaceLayer addConstraint:constraint];
-    
+
     constraint = [CAConstraint constraintWithAttribute:kCAConstraintMidY
                                             relativeTo:@"superlayer"
                                              attribute:kCAConstraintMidY];
     [clockFaceLayer addConstraint:constraint];
-    
+
     return clockFaceLayer;
 }
 ```
@@ -119,8 +121,8 @@ There are likely other ways of doing this but by using a separate layer I can us
     [borderLayer setBorderColor:CGColorGetConstantColor(kCGColorWhite)];
     [borderLayer setBorderWidth:2.0f];
     [borderLayer setFrame:borderRect];
-    
-    return borderLayer;    
+
+    return borderLayer;
 }
 ```
 
@@ -138,13 +140,13 @@ Even if we set the same corner radius as the background layer the layer will hap
     CALayer *glossLayer = [CALayer layer];
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"clock-gloss" ofType:@"png"];
     NSURL *fileURL = [NSURL fileURLWithPath:filePath];
-    
+
     CGImageSourceRef glossySource = CGImageSourceCreateWithURL((CFURLRef)fileURL, NULL);
     CGImageRef glossyImage = CGImageSourceCreateImageAtIndex(glossySource, 0, NULL);
     CFRelease(glossySource);
     [glossLayer setContents:(id)glossyImage];
     CFRelease(glossyImage);
-    
+
     [glossLayer setOpacity:0.8f];
     [glossLayer setCornerRadius:12.0f];
     [glossLayer setMasksToBounds:YES];
@@ -172,7 +174,7 @@ Finally I subclassed `NSWindow` in order to turn off the window decoration and s
         [self setMovableByWindowBackground:YES];
         [self setLevel:NSPopUpMenuWindowLevel];
     }
-    
+
     return self;
 }
 ```

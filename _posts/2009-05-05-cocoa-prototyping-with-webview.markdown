@@ -2,10 +2,12 @@
 layout: post
 title: Cocoa Prototyping with Webview
 comments: false
+tags:
+- objective-c
 ---
 While Interface Builder makes it really easy to quickly put together and test the overall design of your user interface it doesn't help much when it comes to its overall flow. In any non-trivial application you are likely to have some custom views or view switching.
 
-For example, say that you want to try out whether it makes sense to use a source list in order to navigate the application and have your content view switch based on what you select in it. 
+For example, say that you want to try out whether it makes sense to use a source list in order to navigate the application and have your content view switch based on what you select in it.
 
 Wouldn't it be great if you could try this without having to implement all the code necessary to display and navigate the source list and other views. Using HTML for prototyping can be a powerful, quick and easy solution that is easily available to Cocoa developers.
 
@@ -20,7 +22,7 @@ Using the PrototypeView is easy.
 Step 1: Mock up the UI in Interface Builder
 -------------------------------------------
 
-Using Interface Builder, create the UI you want and put custom views where you want to prototype using the `PrototypeView`. 
+Using Interface Builder, create the UI you want and put custom views where you want to prototype using the `PrototypeView`.
 
 ![Setting class to PrototypeView](/images/posts/html-prototype-ib.png)
 
