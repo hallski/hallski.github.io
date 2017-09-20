@@ -30,6 +30,6 @@ function myNew(constructor, ...args) {
 
 New is simply responsible for:
 1. Creating a new object
-2. Set it's prototype to that of it's constructors `prototype` property
+2. Set it's prototype to that of the constructors `prototype` property
 3. Call the constructor with `this` bound to the newly created object.
 4. As constructors in Javascript are allowed to return a different object, `new` also needs to check if it did and return that instead when that's the case.
