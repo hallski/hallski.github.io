@@ -11,42 +11,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
     <!-- syntax highlighting CSS -->
     <link rel="stylesheet" href="/css/syntax.css" type="text/css" >
-
-    <!-- Homepage CSS -->
-    <!--link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" -->
-
-    <!-- Font awesome -->
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-
-    <!-- Edge Web Fonts -->
-    <script src="//use.edgefonts.net/lobster-two.js"></script>
 
     <!-- Style overrides -->
     <link rel="stylesheet" href="/css/overrides.css" type="text/css">
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg" role="navigation">
       <a class="navbar-brand" href="/">{{ site.title }}</a>
-      <ul class="nav navbar-nav">
-        <li {% if page.section == 'blog' %}class="active"{% endif %}><a href="/blog/">Blog</a></li>
-        <li {% if page.section == 'about' %}class="active"{% endif %}><a href="/about/">About</a></li>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item {% if page.section == 'blog' %}active{% endif %}">
+          <a class="nav-link" href="/blog/">Blog</a>
+        </li>
+        <li class="nav-item {% if page.section == 'about' %}active{% endif %}">
+          <a class="nav-link" href="/about/">About</a>
+        </li>
+        <li class="nav-item {% if page.section == 'about' %}active{% endif %}">
+            <a class="nav-link" href="/projects/">Projects</a>
+          </li>
       </ul>
       <a href="/atom.xml" class="navbar-text navbar-right navbar-link"><i class="fa fa-rss"></i> Feed</a>
     </nav>
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-          <div class="page-header">
+          <div class="page-header mt-5 mb-3">
             <h1>{{ page.title }} <small>{{ page.date | date: "%B %d, %Y" }}</small></h1>
           </div>
         </div>
