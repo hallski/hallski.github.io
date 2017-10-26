@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Getting into Javascript
+section: blog
 comments:
 tags:
 - javascript

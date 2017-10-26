@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Expanding NSOutlineView nodes at application start
+section: blog
 comments: false
 tags:
 - objective-c

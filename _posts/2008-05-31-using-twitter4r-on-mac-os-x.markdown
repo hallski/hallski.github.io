@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Using Twitter4R on Mac OS X
+section: blog
 comments: false
 tags:
 - ruby

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Blogging at Github
+section: blog
 comments: false
 tags:
 - blog

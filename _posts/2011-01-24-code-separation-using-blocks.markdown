@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Code Separation Using Blocks
+section: blog
 comments:
 tags:
 - objective-c

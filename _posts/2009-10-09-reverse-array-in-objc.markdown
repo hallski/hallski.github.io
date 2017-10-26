@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Reversing an array in Objective C
+section: blog
 comments: false
 tags:
 - objective-c

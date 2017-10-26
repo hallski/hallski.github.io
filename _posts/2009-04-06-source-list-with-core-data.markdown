@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Source List with Core Data
+section: blog
 comments: false
 tags:
 - objective-c

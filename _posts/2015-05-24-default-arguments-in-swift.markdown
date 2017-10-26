@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Default arguments in Swift
+section: blog
 comments:
 tags:
 - swift

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Understanding 'new' in JS
+section: blog
 comments:
 tags:
 - javascript
