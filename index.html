@@ -1,12 +1,27 @@
 ---
-layout: default
+layout: page
 title: Welcome
 ---
+<div class="row">
+  <div class="col-8">
+  <h1 class="display-4">Welcome!</h1>
+  <p class="lead">
 You've reached the home of Mikael Hallendal (hallski). Currently only hosting my blog which is getting far to seldom updates but hopefully that will improve in the future.
-<h2>Last posts</h2>
-<ul class="post-list">
-{% for post in site.posts limit:5 %}
-  <li><article><a href="{{ site.url }}{{ post.url }}">{{ post.title }} <span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span></a></article></li>
-{% endfor %}
-</ul>
-Visit the <a href="/blog/">blog index</a> for a full list of posts.
+  </p>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-10">
+    {% for post in site.posts limit:5 %}
+    <h3>{{ post.title }} <small class="text-muted"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></small></h3>
+    <p>{{ post.excerpt }}</p>
+    {% endfor %}
+    <h2>Last posts</h2>
+    <ul class="post-list">
+    {% for post in site.posts limit:5 %}
+      <li><article><a href="{{ site.url }}{{ post.url }}">{{ post.title }} <span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span></a></article></li>
+    {% endfor %}
+    </ul>
+    Visit the <a href="/blog/">blog index</a> for a full list of posts.
+  </div>
+</div>

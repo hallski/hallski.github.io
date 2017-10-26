@@ -10,9 +10,9 @@ tags:
 
 Was playing around a bit with the Twitter4R library the other day and realized that in order to make it to work on Mac OS X (Leopard) you need to also require ‘time’. Or you will get an error similar to
 
-{% highlight bash %}
+<pre class="highlight">
 lib/twitter/model.rb:268:in `init’: undefined method `parse’ for Time:Class (NoMethodError).
-{% endhighlight %}
+</pre>
 
 A small snippet to display my public tweets:
 
