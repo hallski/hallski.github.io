@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Spacedust Xcode Theme
+section: blog
 comments:
 tags:
 - theme

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Initial release of MHConvore
+section: blog
 comments: false
 tags:
 - objective-c

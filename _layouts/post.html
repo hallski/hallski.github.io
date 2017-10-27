@@ -2,8 +2,18 @@
 layout: default
 section: blog
 ---
-{{content}}
-
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <div class="page-header mt-5 mb-3">
+        <h1>{{ page.title }} <small class="text-muted">{{ page.date | date: "%B %d, %Y" }}</small></h1>
+      </div>
+      <div class="article">
+        {{content}}
+      </div>
+    </div>
+  </div>
+</div>
 {% if page.comments == true %}
 {% include disqus_comments.html %}
 {% endif %}

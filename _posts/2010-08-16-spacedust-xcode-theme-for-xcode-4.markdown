@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Spacedust Xcode Theme for Xcode 4
+section: blog
 comments: false
 tags:
 - theme

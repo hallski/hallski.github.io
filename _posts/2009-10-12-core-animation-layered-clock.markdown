@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Core Animation Layered Clock
+section: blog
 comments:
 tags:
 - objective-c

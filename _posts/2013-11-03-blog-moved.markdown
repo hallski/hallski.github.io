@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Blog moved
+section: blog
 comments:
 tags:
 - blog

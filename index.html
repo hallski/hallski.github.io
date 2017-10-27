@@ -1,12 +1,25 @@
 ---
-layout: default
-title: Welcome
+layout: page
+title: hallski.org
 ---
-You've reached the home of Mikael Hallendal (hallski). Currently only hosting my blog which is getting far to seldom updates but hopefully that will improve in the future.
-<h2>Last posts</h2>
-<ul class="post-list">
-{% for post in site.posts limit:5 %}
-  <li><article><a href="{{ site.url }}{{ post.url }}">{{ post.title }} <span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span></a></article></li>
-{% endfor %}
-</ul>
-Visit the <a href="/blog/">blog index</a> for a full list of posts.
+<div class="row">
+  <div class="col-10">
+    <h1 class="display-4 mt-5 mb-3">Welcome!</h1>
+    <p class="lead">
+  You've reached the home of Mikael Hallendal (hallski). Currently only hosting my blog which is getting far to seldom updates but hopefully that will improve in the future.
+    </p>
+    <div class="post-list">
+      {% for post in site.posts limit:3 %}
+        <h2>
+          {{ post.title }}
+          <small class="text-muted"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></small>
+        </h2>
+        <p>{{ post.excerpt }}</p>
+        <p><a href="{{ post.url }}">Read more...</a></p>
+      {% endfor %}
+    </div>
+    <p>
+      Visit the <a href="/blog/">blog index</a> for a full list of posts.
+    </p>
+  </div>
+</div>

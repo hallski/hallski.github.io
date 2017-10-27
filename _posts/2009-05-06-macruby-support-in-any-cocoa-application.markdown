@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Macruby Support in any Cocoa Application
+section: blog
 comments: false
 tags:
 - ruby

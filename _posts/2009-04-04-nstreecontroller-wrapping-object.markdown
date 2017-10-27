@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Retrieving the real object when using NSOutlineView with an NSTreeController
+section: blog
 comments: false
 tags:
 - objective-c

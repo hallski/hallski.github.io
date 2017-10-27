@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Debug Method in Xcode
+section: blog
 comments: false
 tags: objective-c
 ---

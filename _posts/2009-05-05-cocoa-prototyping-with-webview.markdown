@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Cocoa Prototyping with Webview
+section: blog
 comments: false
 tags:
 - objective-c
