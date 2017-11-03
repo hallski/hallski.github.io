@@ -20,20 +20,9 @@ This of course comes with some constraints and in the case of Google Cloud Funct
 to Node.js v6.11.1.
 
 ## The Catfinder function
-The function described in this post is a small integration between Google Cloud Storage, Google Vision and Slack. It works by getting a change event from a Cloud Storage bucket. The function will use the Vision API to decide whether it's an image of a cat. If it is, it will send a message to Slack notifying that a new cat picture was uploaded.
+As an example of setting up an integration as a function this post will use a small function that integrates Google Cloud Storage, Google Vision and Slack. It works by getting a change event from a Cloud Storage bucket and send any new files to the Vision API to decide whether it's an image of a cat. If it is, it will send a message to Slack notifying that a new cat picture was uploaded.
 
 All the code for the project can be found at [Github](https://github.com/mhallendal/cat-finder).
-
-### Deploying the function
-Before looking at the implementation, let's have a quick look at how the function will be deployed.
-
-```
-$ gcloud beta functions deploy --memory 128 catFinder --stage-bucket function-deploy-stage --trigger-bucket=catfinder-image-bucket
-```
-
-The trigger type is specified to be a bucket (meaning in storage event) and the bucket ID is `image-bucket-1`. When deploying a function this way the current directory is zipped up and pushed to the `stage-bucket` which is then used to deploy the function in the cloud.
-
-In the source root directory there is a small script called `deploy.sh` that creates a DEPLOY directory and copies the correct files to it and runs the above command.
 
 ### Implementation
 A cloud function is a normal NPM module where the script pointed to by `main` in `package.json` needs to export a function with the same name as the function (by default, this can be overridden with the `--entry-point` flag when deploying).
@@ -128,5 +117,23 @@ function notifySlack(webhook, message) {
   }
 }
 ```
+
+The webhook is provided by Slack through creating a new App and adding an Incoming Webhook.
+
+### Deploying the function
+The function is deployed to the cloud through the following command:
+
+```
+$ gcloud beta functions deploy --memory 128 catFinder --stage-bucket function-deploy-stage --trigger-bucket=catfinder-image-bucket
+```
+
+The trigger type is specified to be a bucket (meaning in storage event) and the bucket ID is `image-bucket-1`. When deploying a function this way the current directory is zipped up and pushed to the `stage-bucket` which is then used to deploy the function in the cloud.
+
+In the source root directory there is a small script called `deploy.sh` that creates a DEPLOY directory and copies the correct files to it and runs the above command.
+
+## Summary
+Cloud functions can be a great way to quickly setup some data transformation as a reaction on new files being uploaded. Or it can act as the backend for a callback from for example Slack, Github etc.
+
+As demonstrated the deployment didn't require any setup other than creating a Slack app to retrieve an incoming webhook and writing the event handler that is triggered by changes to a Storage bucket. If a lot of events are coming from the bucket, the Cloud Function service will automatically make sure that more handlers are executed to handle the incoming load.
 
 Hopefully this post showed some of the power of using FaaS solutions to react to events and create an integration between different services.
