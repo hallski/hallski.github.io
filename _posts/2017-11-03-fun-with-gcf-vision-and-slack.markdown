@@ -8,7 +8,7 @@ tags:
 - machine-learning
 - google-cloud
 - FaaS
-excerpt:
+excerpt: Google Cloud Functions are currently in beta but can already provide a great solution for integrating between different services triggered by various events.
 ---
 
 ## Google Cloud Functions (FaaS)
