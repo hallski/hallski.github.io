@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fun with Google Functions and Vision APIs
+title: Building integrations with Google Cloud Functions
 section: blog
 comments: true
 tags:
@@ -10,8 +10,8 @@ tags:
 excerpt: Google Cloud Functions are currently in beta but can already provide a great solution for integrating between different services triggered by various events.
 ---
 
-## Google Cloud Functions (FaaS)
-Google Cloud Functions is Googles version of AWS Lambda which provides a _"server less"_ (in the sense that as a developer you don't need to care about anything other than your code) service to run code in the cloud. This type of service is often called Function as a Service, or FaaS for short.
+## Google Cloud Functions (GCF)
+GCF is Googles version of AWS Lambda which provides a _"server less"_ (in the sense that as a developer you don't need to care about anything other than your code) service to run code in the cloud. This type of service is often called Function as a Service, or FaaS for short.
 
 It's a perfect solution for event triggered small integrations or transformations. Such as a webhook for callbacks from various services. As a developer you only have to implement the event handler and can ignore any OS or HTTP Server setup or administration. The cloud provider takes care of all of that as well as scaling if load increases.
 
