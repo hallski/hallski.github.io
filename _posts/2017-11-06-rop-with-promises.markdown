@@ -82,6 +82,6 @@ Both `any` and `notifySlack` are higher order functions (returns new functions).
 This is a very common scenario but might take some getting used to if you are comming from an OOP background, I know it did for me at least.
 
 ## Extra nice in Javascript
-This style of programming would work in any language with support for an [Either type](https://www.schoolofhaskell.com/school/starting-with-haskell/basics-of-haskell/10_Error_Handling#the-either-monad) and support for higher order functions.
+This style of programming would work in any language with support for an [Either type](https://www.schoolofhaskell.com/school/starting-with-haskell/basics-of-haskell/10_Error_Handling#the-either-monad) and higher order functions.
 
 However, with promises you get an extra level of power since asynchronous operations can be modelled as well. With Javascript including promises out of the box, Node.js and third party frameworks all have great support for them and this style of programming can be a great option for a wide array of applications.
