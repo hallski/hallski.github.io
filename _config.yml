@@ -11,3 +11,6 @@ owner:
     twitter:  mhallendal
     github:   mhallendal
     linkedin: mhallendal
+
+plugins:
+  - jekyll-redirect-from

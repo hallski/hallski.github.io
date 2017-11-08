@@ -3,6 +3,7 @@ layout: post
 title: Building integrations with Google Cloud Functions
 section: blog
 comments: true
+redirect_from: /blog/fun-with-gcf-vision-and-slack
 tags:
 - javascript
 - google-cloud
