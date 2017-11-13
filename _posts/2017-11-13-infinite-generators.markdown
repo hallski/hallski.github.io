@@ -7,7 +7,7 @@ tags:
 - javascript
 - generators
 - es6
-excerpt:
+excerpt: In the second article about generators we'll explore infinite generators and why they can be useful.
 ---
 ## Javascript Generator Series
 This article is part of a series of articles about ES6 generators. The plan is to explore iterators and generators, starting with what they are and show casing different situations where they can be useful.

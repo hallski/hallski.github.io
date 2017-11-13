@@ -7,7 +7,7 @@ tags:
 - javascript
 - generators
 - es6
-excerpt:
+excerpt: In this first article about generators we'll have a quick look at the basics of Iterator, Iterable and Generators.
 ---
 
 ## Javascript Generator Series
