@@ -14,7 +14,7 @@ excerpt: In this first article about generators we'll have a quick look at the b
 This article is part of a series of articles about ES6 generators. The plan is to explore iterators and generators, starting with what they are and show casing different situations where they can be useful.
 
 1. Introduction to ES6 Iterators and Generators
-2. [Infinite Generators](/blog/infinite-generators)
+2. [Working with Generators](/blog/working-with-generators)
 3. Passing values to generators
 4. Generators in asynchronous programming
 
