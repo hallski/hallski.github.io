@@ -18,7 +18,7 @@ This article is part of a series of articles about ES6 generators. The plan is t
 3. Passing values to generators
 4. Generators in asynchronous programming
 
-In this article we'll explore iterators and generators a bit more by the example of writing a function that generate [D&D](https://en.wikipedia.org/wiki/Dungeons_%26_Dragons) character attributes, `rollCharacter`.
+Generators have a lot of great applications, such as the `randomInts` generator below. In this article we'll however force the example a bit by also combining this generator with a `zip` generator to produce a `rollCharacter` function for [D&D](https://en.wikipedia.org/wiki/Dungeons_%26_Dragons) character creation.
 
 In D&D there are six different attributes: _Strength_, _Constitution_, _Dexterity_, _Intelligence_, _Wisdom_ and _Charisma_. Each attribute is rolled by the use of 3d6 (roll three six sided dice and add the results).
 
@@ -49,7 +49,7 @@ function* randomInts(lower, upper, seed = randomSeed()) {
   while(true) {
     const x = Math.sin(seed++) * 10000;
     const random = x - Math.floor(x)
-    yield lower + x * (upper - lower)
+    yield Math.round(lower + random * (upper - lower))
   }
 }
 
@@ -92,10 +92,10 @@ function* produceWhile(produce, predicate) {
 
 ```javascript
 function* mappedGenerator(generator, mapper) {
-  let random = generator.next()
-  while(!random.done) {
-    yield mapper(random.value)
-    random = generator.next()
+  let result = generator.next()
+  while(!result.done) {
+    yield mapper(result.value)
+    result = generator.next()
   }
 }
 ```
@@ -112,7 +112,7 @@ function* zip(...iterables) {
   // IterResult is an object like { value: x, done: true|false }. Stop when any
   // IterResult is marked as done.
   const producer = produceWhile(() => iterators.map(iterator => iterator.next()),
-                                value => value.find(v => v.done) === undefined)
+                                value => value.every(v => !v.done))
 
   // Unbox the value from the iterator results
   yield* mappedGenerator(producer,
