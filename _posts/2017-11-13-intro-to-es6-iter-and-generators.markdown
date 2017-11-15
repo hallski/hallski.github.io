@@ -15,8 +15,7 @@ This article is part of a series of articles about ES6 generators. The plan is t
 
 1. Introduction to ES6 Iterators and Generators
 2. [Working with Generators](/blog/working-with-generators)
-3. Passing values to generators
-4. Generators in asynchronous programming
+3. [Async/Await with Generators](/blog/async-await-with-generators)
 
 ## Iterator basics
 Iterators in Javascript are objects that implement `next()` which returns an object with two properties, `done` and `value`.

@@ -15,8 +15,7 @@ This article is part of a series of articles about ES6 generators. The plan is t
 
 1. [Introduction to ES6 Iterators and Generators](/blog/intro-to-es6-iter-and-generators)
 2. Working with Generators
-3. Passing values to generators
-4. Generators in asynchronous programming
+3. [Async/Await with Generators](/blog/async-await-with-generators)
 
 Generators have a lot of great applications, such as the `randomInts` generator below. In this article we'll however force the example a bit by also combining this generator with a `zip` generator to produce a `rollCharacter` function for [D&D](https://en.wikipedia.org/wiki/Dungeons_%26_Dragons) character creation.
 
