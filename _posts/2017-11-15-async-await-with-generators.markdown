@@ -92,21 +92,11 @@ function iterateAsync(gen, { value, done }) {
     return Promise.resolve(value)
   }
 
-  return new Promise((resolve, reject) => {
-    // If the value is not a promise (for example 'yield 123'), wrap it in one.
-    const promise = value instanceof Promise ? value : Promise.resolve(value)
-    return promise
-      .then(result => resolve(iterateAsync(gen, gen.next(result))))
-      .catch(error => {
-        try {
-          // This allows the generators catch-block to handle the problem and continue the execution
-          resolve(iterateAsync(gen, gen.throw(error)))
-        } catch (newError) {
-          // If the generator threw a new error from the catch block, simply reject the promise
-          // and return
-          reject(newError)
-        }
-      })
+  // If the value is not a promise (for example 'yield 123'), wrap it in one.
+  const promise = value instanceof Promise ? value : Promise.resolve(value)
+  return promise
+    .then(result => iterateAsync(gen, gen.next(result)))
+    .catch(error => iterateAsync(gen, gen.throw(error)))
   })
 }
 ```
