@@ -1,0 +1,28 @@
+runtime: php55
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  static_files: _site/index.html
+  upload: _site/index.html
+  secure: always
+
+- url: /blog|/blog/
+  static_files: _site/blog/index.html
+  upload: _site/blog/index.html
+  secure: always
+
+- url: /blog/(.*)
+  static_files: _site/blog/\1.html
+  upload: _site/blog/(.*)
+  secure: always
+
+- url: /about|/about/
+  static_files: _site/about/index.html
+  upload: _site/about/index.html
+  secure: always
+
+- url: /
+  static_dir: _site/
+  secure: always
