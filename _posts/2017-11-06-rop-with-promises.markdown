@@ -33,7 +33,7 @@ exports.catFinder = filteredEventHandler(eventFilter, function(event, callback) 
 4. If all succeeded, log that. Otherwise log if there was an error.
 5. Finally, call the provided callback.
 
-The code can be found on [Github](https://github.com/mhallendal/cat-finder)
+The code can be found on [Github](https://github.com/hallski/cat-finder)
 
 ## Railway Oriented Programming (ROP)
 The inspiration for this implementation was taken from an excellent talk by Scott Wlaschin about [Railway Oriented Programming](http://fsharpforfunandprofit.com/rop/). For a more in-depth description of ROP, I can highly recommend watching the talk and slides. The examples are in F# but shouldn't be a problem to follow even if you are new to the language.

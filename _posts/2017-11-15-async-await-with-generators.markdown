@@ -121,7 +121,7 @@ const resultGen = (yield Promise.resolve(100)) + 100
 ## Summary
 This article covered using generators and promises to implement async/await which is available in ES7. The main reason for doing this was to learn more about how to work with generators.
 
-The code can be found at: [https://github.com/mhallendal/es6-async](https://github.com/mhallendal/es6-async)
+The code can be found at: [https://github.com/hallski/es6-async](https://github.com/hallski/es6-async)
 
 While finishing up this article I was looking around for a proper implementation of this as it can be quite useful with Node 6.11 (which is still the version used by Google Cloud Functions) I stumbled over an article series by Kyle Simpson.
 

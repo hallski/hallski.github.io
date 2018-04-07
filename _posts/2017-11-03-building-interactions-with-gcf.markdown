@@ -22,7 +22,7 @@ to Node.js v6.11.1.
 ## The Catfinder function
 As an example of setting up an integration as a function this post will use a small function that integrates Google Cloud Storage, Google Vision and Slack. It works by getting a change event from a Cloud Storage bucket and send any new files to the Vision API to decide whether it's an image of a cat. If it is, it will send a message to Slack notifying that a new cat picture was uploaded.
 
-All the code for the project can be found at [Github](https://github.com/mhallendal/cat-finder).
+All the code for the project can be found at [Github](https://github.com/hallski/cat-finder).
 
 ### Implementation
 A cloud function is a normal NPM module where the script pointed to by `main` in `package.json` needs to export a function with the same name as the function (by default, this can be overridden with the `--entry-point` flag when deploying).

@@ -14,6 +14,6 @@ I decided it was time to create a new Xcode theme and created one that works wel
 
 Feel free to grab it if you like it.
 
-[Github repository](https://github.com/mhallendal/spacedust-theme)
+[Github repository](https://github.com/hallski/spacedust-theme)
 
 Follow the instructions for each platform in their respective READMEs.
