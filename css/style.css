@@ -1,0 +1,100 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+
+  padding: 20px;
+  margin: auto;
+  max-width: 800px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: rgb(7, 54, 83);
+  width: 100%;
+}
+.navbar-brand {
+  margin: 10px;
+  padding-right: 20px;
+}
+.navbar-nav {
+  display: flex;
+  flex: 1;
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+.navbar-text {
+  margin: 10px;
+}
+.navbar-nav .nav-item {
+  margin-right: 5px;
+}
+
+@media (max-width: 240px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px;
+  }
+  .navbar-nav {
+    flex-direction: column;
+  }
+}
+
+div.highlight {
+  overflow: auto;
+  max-width: 100%;
+}
+
+.page-footer {
+  margin-top: 40px;
+}
+
+.latest-articles article {
+  border-left: 1px solid lightgray;
+  padding-left: 10px;
+}
+
+.latest-articles .post-date {
+  color: gray;
+  font-family: "Dosis", sans-serif;
+}
+
+h2 {
+  margin-top: 1em;
+  margin-bottom: 0.1em;
+}
+
+.site-footer {
+  border-top: 1px solid rgb(238, 238, 238);
+  font-size: 85%;
+  font-style: italic;
+  text-align: center;
+  margin-top: 4em;
+  padding-top: 0.5em;
+}
+
+pre {
+  padding: 1em 0.5em 1em 0.5em;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Dosis", sans-serif;
+}
+a {
+  color: rgb(255, 128, 0);
+}
+blockquote {
+  font-size: 110%;
+  font-style: italic;
+  padding-left: 15px;
+  margin: 1em 25px 1em 25px;
+  border-left: 3px solid rgb(7, 54, 83);
+}
