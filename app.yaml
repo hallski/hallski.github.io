@@ -1,6 +1,8 @@
 runtime: php55
 api_version: 1
 threadsafe: true
+skip_files:
+- vendor/
 
 handlers:
 - url: /
