@@ -1,9 +1,6 @@
----
-layout: nil
----
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
- 
+
   <title>Mikael Hallendal</title>
   <link href="http://hallski.org/"/>
   <link type="application/atom+xml" rel="self" href="http://hallski.org/atom.xml"/>
@@ -23,5 +20,5 @@ layout: nil
     <content type="html">{{ post.content | xml_escape }}</content>
   </entry>
   {% endfor %}
- 
+
 </feed>
