@@ -61,23 +61,30 @@ div.highlight {
   margin-top: 40px;
 }
 
-.latest-articles article {
-  margin-top: 30px;
-  border-left: 3px solid lightgray;
-  padding-left: 10px;
-}
-
-.latest-articles h2 {
-  margin: 0 auto;
-  margin-bottom: -8px;
-  font-size: 18px;
-}
-
 .post-date {
   color: gray;
   font-variant-caps: all-small-caps;
   font-size: 18px;
-  margin-top: -8px;
+}
+
+.latest-articles article {
+  margin-top: 40px;
+  border-left: 5px solid rgb(7, 54, 83);
+  padding: 10px 20px;
+  background-color: #fafafa;
+}
+
+.latest-articles h2 {
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+.latest-articles .post-date {
+  color: rgb(100, 100, 100);
+}
+
+.latest-articles p {
+  max-width: 60ch;
 }
 
 h1 {
