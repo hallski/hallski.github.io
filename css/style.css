@@ -33,7 +33,11 @@ main {
   margin: 10px;
 }
 .navbar-nav .nav-item {
-  margin-right: 5px;
+  margin-right: 10px;
+}
+
+.navbar a {
+  color: #fff;
 }
 
 @media (max-width: 240px) {
@@ -65,6 +69,15 @@ div.highlight {
   font-family: "Dosis", sans-serif;
 }
 
+.post .post-date {
+  color: gray;
+  font-size: 18px;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
 h2 {
   margin-top: 1em;
   margin-bottom: 0.1em;
@@ -86,7 +99,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Dosis", sans-serif;
+  font-family: sans-serif;
 }
 a {
   color: rgb(255, 128, 0);
