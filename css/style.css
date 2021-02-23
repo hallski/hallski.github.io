@@ -1,6 +1,8 @@
 body {
   padding: 0;
   margin: 0;
+  font-family: "Roboto";
+  line-height: 1.5;
 }
 
 main {
@@ -60,18 +62,22 @@ div.highlight {
 }
 
 .latest-articles article {
-  border-left: 1px solid lightgray;
+  margin-top: 30px;
+  border-left: 3px solid lightgray;
   padding-left: 10px;
 }
 
-.latest-articles .post-date {
-  color: gray;
-  font-family: "Dosis", sans-serif;
+.latest-articles h2 {
+  margin: 0 auto;
+  margin-bottom: -8px;
+  font-size: 18px;
 }
 
-.post .post-date {
+.post-date {
   color: gray;
+  font-variant-caps: all-small-caps;
   font-size: 18px;
+  margin-top: -8px;
 }
 
 h1 {
@@ -95,12 +101,19 @@ h2 {
 pre {
   padding: 1em 0.5em 1em 0.5em;
 }
-h1,
+
+h1 {
+  font-family: "Merriweather";
+  font-weight: 900;
+}
+
 h2,
 h3,
 h4 {
-  font-family: sans-serif;
+  font-family: "Merriweather";
+  font-weight: bold;
 }
+
 a {
   color: rgb(255, 128, 0);
 }
