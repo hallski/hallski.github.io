@@ -16,7 +16,7 @@ After creating a normal Cocoa Application and setting up a custom view in Interf
 
 Layers in Core Animation are built up as a tree where the layer you set to your view with `setLayer:` is the root layer. All other layers are added as sublayers to the root layer or another layer with `addSublayer:`. In the code snippets below `backgroundLayer` is my root layer.
 
-``` objc
+```objc
 - (CALayer *)setupLayers
 {
     backgroundLayer = [self setupBackgroundLayer];
@@ -86,7 +86,7 @@ Using Cocoa bindings I connect the text layers `string` property with the `outpu
 
 This is also where we setup the constraints mentioned above to make sure that the text is centered in relation to its super layer (in this case the background).
 
-``` objc
+```objc
 - (CALayer *)setupClockFaceLayer {
     CATextLayer *clockFaceLayer = [CATextLayer layer];
     [clockFaceLayer bind:@"string" toObject:clockTimer withKeyPath:@"outputString" options:nil];
@@ -113,7 +113,7 @@ The Border Layer:
 -----------------
 There are likely other ways of doing this but by using a separate layer I can use built in functionality to draw a border around a layer. I make the layer slightly smaller than the background layer, set its corner radius to the same value used for the background and simply set it to draw its border with a white color.
 
-``` objc
+```objc
 - (CALayer *)setupBorderLayer
 {
     CALayer *borderLayer = [CALayer layer];
@@ -135,7 +135,7 @@ As a final touch I wanted to add the shine to give the clock a glossy look. The 
 
 Even if we set the same corner radius as the background layer the layer will happily draw the image outside of this unless we call `setMasksToBounds` to ensure that it doesn't draw the image outside of the rounded corners.
 
-``` objc setupGlossLayer
+```objc
 - (CALayer *)setupGlossLayer
 {
     CALayer *glossLayer = [CALayer layer];

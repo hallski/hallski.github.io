@@ -9,7 +9,10 @@
   --text-color: black;
   --block-background: #f7f7f7;
   --my-gray: #747474;
+  --content-max-width: 70ch;
+  --body-line-height: 1.6;
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #27272c;
@@ -48,7 +51,7 @@ main {
 
   padding: 20px;
   margin: auto;
-  max-width: 70ch;
+  max-width: var(--content-max-width);
 }
 
 a {
@@ -57,11 +60,23 @@ a {
 }
 
 blockquote {
+  position: relative;
   font-size: 110%;
   font-style: italic;
-  padding-left: 15px;
-  margin: 1em 25px 1em 25px;
-  border-left: 3px solid rgb(7, 54, 83);
+  border-left: solid 6px var(--primary-color);
+  margin: 10px 0;
+  padding-left: 20px;
+  background: var(--block-background);
+}
+
+blockquote p::before {
+  content: open-quote;
+  display: inline;
+}
+
+blockquote p::after {
+  content: close-quote;
+  display: inline;
 }
 
 h1,
@@ -92,7 +107,7 @@ h3 {
 }
 
 p {
-  line-height: 1.7;
+  line-height: var(--body-line-height);
 }
 
 pre {
@@ -100,12 +115,16 @@ pre {
   margin: 0 auto;
 }
 
+li {
+  line-height: var(--body-line-height);
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  margin: 20px 0;
+  margin: 18px 0;
   background: var(--block-background);
 }
 
@@ -134,6 +153,61 @@ pre {
   }
   .navbar-nav {
     flex-direction: column;
+  }
+}
+
+@media (min-width: 400px) {
+  .highlighter-rouge {
+    position: relative;
+  }
+
+  .highlighter-rouge::before {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    min-width: 30px;
+    min-height: 30px;
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    right: calc(100% + 20px);
+    padding: 2px 5px;
+    font-variant-caps: small-caps;
+  }
+
+  .language-javascript::before {
+    content: "JS";
+  }
+
+  .language-text::before {
+    content: "TXT";
+  }
+
+  .language-shell::before {
+    content: "SH";
+  }
+
+  .language-swift::before {
+    content: "swift";
+  }
+
+  .language-objc::before {
+    content: "obj-c";
+  }
+
+  .language-ruby::before {
+    content: "ruby";
+  }
+
+  .language-c::before {
+    content: "C";
+  }
+
+  .language-json::before {
+    content: "json";
+  }
+  .language-Dockerfile::before {
+    content: "docker";
   }
 }
 
@@ -221,10 +295,10 @@ pre {
 
 .author {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  max-width: 70ch;
-  margin: 0 auto;
+  margin: 20px auto;
+  max-width: var(--content-max-width);
 }
 
 .author-photo {
@@ -232,13 +306,6 @@ pre {
   height: 192px;
   clip-path: circle(50% at 50% 50%);
   margin-right: 32px;
-}
-
-.site-footer .about {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 35ch;
 }
 
 .author-name {

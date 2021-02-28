@@ -13,16 +13,14 @@ I came to Javascript with a lot of preconceptions about the language based on sc
 
 For example I love the _object literal syntax_ to create objects on the fly without having to define a class first.
 
-{% highlight javascript %}
-
+```javascript
 const todoItem = {
   done: false,
   title: 'Newly created item'
 }
 
 assert.equal(todoItem.done, false) // OK
-
-{% endhighlight %}
+```
 
 Some other really nice features include deconstruction, well integrated Promises (with async/await syntax) and closures with low syntactic overhead.
 
