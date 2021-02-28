@@ -15,31 +15,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- syntax highlighting CSS -->
-    <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+    <!--link rel="stylesheet" href="/css/syntax.css" type="text/css" /-->
 
     <!-- fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
   </head>
   <body>
-    <header class="site-header">
-      <nav class="navbar">
-        <a class="navbar-brand" href="/"><img src="/images/H.png" /></a>
-        <div class="navbar-nav">
-          <span
-            class="nav-item {% if page.section == 'blog' %}active{% endif %}"
-          >
-            <a class="nav-link" href="/blog/">Archive</a>
-          </span>
-          <span
-            class="nav-item {% if page.section == 'about' %}active{% endif %}"
-          >
-            <a class="nav-link" href="/about/">About</a>
-          </span>
-        </div>
+    <header>
+      <nav role="navigation" class="navbar">
+        <a class="nav-link" href="/">Home</a>
+        <ul>
+          <li class="{% if page.section == 'blog' %}active{% endif %}">
+            <a href="/blog/" class="nav-link">Articles</a>
+          </li>
+          <li class="{% if page.section == 'about' %}active{% endif %}">
+            <a href="/about" class="nav-link">About</a>
+          </li>
+        </ul>
       </nav>
     </header>
     <main>{{ content }}</main>

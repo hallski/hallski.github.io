@@ -3,30 +3,33 @@ layout: default
 title: hallski.org
 ---
 
-<header>
-  <h1>Welcome!</h1>
-  <p>
-    You've reached the home of Mikael Hallendal (hallski). Currently only
-    hosting my blog which is getting far to seldom updates but hopefully that
-    will improve in the future.
-  </p>
-</header>
-<section class="latest-articles">
-  {% for post in site.posts limit:3 %}
+<section class="latest-post">
+  <p class="section-title">latest</p>
+  {% assign post = site.posts[0] %}
+  <header>
+    <h1>{{post.title}}</h1>
+    <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+      {{ post.date | date: "%B %d, %Y" }}
+    </time>
+  </header>
+  <p>{{ post.excerpt }}</p>
+  <footer>
+    <a href="{{ post.url }}">Read more...</a>
+  </footer>
+</section>
+
+<section class="previous-posts">
+  <p class="section-title">previous posts</p>
+  {% for post in site.posts limit:3 offset:1 %}
   <article>
-    <header>
-      <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
-        {{ post.date | date: "%B %d, %Y" }}
-      </time>
-      <h2>{{ post.title }}</h2>
-    </header>
-    <p>{{ post.excerpt }}</p>
-    <footer>
-      <a href="{{ post.url }}">Read more...</a>
-    </footer>
+    <h2><a href="{{post.url}}">{{ post.title }}</a></h2>
+    <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+      {{ post.date | date: "%B %d, %Y" }}
+    </time>
   </article>
   {% endfor %}
 </section>
+
 <footer class="page-footer">
   Visit the <a href="/blog/">blog archive</a> for a full list of posts.
 </footer>
