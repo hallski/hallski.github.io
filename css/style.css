@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700;900&family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700;900&family=Heebo:wght@400;700&display=swap");
 
 :root {
   --bg-color: white;
   --primary-color: #ab019a;
-  --body-font-family: "Roboto";
-  --header-font-family: "Roboto";
-  --link-color: #ab019a;
+  --body-font-family: "Lora";
+  --header-font-family: "Heebo";
+  --link-color: #1a7986;
   --text-color: black;
   --block-background: #f7f7f7;
   --my-gray: #747474;
@@ -13,13 +13,12 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #27272c;
-    --primary-color: #d900a9;
-    --body-font-family: "Roboto";
-    --header-font-family: "Roboto";
-    --link-color: #55e5f9;
+    --primary-color: #55e5f9;
+    --header-font-family: "Heebo";
+    --link-color: #ff3ed4;
     --text-color: #e5e5e5;
-    --block-background: #313131;
-    --my-gray: #747474;
+    --block-background: #303030;
+    --my-gray: #a0a0a0;
   }
 }
 
@@ -36,7 +35,7 @@ html {
 body {
   padding: 0;
   margin: 0;
-  font-family: "Lora";
+  font-family: var(--body-font-family);
   font-size: 20px;
   background: var(--bg-color);
   color: var(--text-color);
@@ -167,7 +166,7 @@ pre {
 }
 
 .post-date {
-  color: gray;
+  color: var(--my-gray);
   font-variant-caps: all-small-caps;
   font-size: 18px;
 }
@@ -206,34 +205,59 @@ pre {
   color: rgb(100, 100, 100);
 }
 
-.previous-posts a {
-  color: var(--text-color);
+.article-list article {
+  margin-bottom: 40px;
 }
 
-.all-articles {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  margin-top: 20px;
-}
-
-.all-articles .article {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  margin: 10px 0;
-  background-color: #fafafa;
-  border-left: 5px solid rgb(7, 54, 83);
-  padding: 10px 20px;
-}
-
-.all-articles a {
-  line-height: 1.2;
-  margin-top: 5px;
+.article-list h3 {
+  margin-bottom: 6px;
 }
 
 .site-footer {
+  margin-top: 80px;
+  padding: 20px 0;
+  background: var(--block-background);
+}
+
+.author {
   display: flex;
   justify-content: center;
-  background: var(--block-background);
+  align-items: center;
+  max-width: 70ch;
+  margin: 0 auto;
+}
+
+.author-photo {
+  width: 192px;
+  height: 192px;
+  clip-path: circle(50% at 50% 50%);
+  margin-right: 32px;
+}
+
+.site-footer .about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 35ch;
+}
+
+.author-name {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.author-info {
+  color: var(--my-gray);
+  margin: 0;
+}
+
+.find-me {
+  display: flex;
+}
+
+.find-me a {
+  padding-right: 20px;
+  font-variant-caps: all-small-caps;
+  font-weight: bold;
 }
