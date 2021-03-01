@@ -1,23 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700;900&family=Heebo:wght@400;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400&display=swap");
 :root {
   --bg-color: white;
   --primary-color: #ab019a;
-  --body-font-family: "Lora";
-  --header-font-family: "Heebo";
+  --body-font-family: "Open Sans", sans-serif;
+  --header-font-family: "Open Sans", sans-serif;
   --link-color: #1a7986;
   --text-color: black;
   --block-background: #f7f7f7;
   --my-gray: #747474;
   --content-max-width: 70ch;
-  --body-line-height: 1.6;
+  --body-font-size: 18px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #27272c;
     --primary-color: #55e5f9;
-    --header-font-family: "Heebo";
     --link-color: #ff3ed4;
     --text-color: #e5e5e5;
     --block-background: #303030;
@@ -39,7 +37,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--body-font-family);
-  font-size: 20px;
+  font-size: var(--body-font-size);
   background: var(--bg-color);
   color: var(--text-color);
 }
@@ -93,12 +91,12 @@ h1 {
   color: var(--primary-color);
   margin-bottom: 10px;
   font-weight: 900;
-  font-size: 76px;
+  font-size: 64px;
 }
 
 h2 {
-  font-size: 36px;
-  margin-bottom: 16px;
+  font-size: 32px;
+  margin: 1em 0 0.5em 0;
 }
 
 h3 {
@@ -107,7 +105,7 @@ h3 {
 }
 
 p {
-  line-height: var(--body-line-height);
+  line-height: 1.5;
 }
 
 pre {
@@ -116,7 +114,7 @@ pre {
 }
 
 li {
-  line-height: var(--body-line-height);
+  line-height: 1.6;
 }
 
 .navbar {
@@ -126,6 +124,8 @@ li {
   padding: 0 40px;
   margin: 18px 0;
   background: var(--block-background);
+  text-transform: uppercase;
+  font-size: 18px;
 }
 
 .navbar ul {
@@ -143,7 +143,6 @@ li {
 
 .navbar a {
   color: var(--link-color);
-  font-weight: bold;
 }
 
 @media (max-width: 240px) {
@@ -156,67 +155,68 @@ li {
   }
 }
 
-@media (min-width: 400px) {
-  .highlighter-rouge {
-    position: relative;
-  }
+.highlighter-rouge {
+  position: relative;
+}
 
-  .highlighter-rouge::before {
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-    min-width: 30px;
-    min-height: 30px;
-    display: inline-block;
-    text-align: center;
-    position: absolute;
-    right: calc(100% + 20px);
-    padding: 2px 5px;
-    font-variant-caps: small-caps;
-  }
+.highlighter-rouge::after {
+  color: var(--primary-color);
+  background-color: var(--block-background);
+  clip-path: polygon(100% 0%, 85% 50%, 100% 100%, 0 100%, 0% 50%, 0 0);
+  min-width: 30px;
+  min-height: 30px;
+  display: inline-block;
+  text-align: center;
+  position: absolute;
+  left: 100%;
+  top: 10px;
+  padding: 6px 20px 6px 8px;
+  font-variant-caps: small-caps;
+}
 
-  .language-javascript::before {
-    content: "JS";
-  }
+.language-javascript::after {
+  content: "js";
+}
 
-  .language-text::before {
-    content: "TXT";
-  }
+.language-text::after {
+  content: "txt";
+}
 
-  .language-shell::before {
-    content: "SH";
-  }
+.language-shell::after {
+  content: "sh";
+}
 
-  .language-swift::before {
-    content: "swift";
-  }
+.language-swift::after {
+  content: "swift";
+}
 
-  .language-objc::before {
-    content: "obj-c";
-  }
+.language-objc::after {
+  content: "obj-c";
+}
 
-  .language-ruby::before {
-    content: "ruby";
-  }
+.language-ruby::after {
+  content: "ruby";
+}
 
-  .language-c::before {
-    content: "C";
-  }
+.language-c::after {
+  content: "c";
+}
 
-  .language-json::before {
-    content: "json";
-  }
-  .language-Dockerfile::before {
-    content: "docker";
-  }
+.language-json::after {
+  content: "json";
+}
+.language-Dockerfile::after {
+  content: "docker";
 }
 
 .highlight {
   overflow: auto;
   max-width: 100%;
   background-color: var(--block-background);
-  border-radius: 6px;
-  font-size: 18px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  font-size: 16px;
   line-height: 1.4;
 }
 
@@ -236,7 +236,7 @@ li {
 }
 
 .post header {
-  margin-bottom: 3em;
+  margin: 3em 0;
 }
 
 .post-date {
@@ -309,7 +309,7 @@ li {
 }
 
 .author-name {
-  font-size: 36px;
+  font-size: 24px;
   font-weight: bold;
   margin: 0;
 }
