@@ -161,9 +161,8 @@ div.highlighter-rouge {
 @media (min-width: 900px) {
   div.highlighter-rouge::before {
     color: var(--clr-gray);
-    color: var(--clr-primary);
     position: absolute;
-    right: calc(100% + 2rem);
+    right: calc(100% + 1.5rem);
     top: 1em;
     font-size: 1rem;
     font-family: var(--font-family-code);
