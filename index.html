@@ -22,7 +22,7 @@ title: hallski.org
   <p class="section-title">previous posts</p>
   {% for post in site.posts limit:3 offset:1 %}
   <article>
-    <h3><a href="{{post.url}}">{{ post.title }}</a></h3>
+    <a class="article-list-link" href="{{post.url}}">{{ post.title }}</a>
     <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
       {{ post.date | date: "%B %d, %Y" }}
     </time>
