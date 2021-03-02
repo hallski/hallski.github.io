@@ -6,13 +6,15 @@ section: blog
 ---
 
 <h1>{{ page.title }}</h1>
-<div class="all-articles">
+<div class="article-list">
   {% for post in site.posts %}
-  <div class="article">
+  <article>
+    <a class="article-list-link" href="{{ site.url }}{{ post.url }}">
+      {{ post.title }}
+    </a>
     <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
       {{ post.date | date: "%B %d, %Y" }}
     </time>
-    <a href="{{ site.url }}{{ post.url }}"> {{ post.title }} </a>
-  </div>
+  </article>
   {% endfor %}
 </div>

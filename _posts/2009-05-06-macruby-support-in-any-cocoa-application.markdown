@@ -10,7 +10,7 @@ Yesterday I published a post about [Cocoa Prototyping with Webview](/cocoa-proto
 
 Macruby turns out to be a very powerful tool for prototyping (as well as writing entire applications in) as it fits perfectly fine in a normal Objective-C code base. What I wanted was something like this:
 
-{% highlight ruby %}
+```ruby
 class SimpleController
     attr_accessor :label
     attr_accessor :button
@@ -21,7 +21,7 @@ class SimpleController
         my_view.backgroundColor = NSColor.redColor
     end
 end
-{% endhighlight %}
+```
 
 Where the view `:my_view` is implemented in Objective-C.
 
@@ -39,7 +39,7 @@ Next you need to make your project link against the Macruby framework:
 
 That's it for the project settings, let's hook it up in the code. When you use the built-in project template for a Macruby project a small Ruby file called *rb\_main.rb* is created for you. Since I'm using a generic Cocoa application template I needed to create this file and simply copied the file into my new project (its code below). It loads all Ruby files in your bundle and starts the Cocoa main loop.
 
-{% highlight ruby %}
+```ruby
 # Loading the Cocoa framework. If you need to load more frameworks, you can
 # do that here too.
 framework 'Cocoa'
@@ -54,18 +54,18 @@ end
 
 # Starting the Cocoa main loop.
 NSApplicationMain(0, nil)
-{% endhighlight %}
+```
 
 To start the actual Ruby interpreter the file *main.m* needs to be modified. Since the Ruby code now starts the Cocoa main loop we no longer need to do that in `main`. *Main.m* simply becomes:
 
-{% highlight c %}
+```c
 #import <MacRuby/MacRuby.h>
 
 int main(int argc, char *argv[])
 {
     return macruby_main("rb_main.rb", argc, argv);
 }
-{% endhighlight %}
+```
 
 With these changes you can now start writing code in either Ruby or Objective-C within the same project. Here are the files I ended up with in my very small example.
 

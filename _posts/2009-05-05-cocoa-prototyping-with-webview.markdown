@@ -34,7 +34,7 @@ Step 2: Hooking the view up in the AppController
 
 Back in XCode I create a subclass of NSObject called AppController and setup the two prototype views in its `awakeFromNib` by using the two method calls `setPrototypeDelegate` and `loadBundleFile`. In my example I used two prototype views called `sidebarView` and `contentView` and will use the AppController as my delegate.
 
-{% highlight objc %}
+```objc
 - (void)awakeFromNib
 {
     [sideBarView setPrototypeDelegate:self];
@@ -43,14 +43,14 @@ Back in XCode I create a subclass of NSObject called AppController and setup the
     [contentView setPrototypeDelegate:self];
     [contentView loadBundleFile:@"content1"];
 }
-{% endhighlight %}
+```
 
 Step 3: Prototype in HTML
 -------------------------
 
 Starting the application at this point will cause it to load the files *sidebar.html* and *content1.html* and display them. Now that the files are being loaded you can implement the prototyped UI portions in the HTML files. Here is the content of *sidebar.html*:
 
-{% highlight html %}
+```objc
 <html>
   <head>
     <link rel="stylesheet" href="sidebar.css" type="text/css" />
@@ -66,13 +66,13 @@ Starting the application at this point will cause it to load the files *sidebar.
     </ul>
   </body>
 </html>
-{% endhighlight %}
+```
 
 Step 4: Adding the methods in AppController
 -------------------------------------------
 Notice the special links to `method:showViewOne`, clicking this will make the `PrototypeView` look if its delegate responds to `showViewOne` and send the message to it if it does.
 
-{% highlight objc %}
+```objc
 - (void)showViewOne
 {
     [contentView loadBundleFile:@"content1"];
@@ -82,7 +82,7 @@ Notice the special links to `method:showViewOne`, clicking this will make the `P
 {
     [contentView loadBundleFile:@"content2"];
 }
-{% endhighlight %}
+```
 
 That's it, happy prototyping!
 

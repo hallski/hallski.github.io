@@ -13,7 +13,7 @@ The API will likely change a bit and it's fresh out of the editor so might be a 
 The API makes heavy use of blocks for actions initiated from your code and a client listener for notifications initiated from the server.
 
 A small example of how you use the API, I will add a better example later.
-{% highlight objc %}
+```objc
 - (void)connectToServer
 {
     MHConvoreClient *client = [MHConvoreClient clientWithUsername:@"u" password:@"p"];
@@ -34,7 +34,7 @@ A small example of how you use the API, I will add a better example later.
 {
     NSLog(@"[%@]: %@", message.user.name, message.message);
 }
-{% endhighlight %}
+```
 
 To connect to Convore you first need to create an account through their website.
 
