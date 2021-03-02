@@ -317,7 +317,7 @@ div.highlight {
   width: 192px;
   height: 192px;
   clip-path: circle(50% at 50% 50%);
-  margin-right: 32px;
+  margin-right: 2rem;
 }
 
 .author-name {
@@ -332,11 +332,43 @@ div.highlight {
   margin: 0;
 }
 
-.find-me {
-  display: flex;
+.author-interests {
+  color: var(--clr-gray);
 }
 
-.find-me a {
-  padding-right: 20px;
+.author-interests .interest {
+  color: var(--clr-primary);
+}
+
+.find-me {
+  display: flex;
   text-transform: uppercase;
+}
+
+.find-me * + * {
+  margin-left: 20px;
+}
+
+@media (max-width: 520px) {
+  .site-footer {
+    justify-items: center;
+  }
+  .author {
+    flex-direction: column;
+    justify-items: center;
+    text-align: center;
+    max-width: 35ch;
+  }
+  .author-interests {
+    margin: 2em 0;
+  }
+
+  .author-photo {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .find-me {
+    justify-content: center;
+  }
 }
