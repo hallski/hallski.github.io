@@ -313,10 +313,10 @@ div.highlight {
 }
 
 .author-photo {
-  width: 192px;
-  height: 192px;
+  width: 132px;
+  height: 132px;
   clip-path: circle(50% at 50% 50%);
-  margin-right: 2rem;
+  margin-right: 1.5rem;
 }
 
 .author-name {
