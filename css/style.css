@@ -34,7 +34,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --clr-bg: #222;
-    --clr-primary: #19d9ff;
+    --clr-primary: #00f2fe;
     --clr-link: #ff3ed4;
     --clr-text: #e5e5e5;
     --clr-box-bg: #292929;
