@@ -18,7 +18,7 @@
 
   --content-max-width: 70ch;
 
-  --line-height-text: 1.5;
+  --line-height-text: 1.6;
   --line-height-heading: 1.05;
   --line-height-code: 1.4;
   --line-height-listing: 1.6;
@@ -89,7 +89,7 @@ h2,
 h3,
 h4 {
   font-family: var(--font-family-heading);
-  line-height: 1.05;
+  line-height: var(--line-height-heading);
 }
 
 h1 {
@@ -162,7 +162,7 @@ div.highlighter-rouge {
   div.highlighter-rouge::before {
     color: var(--clr-gray);
     position: absolute;
-    right: calc(100% + 1.5rem);
+    right: calc(100% + 2rem);
     top: 1em;
     font-size: 1rem;
     font-family: var(--font-family-code);
@@ -223,6 +223,8 @@ div.highlight {
   border-radius: 0.5rem;
   font-size: 1rem;
   padding: 1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
   letter-spacing: 0;
 }
 
