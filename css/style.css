@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400&family=Inconsolata:wght@400;700&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Merriweather:wght@400;700;900&display=swap');
 :root {
   --grid: minmax(1.5em, 1fr) minmax(20rem, var(--content-max-width))
     minmax(1.5em, 1fr);
 
   --font-family-body: "Open Sans", sans-serif;
-  --font-family-heading: "Open Sans", sans-serif;
+  --font-family-heading: "Merriweather", serif;
   --font-family-code: "Inconsolata", monospace;
 
   /* From type-scale.com */
@@ -161,13 +161,39 @@ div.highlighter-rouge {
   div.highlighter-rouge::before {
     color: var(--clr-gray);
     position: absolute;
-    right: calc(100% + 2rem);
-    top: 1em;
-    font-size: 1rem;
+    left: 0;
+    top: -.5rem;
+    background: var(--clr-bg);
+    z-index: 10;
+    /* right: calc(100% + 3rem); */
+    /* top: 1.5rem; */
+    padding: 0 .5em;
+    text-align: left;
+    font-size: .8rem;
     font-family: var(--font-family-code);
     line-height: var(--line-height-code);
-    font-variant-caps: small-caps;
-    text-align: right;
+    text-transform: uppercase;
+    /* font-variant-caps: small-caps; */
+    vertical-align: text-top;
+  }
+
+  div.highlighter-rouge::after {
+    color: var(--clr-gray);
+    position: absolute;
+    content: 'EOF';
+    right: 0;
+    bottom: -.5rem;
+    background: var(--clr-bg);
+    z-index: 10;
+    /* right: calc(100% + 3rem); */
+    /* top: 1.5rem; */
+    padding: 0 .5em;
+    text-align: left;
+    font-size: .8rem;
+    font-family: var(--font-family-code);
+    line-height: var(--line-height-code);
+    text-transform: uppercase;
+    /* font-variant-caps: small-caps; */
     vertical-align: text-top;
   }
 
@@ -215,16 +241,38 @@ pre.highlight {
   margin: 0;
 }
 
+
+
 div.highlight {
   overflow: auto;
-  background-color: var(--clr-box-bg);
+  /* background-color: var(--clr-box-bg); */
   line-height: var(--line-height-code);
-  border-radius: 0.5rem;
   font-size: 1rem;
-  padding: 1rem;
-  margin-left: -1rem;
-  margin-right: -1rem;
+  margin: 3rem -3rem;
+  border-radius: 5px;
+  padding: 1.5rem 3rem 1.5rem 3rem;
   letter-spacing: 0;
+  position: relative;
+}
+
+div.highlight:before {
+  background: linear-gradient(to right, rgba(0, 242, 254, 0) 0%, rgba(0, 242, 254, .5) 15%, rgba(0, 242, 254, 0) 100%) ;
+  height: 1px;
+  content: '';
+  position:absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+div.highlight:after {
+  background: linear-gradient(to right, rgba(0, 242, 254, 0) 0%, rgba(0, 242, 254, .5) 85%, rgba(0, 242, 254, 0) 100%) ;
+  height: 1px;
+  content: '';
+  position:absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
 
 .highlight .k,

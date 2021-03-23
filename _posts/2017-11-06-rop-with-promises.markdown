@@ -55,7 +55,7 @@ This can best be seen in the implementation of `any`. It's a function that takes
 ```javascript
 function any(predicate) {
   return function(items) {
-    return items.find(predicate) !== undefined ? Promise.resolve(items) : Promise.reject()
+    return items.find(predicate) ? Promise.resolve(items) : Promise.reject()
   }
 }
 ```
