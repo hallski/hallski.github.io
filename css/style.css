@@ -237,35 +237,37 @@ pre.highlight {
 
 
 div.highlight {
-  overflow: auto;
+  /* overflow: auto; */
   /* background-color: var(--clr-box-bg); */
   line-height: var(--line-height-code);
   font-size: 1rem;
-  margin: 3rem -3rem;
+  margin: 3rem 0;
   border-radius: 5px;
-  padding: 1.5rem 3rem 1.5rem 3rem;
+  padding: 1.5rem 0rem;
   letter-spacing: 0;
   position: relative;
 }
 
-div.highlight:before {
-  background: linear-gradient(to right, rgba(122,122,122, .1) 0%, rgba(122,122,122, .5) 50%, rgba(0,242,254, .1) 100%) ;
+div.highlight:before, div.highlight:after {
   height: 1px;
   content: '';
   position:absolute;
-  width: 100%;
+  width: min(100vw, calc(100% + 3rem));
+  left: -1.5rem;
+}
+
+div.highlight:before {
+  background: linear-gradient(to right, rgba(122,122,122, .1) 0%, rgba(122,122,122, .5) 50%, rgba(0,242,254, .1) 100%) ;
   top: 0;
-  left: 0;
 }
 
 div.highlight:after {
   background: linear-gradient(to right, rgba(0,242,254,.1) 0%, rgba(122,122,122, .5) 50%, rgba(122,122,122, .1) 100%) ;
-  height: 1px;
-  content: '';
-  position:absolute;
-  width: 100%;
   bottom: 0;
-  left: 0;
+}
+
+pre.highlight {
+  overflow: auto;
 }
 
 .highlight .c {
