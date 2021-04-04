@@ -93,6 +93,7 @@ h1 {
   color: var(--clr-primary);
   font-weight: 900;
   font-size: var(--fs-h1);
+  font-style: italic;
 }
 
 h2 {
