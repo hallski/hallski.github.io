@@ -1,17 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400&family=Inconsolata:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400&family=Inconsolata:wght@400;700&family=Lora:ital,wght@1,700&display=swap");
+
 :root {
   --grid: minmax(1.5em, 1fr) minmax(20rem, var(--content-max-width))
     minmax(1.5em, 1fr);
 
   --font-family-body: "Open Sans", sans-serif;
   --font-family-heading: "Open Sans", sans-serif;
+  --font-family-heading-1: "Lora", serif;
   --font-family-code: "Inconsolata", monospace;
 
   /* From type-scale.com */
-  --fs-h1: 3.157rem;
-  --fs-h2: 2.369rem;
-  --fs-h3: 1.777rem;
-  --fs-h4: 1.333rem;
+  --fs-h1: 3.375rem;
+  --fs-h2: 2.25rem;
+  --fs-h3: 1.5rem;
+  --fs-h4: 1rem;
   --fs-p: 1rem;
   --fs-nav-links: 0.875rem;
 
@@ -23,8 +25,8 @@
   --line-height-listing: 1.6;
 
   --clr-bg: white;
-  --clr-link: #690bb7;
-  --clr-primary:#d90000;
+  --clr-link: #0467a0;
+  --clr-primary:#a30093;
   --clr-text: black;
   --clr-box-bg: #f7f7f7;
   --clr-gray: #474747;
@@ -85,32 +87,33 @@ blockquote {
   background: var(--clr-box-bg);
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-family-heading);
-  line-height: var(--line-height-heading);
-}
-
 h1 {
+  font-family: var(--font-family-heading-1);
+  line-height: var(--line-height-heading);
   color: var(--clr-primary);
   font-weight: 900;
   font-size: var(--fs-h1);
 }
 
 h2 {
+  font-family: var(--font-family-heading);
+  line-height: var(--line-height-heading);
   font-size: var(--fs-h2);
   margin: 1em 0 0.5em 0;
 }
 
 h3 {
+  font-family: var(--font-family-heading);
+  line-height: var(--line-height-heading);
   font-size: var(--fs-h3);
   margin-bottom: 0.75rem;
 }
 
 h4 {
+  font-family: var(--font-family-heading);
+  line-height: var(--line-height-heading);
   font-size: var(--fs-h4);
+  font-weight: 700;
 }
 
 p {
@@ -270,7 +273,7 @@ pre.highlight {
   overflow: auto;
 }
 
-.highlight .c {
+.highlight .c, .highlight .c1 {
   font-style: italic;
   color: var(--clr-gray);
 }
