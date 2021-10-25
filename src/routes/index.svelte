@@ -1,2 +1,34 @@
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+
+
+<section class="latest-post">
+  <p class="section-title">latest</p>
+  <!-- {% assign post = site.posts[0] %} -->
+  <header>
+<!--    <h1>{{post.title}}</h1> -->
+    <!--<time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+      {{ post.date | date: "%B %d, %Y" }}
+    </time>-->
+  </header>
+<!--  <p>{{ post.excerpt }}</p> -->
+  <footer>
+    <!--<a href="{{ post.url }}">Read more...</a> -->
+  </footer>
+</section>
+
+<section class="article-list">
+  <p class="section-title">previous posts</p>
+<!--  {% for post in site.posts limit:3 offset:1 %}-->
+  <article>
+<!--    <a class="article-list-link" href="{{post.url}}">{{ post.title }}</a>
+    <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+      {{ post.date | date: "%B %d, %Y" }}
+    </time>
+  </article>
+  {% endfor %}-->
+</section>
+
+<footer class="page-footer">
+  Visit the <a href="/blog/">blog archive</a> for a full list of posts.
+</footer>
