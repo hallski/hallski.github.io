@@ -1,6 +1,7 @@
 ---
 title: 'Test Post'
-published_at: '2021-10-26'
+date: '2021-10-25'
+excerpt: "This is a test post"
 ---
 
 # Hello and welcome to test post
