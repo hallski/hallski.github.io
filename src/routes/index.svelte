@@ -1,6 +1,17 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script context="module">
+  import { base } from "$app/paths"
 
+  export async function load({fetch}) {
+    const posts = await fetch(`${base}/posts.json`).then(res => res.json())
+    return {
+      props: {posts}
+    }
+  }
+</script>
+
+<script>
+  export let posts
+</script>
 
 <section class="latest-post">
   <p class="section-title">latest</p>

@@ -1,3 +1,11 @@
+<script lang="ts">
+  import { page } from "$app/stores"
+
+  $: activePage = $page.path
+  $: console.log("active path:",activePage)
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,14 +26,14 @@
   <body>
     <header>
       <nav role="navigation" class="navbar">
-        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" class:active={activePage === "/"} href="/">Home</a>
         <ul>
           <!--li class="{% if page.section == 'blog' %}active{% endif %}"-->
-          <li class="active">
+          <li class:active={activePage === "/blog"}>
             <a href="/blog/" class="nav-link">Articles</a>
           </li>
           <!--li class="{% if page.section == 'about' %}active{% endif %}"-->
-          <li>
+          <li class:active={activePage === "/about"}>
             <a href="/about" class="nav-link">About</a>
           </li>
         </ul>
@@ -63,3 +71,9 @@
     </footer>
   </body>
 </html>
+
+<style>
+  .active {
+    text-decoration: underline;
+  }
+</style>
