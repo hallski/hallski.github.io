@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-  const posts = import.meta.glob('./*.svx')
+//  const posts = import.meta.glob('./*.svx')
   import { base } from "$app/paths"
 
   let body = []
