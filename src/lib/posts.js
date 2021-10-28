@@ -1,15 +1,16 @@
-const imports = import.meta.globEager('./posts/*.md');
+import * as R from 'ramda';
 
-export const posts = [];
+const imported = import.meta.globEager('../routes/blog/*.md');
 
-for (const path in imports) {
-	const post = imports[path];
-
-	if (post) {
-		console.log('Post: ', post);
-		posts.push({
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const posts = R.pipe(
+	R.toPairs(),
+	R.map(([path, post]) => {
+		return {
 			...post.metadata,
-			...post.default.render()
-		});
-	}
-}
+			path: path.replace('.md', '').replace('/routes', '')
+		};
+	}),
+	R.sortBy(R.prop('date')),
+	R.reverse()
+)(imported);
