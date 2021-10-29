@@ -47,3 +47,17 @@
 <footer class="page-footer">
 	Visit the <a href="/blog/">blog archive</a> for a full list of posts.
 </footer>
+
+<style>
+	.latest-post {
+		margin-bottom: 60px;
+	}
+
+	.latest-post h1 {
+		margin: 0.5rem 0;
+	}
+
+	.latest-post header {
+		margin-bottom: 2em;
+	}
+</style>

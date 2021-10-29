@@ -129,34 +129,6 @@ li {
 	line-height: var(--line-height-listing);
 }
 
-.navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0 40px;
-	margin: 18px 0;
-	background: var(--clr-box-bg);
-	text-transform: uppercase;
-	font-size: var(--fs-nav-links);
-}
-
-.navbar ul {
-	list-style: none;
-}
-
-.navbar li {
-	display: inline-block;
-	padding: 0 10px;
-}
-
-.navbar-text {
-	margin: 10px;
-}
-
-.navbar a {
-	color: var(--clr-link);
-}
-
 div.highlighter-rouge {
 	position: relative;
 }
@@ -229,7 +201,7 @@ div.language-c::before {
 div.language-json::before {
 	content: 'JSON';
 }
-div.language-Dockerfile::before {
+pre.language-dockerfile::before {
 	content: 'Docker';
 }
 
@@ -327,17 +299,6 @@ pre.highlight {
 	}
 }
 
-.latest-post {
-	margin-bottom: 60px;
-}
-
-.latest-post h1 {
-	margin: 0.5rem 0;
-}
-
-.latest-post header {
-	margin-bottom: 2em;
-}
 .article-list article {
 	margin-bottom: 1.5rem;
 }
@@ -350,84 +311,4 @@ pre.highlight {
 
 .article-list .post-date {
 	font-size: 1rem;
-}
-.site-footer {
-	display: grid;
-	grid-template-columns: var(--grid);
-	margin-top: 80px;
-	padding: 20px 0;
-	background: var(--clr-box-bg);
-}
-
-.site-footer > * {
-	grid-column: 2 / span 1;
-}
-
-.author {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	margin: 20px 0;
-	max-width: var(--content-max-width);
-	font-size: var(--fs-nav-links);
-}
-
-.author-photo {
-	width: 132px;
-	height: 132px;
-	clip-path: circle(50% at 50% 50%);
-	margin-right: 1.5rem;
-}
-
-.author-name {
-	font-size: 20px;
-	font-weight: bold;
-	margin: 0;
-}
-
-.author-info {
-	color: var(--clr-text);
-	opacity: 0.65;
-	margin: 0;
-}
-
-.author-interests {
-	color: var(--clr-gray);
-}
-
-.author-interests .interest {
-	color: var(--clr-primary);
-}
-
-.find-me {
-	display: flex;
-	text-transform: uppercase;
-}
-
-.find-me * + * {
-	margin-left: 20px;
-}
-
-@media (max-width: 520px) {
-	.site-footer {
-		justify-items: center;
-	}
-	.author {
-		flex-direction: column;
-		justify-items: center;
-		text-align: center;
-		max-width: 35ch;
-	}
-	.author-interests {
-		margin: 2em 0;
-	}
-
-	.author-photo {
-		margin-right: 0;
-		margin-bottom: 2rem;
-	}
-
-	.find-me {
-		justify-content: center;
-	}
 }
