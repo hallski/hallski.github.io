@@ -86,6 +86,6 @@ Notice the special links to `method:showViewOne`, clicking this will make the `P
 
 That's it, happy prototyping!
 
-For a closer look you can see the [PrototypeView source code](http://gist.github.com/106856) or download the example project I used as a [tarball](/downloads/posts/HtmlPrototype.tar.gz).
+For a closer look you can see the [PrototypeView source code](http://gist.github.com/106856).
 
 I'd love any feedback on how to improve this and possibly even supporting using JavaScript to communicate both ways with the HTML view in order to let the application update the views dynamically.

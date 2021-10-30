@@ -6,7 +6,7 @@ tags:
 - ruby
 title: Macruby Support in any Cocoa Application
 ---
-Yesterday I published a post about [Cocoa Prototyping with Webview](/cocoa-prototyping-with-webview.html) and today I found out about [Macruby](http://www.macruby.org/) thanks to [@sarnesjo](http://twitter.com/sarnesjo). Already looking for ways of prototyping in Cocoa it's hard to not find Macruby very interesting.
+Yesterday I published a post about [Cocoa Prototyping with Webview](/blog/cocoa-prototyping-with-webview) and today I found out about [Macruby](http://www.macruby.org/) thanks to [@sarnesjo](http://twitter.com/sarnesjo). Already looking for ways of prototyping in Cocoa it's hard to not find Macruby very interesting.
 
 Macruby turns out to be a very powerful tool for prototyping (as well as writing entire applications in) as it fits perfectly fine in a normal Objective-C code base. What I wanted was something like this:
 
@@ -76,8 +76,6 @@ The final application simply shows a small window with a button:
 ![Example window](/images/posts/macruby-in-xcode-example.png)
 
 Make sure to watch the great [introductionary screencast](http://pragmaticstudio.com/screencasts/6-macruby) then download the example project and get started tinkering.
-
-[Example project](/downloads/posts/ObjcMacRuby.tar.gz)
 
 If you find this as cool and useful as I did, let me hear about it!
 

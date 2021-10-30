@@ -6,7 +6,7 @@ comments: false
 tags:
 - ruby
 ---
-Yesterday I published a post about [Cocoa Prototyping with Webview](/cocoa-prototyping-with-webview.html) and today I found out about [Macruby](http://www.macruby.org/) thanks to [@sarnesjo](http://twitter.com/sarnesjo). Already looking for ways of prototyping in Cocoa it's hard to not find Macruby very interesting.
+Yesterday I published a post about [Cocoa Prototyping with Webview](/blog/cocoa-prototyping-with-webview.html) and today I found out about [Macruby](http://www.macruby.org/) thanks to [@sarnesjo](http://twitter.com/sarnesjo). Already looking for ways of prototyping in Cocoa it's hard to not find Macruby very interesting.
 
 Macruby turns out to be a very powerful tool for prototyping (as well as writing entire applications in) as it fits perfectly fine in a normal Objective-C code base. What I wanted was something like this:
 

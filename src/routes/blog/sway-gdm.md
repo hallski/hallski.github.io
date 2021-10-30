@@ -33,13 +33,13 @@ Type=Application
 
 Copy `/usr/bin/gnome-session` to `/usr/bin/sway-shell` and replace the last like with
 
-```shell
+```bash
 exec /usr/bin/sway "$@"
 ```
 
 Edit `~/.profile` (or in my case `~/.zprofile`) to setup the environment.
 
-```shell
+```bash
 if [ -n "$DESKTOP_SESSION" ];then
   eval $(gnome-keyring-daemon --start --components=ssh)
   export SSH_AUTH_SOCK

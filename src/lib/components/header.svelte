@@ -43,11 +43,6 @@
 		display: inline-block;
 		padding: 0 10px;
 	}
-
-	.navbar-text {
-		margin: 10px;
-	}
-
 	.navbar a {
 		color: var(--clr-link);
 	}

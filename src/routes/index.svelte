@@ -1,18 +1,8 @@
-<script context="module">
+<script>
+	import { base } from '$app/paths';
 	import { posts } from '$lib/posts';
 	import moment from 'moment';
 
-	export async function load() {
-		return {
-			props: { posts: posts }
-		};
-	}
-</script>
-
-<script>
-	import { base } from '$app/paths';
-
-	export let posts;
 	$: [latest, ...highlighted] = posts.slice(0, 4);
 	$: console.log('Latest:', latest, 'highlighted', highlighted);
 

@@ -178,7 +178,7 @@ div.language-text::before {
 	content: 'Text';
 }
 
-div.language-shell::before {
+div.language-bash::before {
 	content: 'Bash';
 }
 
@@ -201,7 +201,8 @@ div.language-c::before {
 div.language-json::before {
 	content: 'JSON';
 }
-pre.language-dockerfile::before {
+
+div.language-Dockerfile::before {
 	content: 'Docker';
 }
 
@@ -221,8 +222,8 @@ div.highlight {
 	position: relative;
 }
 
-div.highlight:before,
-div.highlight:after {
+div.highlight::before,
+div.highlight::after {
 	height: 1px;
 	content: '';
 	position: absolute;
@@ -230,7 +231,7 @@ div.highlight:after {
 	left: -1.5rem;
 }
 
-div.highlight:before {
+div.highlight::before {
 	background: linear-gradient(
 		to right,
 		rgba(122, 122, 122, 0.1) 0%,
@@ -240,7 +241,7 @@ div.highlight:before {
 	top: 0;
 }
 
-div.highlight:after {
+div.highlight::after {
 	background: linear-gradient(
 		to right,
 		rgba(0, 242, 254, 0.1) 0%,
@@ -254,21 +255,19 @@ pre.highlight {
 	overflow: auto;
 }
 
-.highlight .c,
-.highlight .c1 {
+.hljs-comment {
 	font-style: italic;
 	color: var(--clr-gray);
 }
 
-.highlight .k,
-.highlight .kc,
-.highlight .kd,
-.highlight .kn,
-.highlight .kp,
-.highlight .kr,
-.highlight .kt {
+.hljs-keyword {
 	color: var(--clr-primary);
 	font-weight: bold;
+}
+
+/* The Docker highlighter seems to be eating a space when marking a span as bash */
+.language-Dockerfile span.language-bash::before {
+	content: ' ';
 }
 
 .post header {

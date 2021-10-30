@@ -1,16 +1,6 @@
-<script context="module">
-	import { posts } from '$lib/posts';
-
-	export async function load() {
-		return {
-			props: { posts: posts }
-		};
-	}
-</script>
-
 <script>
 	import { base } from '$app/paths';
-	export let posts;
+	import { posts } from '$lib/posts';
 </script>
 
 <h1>Blog archive</h1>

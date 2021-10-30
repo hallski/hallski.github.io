@@ -124,7 +124,7 @@ The webhook is provided by Slack through creating a new App and adding an Incomi
 ### Deploying the function
 The function is deployed to the cloud through the following command:
 
-```shell
+```bash
 $ gcloud beta functions deploy --memory 128 catFinder --stage-bucket function-deploy-stage --trigger-bucket=catfinder-image-bucket
 ```
 

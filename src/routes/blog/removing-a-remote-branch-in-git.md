@@ -13,6 +13,6 @@ This is something I’ve had to checkup a few times so I figured it would be use
 
 To remove a remote branch you created in Git just push to it like:
 
-```shell
+```bash
 $ git push origin :name-of-branch
 ```
