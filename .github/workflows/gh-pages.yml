@@ -3,7 +3,7 @@ name: GitHub Pages
 on:
   push:
     branches:
-        - svelte
+      - svelte
 
 jobs:
   test:
@@ -14,8 +14,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-      - run: npm install -g pnpm
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
       - name: Build
-        run: pnpm build
+        run: npm run build

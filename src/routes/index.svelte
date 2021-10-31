@@ -4,7 +4,6 @@
 	import moment from 'moment'
 
 	$: [latest, ...highlighted] = posts.slice(0, 4)
-	$: console.log('Latest:', latest, 'highlighted', highlighted)
 
 	const format = (date) => moment(date).format('MMMM DD, YYYY')
 </script>

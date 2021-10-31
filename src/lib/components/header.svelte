@@ -4,7 +4,6 @@
 
 <script lang="ts">
 	$: activePage = $page.path
-	$: console.log('active path:', activePage)
 </script>
 
 <header>
