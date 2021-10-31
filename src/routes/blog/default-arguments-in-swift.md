@@ -1,9 +1,9 @@
 ---
 comments: null
-date: "2015-05-24T00:00:00Z"
+date: '2015-05-24T00:00:00Z'
 section: blog
 tags:
-- swift
+  - swift
 title: Default arguments in Swift
 ---
 

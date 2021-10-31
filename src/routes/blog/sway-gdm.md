@@ -1,12 +1,12 @@
 ---
-date: "2019-11-04T00:00:00Z"
+date: '2019-11-04T00:00:00Z'
 excerpt: Setting up Sway to work on Fedora 31 with GDM as desktop manager and gnome-keyring-daemon.
 section: blog
 tags:
-- linux
-- sway
-- wayland
-- GNOME
+  - linux
+  - sway
+  - wayland
+  - GNOME
 title: Sway on Fedora 31 with GDM
 ---
 

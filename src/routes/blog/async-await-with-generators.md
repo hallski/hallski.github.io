@@ -1,17 +1,19 @@
 ---
 comments: true
-date: "2017-11-15T00:00:00Z"
+date: '2017-11-15T00:00:00Z'
 excerpt: In this third post about generators we'll be implementing async/await for
   ES6 with the help of generators and Promises.
 section: blog
 tags:
-- javascript
-- generators
-- es6
-- promises
+  - javascript
+  - generators
+  - es6
+  - promises
 title: Async/Await with Generators and Promises
 ---
+
 ## Javascript Generator Series
+
 This article is part of a series of articles about ES6 generators. The plan is to explore iterators and generators, starting with what they are and show casing different situations where they can be useful.
 
 1. [Introduction to ES6 Iterators and Generators](/blog/intro-to-es6-iter-and-generators)
@@ -19,6 +21,7 @@ This article is part of a series of articles about ES6 generators. The plan is t
 3. Async/Await with Generators
 
 ## Introduction
+
 Generators are not only useful for generating a stream of values but can also be a powerful control structure when paired with an external runner. In this article we will take a stab at implementing `async`/`await` using only ES6 tools (they have later been added and are part of ES7).
 
 For anyone unfamiliar with `async`/`await`, this is how it looks in practice.
@@ -37,6 +40,7 @@ async function myAsync(input) {
 
 myAsync(123).then(result => //...)
 ```
+
 The benefit is that your programming style is very sequencial even though the code is not blocking the event loop.
 
 Since we can't use the special syntax that `async`/`await` introduces our code will looks slightly different but with the same semantics.
@@ -58,6 +62,7 @@ myAsync(123).then(result => //...)
 The difference is that `makeAsync` is now a function instead of a keyword and that `await` has been replaced with `yield`.
 
 ## Passing values into the generator
+
 As can be seen in the example above, the generator code gets a value back from calling `yield`. In the previous articles `yield` was used to pass values out of the generator. In order to send values into the generator (as return values from `yield`) we pass a value with the `next()` method.
 
 We can use this to pass the values of a promise resolution back into the generator once the promise is resolved. In the same way we can use `throw()` on the iterator to throw an exception in the context of the generator.
@@ -73,20 +78,22 @@ iter.throw(new Error('Exception'))
 With this knowledge we can set out to implement our `makeAsync` function!
 
 ## Implementing makeAsync
+
 The `makeAsync` function itself is fairly simple. It wraps the passed generator in a function that takes the arguments (`input` in our example above) and pass them into the generator when called.
 
 ```javascript
 function makeAsync(generator) {
-  return function(...args) {
-    const gen = generator(...args)
-    return iterateAsync(gen, gen.next())
-  }
+	return function (...args) {
+		const gen = generator(...args)
+		return iterateAsync(gen, gen.next())
+	}
 }
 ```
 
 The interesting work will be done in the `iterateAsync` function that will be called recursively to step through the generator until the generator is done. `iterateAsync` returns a promise that will be resolved once the generator is done.
 
 Here is the resulting code:
+
 ```javascript
 function iterateAsync(gen, { value, done }) {
   if (done) {
@@ -103,6 +110,7 @@ function iterateAsync(gen, { value, done }) {
 ```
 
 ### Caveat
+
 As far as my testing went, this behaves exactly as async/await with one little caveat.
 
 ```javascript
@@ -120,6 +128,7 @@ const resultGen = (yield Promise.resolve(100)) + 100
 ```
 
 ## Summary
+
 This article covered using generators and promises to implement async/await which is available in ES7. The main reason for doing this was to learn more about how to work with generators.
 
 The code can be found at: [https://github.com/hallski/es6-async](https://github.com/hallski/es6-async)

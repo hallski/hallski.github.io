@@ -1,12 +1,12 @@
 <script>
-	import { base } from '$app/paths';
-	import { posts } from '$lib/posts';
-	import moment from 'moment';
+	import { base } from '$app/paths'
+	import { posts } from '$lib/posts'
+	import moment from 'moment'
 
-	$: [latest, ...highlighted] = posts.slice(0, 4);
-	$: console.log('Latest:', latest, 'highlighted', highlighted);
+	$: [latest, ...highlighted] = posts.slice(0, 4)
+	$: console.log('Latest:', latest, 'highlighted', highlighted)
 
-	const format = (date) => moment(date).format('MMMM DD, YYYY');
+	const format = (date) => moment(date).format('MMMM DD, YYYY')
 </script>
 
 <section class="latest-post">

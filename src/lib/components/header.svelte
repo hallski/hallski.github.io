@@ -1,10 +1,10 @@
 <script context="module">
-	import { page } from '$app/stores';
+	import { page } from '$app/stores'
 </script>
 
 <script lang="ts">
-	$: activePage = $page.path;
-	$: console.log('active path:', activePage);
+	$: activePage = $page.path
+	$: console.log('active path:', activePage)
 </script>
 
 <header>

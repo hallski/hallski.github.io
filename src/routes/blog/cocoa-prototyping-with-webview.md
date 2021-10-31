@@ -1,18 +1,19 @@
 ---
 comments: false
-date: "2009-05-05T00:00:00Z"
+date: '2009-05-05T00:00:00Z'
 section: blog
 tags:
-- objective-c
+  - objective-c
 title: Cocoa Prototyping with Webview
 ---
+
 While Interface Builder makes it really easy to quickly put together and test the overall design of your user interface it doesn't help much when it comes to its overall flow. In any non-trivial application you are likely to have some custom views or view switching.
 
 For example, say that you want to try out whether it makes sense to use a source list in order to navigate the application and have your content view switch based on what you select in it.
 
 Wouldn't it be great if you could try this without having to implement all the code necessary to display and navigate the source list and other views. Using HTML for prototyping can be a powerful, quick and easy solution that is easily available to Cocoa developers.
 
-In order to make it even easier I created a `WebView` subclass called `PrototypeView` that displays a piece of HTML and sends a message to its *delegate* when the user clicks a link.
+In order to make it even easier I created a `WebView` subclass called `PrototypeView` that displays a piece of HTML and sends a message to its _delegate_ when the user clicks a link.
 
 To give an idea of what it does, take a look at the following screenshot showing a basic prototype UI consisting of two suchs views embedded in a split view.
 
@@ -20,8 +21,7 @@ To give an idea of what it does, take a look at the following screenshot showing
 
 Using the PrototypeView is easy.
 
-Step 1: Mock up the UI in Interface Builder
--------------------------------------------
+## Step 1: Mock up the UI in Interface Builder
 
 Using Interface Builder, create the UI you want and put custom views where you want to prototype using the `PrototypeView`.
 
@@ -29,8 +29,7 @@ Using Interface Builder, create the UI you want and put custom views where you w
 
 I used a class called `AppController` with two outlets to the prototype views by creating an `NSObject` subclass and set it up in Interface Builder by dragging an `NSObject` from the library and setting the class to `AppController` like above.
 
-Step 2: Hooking the view up in the AppController
-------------------------------------------------
+## Step 2: Hooking the view up in the AppController
 
 Back in XCode I create a subclass of NSObject called AppController and setup the two prototype views in its `awakeFromNib` by using the two method calls `setPrototypeDelegate` and `loadBundleFile`. In my example I used two prototype views called `sidebarView` and `contentView` and will use the AppController as my delegate.
 
@@ -45,10 +44,9 @@ Back in XCode I create a subclass of NSObject called AppController and setup the
 }
 ```
 
-Step 3: Prototype in HTML
--------------------------
+## Step 3: Prototype in HTML
 
-Starting the application at this point will cause it to load the files *sidebar.html* and *content1.html* and display them. Now that the files are being loaded you can implement the prototyped UI portions in the HTML files. Here is the content of *sidebar.html*:
+Starting the application at this point will cause it to load the files _sidebar.html_ and _content1.html_ and display them. Now that the files are being loaded you can implement the prototyped UI portions in the HTML files. Here is the content of _sidebar.html_:
 
 ```objc
 <html>
@@ -68,8 +66,8 @@ Starting the application at this point will cause it to load the files *sidebar.
 </html>
 ```
 
-Step 4: Adding the methods in AppController
--------------------------------------------
+## Step 4: Adding the methods in AppController
+
 Notice the special links to `method:showViewOne`, clicking this will make the `PrototypeView` look if its delegate responds to `showViewOne` and send the message to it if it does.
 
 ```objc

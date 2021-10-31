@@ -1,9 +1,9 @@
 ---
 comments: false
-date: "2008-05-31T00:00:00Z"
+date: '2008-05-31T00:00:00Z'
 section: blog
 tags:
-- ruby
+  - ruby
 title: Using Twitter4R on Mac OS X
 ---
 

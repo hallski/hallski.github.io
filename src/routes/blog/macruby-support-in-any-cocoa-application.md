@@ -1,11 +1,12 @@
 ---
 comments: false
-date: "2009-05-06T00:00:00Z"
+date: '2009-05-06T00:00:00Z'
 section: blog
 tags:
-- ruby
+  - ruby
 title: Macruby Support in any Cocoa Application
 ---
+
 Yesterday I published a post about [Cocoa Prototyping with Webview](/blog/cocoa-prototyping-with-webview) and today I found out about [Macruby](http://www.macruby.org/) thanks to [@sarnesjo](http://twitter.com/sarnesjo). Already looking for ways of prototyping in Cocoa it's hard to not find Macruby very interesting.
 
 Macruby turns out to be a very powerful tool for prototyping (as well as writing entire applications in) as it fits perfectly fine in a normal Objective-C code base. What I wanted was something like this:
@@ -37,7 +38,7 @@ Next you need to make your project link against the Macruby framework:
 
 ![Add the Macruby framework](/images/posts/macruby-in-xcode-add-framework.png)
 
-That's it for the project settings, let's hook it up in the code. When you use the built-in project template for a Macruby project a small Ruby file called *rb\_main.rb* is created for you. Since I'm using a generic Cocoa application template I needed to create this file and simply copied the file into my new project (its code below). It loads all Ruby files in your bundle and starts the Cocoa main loop.
+That's it for the project settings, let's hook it up in the code. When you use the built-in project template for a Macruby project a small Ruby file called _rb_main.rb_ is created for you. Since I'm using a generic Cocoa application template I needed to create this file and simply copied the file into my new project (its code below). It loads all Ruby files in your bundle and starts the Cocoa main loop.
 
 ```ruby
 # Loading the Cocoa framework. If you need to load more frameworks, you can
@@ -56,7 +57,7 @@ end
 NSApplicationMain(0, nil)
 ```
 
-To start the actual Ruby interpreter the file *main.m* needs to be modified. Since the Ruby code now starts the Cocoa main loop we no longer need to do that in `main`. *Main.m* simply becomes:
+To start the actual Ruby interpreter the file _main.m_ needs to be modified. Since the Ruby code now starts the Cocoa main loop we no longer need to do that in `main`. _Main.m_ simply becomes:
 
 ```c
 #import <MacRuby/MacRuby.h>

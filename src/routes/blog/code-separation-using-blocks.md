@@ -1,11 +1,12 @@
 ---
 comments: null
-date: "2011-01-24T00:00:00Z"
+date: '2011-01-24T00:00:00Z'
 section: blog
 tags:
-- objective-c
+  - objective-c
 title: Code Separation Using Blocks
 ---
+
 This is a short blog entry to describe how you can use blocks to seperate a generic code from problem specific using blocks. Those that have been looking at [Project Euler](http://projecteuler.net) might recognize this problem description.
 
 The program is supposed to calculate the sum of all even-valued [Fibonacci numbers](http://en.wikipedia.org/wiki/Fibonacci_number) that doesn't exceed a <tt>STOP_VALUE</tt>.

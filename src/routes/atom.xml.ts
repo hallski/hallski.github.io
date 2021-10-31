@@ -1,19 +1,19 @@
 export async function get(): Promise<{
-	headers: string;
-	body: string;
+	headers: string
+	body: string
 }> {
-	const posts = [];
-	const body = xml(posts);
+	const posts = []
+	const body = xml(posts)
 
 	const headers = JSON.stringify({
 		'Cache-Control': 'max-age=0, s-maxage=3600',
 		'Content-Type': 'application/xml'
-	});
+	})
 
 	return {
 		headers,
 		body
-	};
+	}
 }
 
 const xml = (posts) => `
@@ -43,4 +43,4 @@ const xml = (posts) => `
 	)}
 
 </feed>
-`;
+`

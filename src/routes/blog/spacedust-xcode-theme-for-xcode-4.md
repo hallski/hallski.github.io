@@ -1,10 +1,10 @@
 ---
 comments: false
-date: "2010-08-16T00:00:00Z"
+date: '2010-08-16T00:00:00Z'
 section: blog
 tags:
-- theme
-- spacedust
+  - theme
+  - spacedust
 title: Spacedust Xcode Theme for Xcode 4
 ---
 

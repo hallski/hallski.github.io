@@ -1,18 +1,19 @@
 ---
 comments: true
-date: "2017-11-03T00:00:00Z"
+date: '2017-11-03T00:00:00Z'
 excerpt: Google Cloud Functions are currently in beta but can already provide a great
   solution for integrating between different services triggered by various events.
 redirect_from: /blog/fun-with-gcf-vision-and-slack
 section: blog
 tags:
-- javascript
-- google-cloud
-- FaaS
+  - javascript
+  - google-cloud
+  - FaaS
 title: Building integrations with Google Cloud Functions
 ---
 
 ## Google Cloud Functions (GCF)
+
 GCF is Googles version of AWS Lambda which provides a _"server less"_ (in the sense that as a developer you don't need to care about anything other than your code) service to run code in the cloud. This type of service is often called Function as a Service, or FaaS for short.
 
 It's a perfect solution for event triggered small integrations or transformations. Such as a webhook for callbacks from various services. As a developer you only have to implement the event handler and can ignore any OS or HTTP Server setup or administration. The cloud provider takes care of all of that as well as scaling if load increases.
@@ -21,17 +22,19 @@ This of course comes with some constraints and in the case of Google Cloud Funct
 to Node.js v6.11.1.
 
 ## The Catfinder function
+
 As an example of setting up an integration as a function this post will use a small function that integrates Google Cloud Storage, Google Vision and Slack. It works by getting a change event from a Cloud Storage bucket and send any new files to the Vision API to decide whether it's an image of a cat. If it is, it will send a message to Slack notifying that a new cat picture was uploaded.
 
 All the code for the project can be found at [Github](https://github.com/hallski/cat-finder).
 
 ### Implementation
+
 A cloud function is a normal NPM module where the script pointed to by `main` in `package.json` needs to export a function with the same name as the function (by default, this can be overridden with the `--entry-point` flag when deploying).
 
 In our `package.json` the main module is defined to be `src/index.js` and the exported function is called `catFinder`. The function has different signatures depending on the trigger mechanism. In the case of a bucket event it will have the signature:
 
 ```javascript
-exports.catFinder = function(event, callback) {}
+exports.catFinder = function (event, callback) {}
 ```
 
 The `event` contains information about the event, such as file name, bucket name, event type etc. The `callback` is used to notify that the function has finished.
@@ -60,22 +63,22 @@ The `storageNewFileEventFilter` function takes in the event and checks whether i
 
 ```javascript
 function storageNewFileEventFilter(event) {
-  const file = event.data
-  return file.resourceState === 'exists' && file.metageneration === '1'
+	const file = event.data
+	return file.resourceState === 'exists' && file.metageneration === '1'
 }
 ```
 
 With the help of _Promises_ the rest of the event handler function is very straight forward.
 
 ```javascript
-  const file = event.data
-  const storageUri = `gs://${file.bucket}/${file.name}`
+const file = event.data
+const storageUri = `gs://${file.bucket}/${file.name}`
 
-  return visionFetchLabels(storageUri)
-    .then(any(isCat))
-    .then(notifySlack(secrets.slackWebhook, `A cat was posted: ${storageUri}`))
-    .then(logSuccess, logError)
-    .then(callback)
+return visionFetchLabels(storageUri)
+	.then(any(isCat))
+	.then(notifySlack(secrets.slackWebhook, `A cat was posted: ${storageUri}`))
+	.then(logSuccess, logError)
+	.then(callback)
 ```
 
 1. Fetch the labels through Vision API
@@ -90,10 +93,11 @@ Using the _Vision_ API to fetch labels from an image in Cloud Storage is as easy
 
 ```javascript
 function visionFetchLabels(uri) {
-  const visionRequest = { source: { imageUri: uri }}
+	const visionRequest = { source: { imageUri: uri } }
 
-  return vision.labelDetection(visionRequest)
-    .then(function(results) { return results[0].labelAnnotations })
+	return vision.labelDetection(visionRequest).then(function (results) {
+		return results[0].labelAnnotations
+	})
 }
 ```
 
@@ -101,7 +105,7 @@ The function returns a promise that fulfills to an array of label objects. The l
 
 ```javascript
 function isCat(label) {
-  return label.description.indexOf('cat') !== -1 && label.score > 0.8
+	return label.description.indexOf('cat') !== -1 && label.score > 0.8
 }
 ```
 
@@ -111,17 +115,16 @@ Finally, if the image is determined to match a cat, it's posted to Slack through
 
 ```javascript
 function notifySlack(webhook, message) {
-  return function() {
-    return request
-      .post(webhook)
-      .send({ text: message })
-  }
+	return function () {
+		return request.post(webhook).send({ text: message })
+	}
 }
 ```
 
 The webhook is provided by Slack through creating a new App and adding an Incoming Webhook.
 
 ### Deploying the function
+
 The function is deployed to the cloud through the following command:
 
 ```bash
@@ -133,6 +136,7 @@ The trigger type is specified to be a bucket (meaning in storage event) and the 
 In the source root directory there is a small script called `deploy.sh` that creates a DEPLOY directory and copies the correct files to it and runs the above command.
 
 ## Summary
+
 Cloud functions can be a great way to quickly setup some data transformation as a reaction on new files being uploaded. Or it can act as the backend for a callback from for example Slack, Github etc.
 
 As demonstrated the deployment didn't require any setup other than creating a Slack app to retrieve an incoming webhook and writing the event handler that is triggered by changes to a Storage bucket. If a lot of events are coming from the bucket, the Cloud Function service will automatically make sure that more handlers are executed to handle the incoming load.

@@ -1,6 +1,6 @@
 <script>
-	import { base } from '$app/paths';
-	import { posts } from '$lib/posts';
+	import { base } from '$app/paths'
+	import { posts } from '$lib/posts'
 </script>
 
 <h1>Blog archive</h1>

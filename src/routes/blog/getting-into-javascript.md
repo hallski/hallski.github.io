@@ -1,9 +1,9 @@
 ---
 comments: null
-date: "2017-09-19T00:00:00Z"
+date: '2017-09-19T00:00:00Z'
 section: blog
 tags:
-- javascript
+  - javascript
 title: Getting into Javascript
 ---
 
@@ -15,8 +15,8 @@ For example I love the _object literal syntax_ to create objects on the fly with
 
 ```javascript
 const todoItem = {
-  done: false,
-  title: 'Newly created item'
+	done: false,
+	title: 'Newly created item'
 }
 
 assert.equal(todoItem.done, false) // OK

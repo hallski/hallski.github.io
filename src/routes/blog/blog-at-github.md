@@ -1,9 +1,9 @@
 ---
 comments: false
-date: "2009-04-20T00:00:00Z"
+date: '2009-04-20T00:00:00Z'
 section: blog
 tags:
-- blog
+  - blog
 title: Blogging at Github
 ---
 

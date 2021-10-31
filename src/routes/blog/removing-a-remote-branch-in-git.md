@@ -1,9 +1,9 @@
 ---
 comments: false
-date: "2008-06-21T00:00:00Z"
+date: '2008-06-21T00:00:00Z'
 section: blog
 tags:
-- git
+  - git
 title: Removing a remote branch in Git
 ---
 
