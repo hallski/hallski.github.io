@@ -15,6 +15,6 @@ jobs:
         with:
           node-version: '16'
       - name: Install dependencies
-        run: pnpm install
+        run: yarn install
       - name: Build
         run: pnpm build
