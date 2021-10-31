@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed"><link rel="stylesheet" href="/css/style.css" type="text/css">
+
+		
+
+		<link rel="stylesheet" href="/_app/assets/start-61d1577b.css">
+		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-67097d95.css">
+
+		
+	</head>
+	<body>
+		<div id="svelte">
+
+
+
+
+<header><nav role="navigation" class="navbar svelte-d1vz7p"><a class="nav-link svelte-d1vz7p" href="/">Home</a>
+		<ul class="svelte-d1vz7p">
+			<li class="svelte-d1vz7p"><a href="/blog/" class="nav-link svelte-d1vz7p">Articles</a></li>
+			
+			<li class="svelte-d1vz7p"><a href="/about" class="nav-link svelte-d1vz7p">About</a></li></ul></nav>
+</header>
+
+<main class="main"><div class="content"><article class="post"><header><h1>Working with Generators</h1>
+		<span class="post-date">November 13, 2017</span></header>
+	<h2>Javascript Generator Series</h2>
+<p>This article is part of a series of articles about ES6 generators. The plan is to explore iterators and generators, starting with what they are and show casing different situations where they can be useful.</p>
+<ol><li><a href="/blog/intro-to-es6-iter-and-generators">Introduction to ES6 Iterators and Generators</a></li>
+<li>Working with Generators</li>
+<li><a href="/blog/async-await-with-generators">Async/Await with Generators</a></li></ol>
+<h2>Introduction</h2>
+<p>Generators have a lot of great applications, such as the <code>randomInts</code> generator below. In this article we’ll however force the example a bit by also combining this generator with a <code>zip</code> generator to produce a <code>rollCharacter</code> function for <a href="https://en.wikipedia.org/wiki/Dungeons_%26_Dragons" rel="nofollow">D&amp;D</a> character creation.</p>
+<p>In D&amp;D there are six different attributes: <em>Strength</em>, <em>Constitution</em>, <em>Dexterity</em>, <em>Intelligence</em>, <em>Wisdom</em> and <em>Charisma</em>. Each attribute is rolled by the use of 3d6 (roll three six sided dice and add the results).</p>
+<p>The attributes will be modelled as an array of strings:</p>
+<div class="highlighter-rouge language-javascript"><div class="highlight"><pre class="highlight"><code><span class="hljs-keyword">const</span> characterAttributes = [
+	<span class="hljs-string">&#39;Strength&#39;</span>,
+	<span class="hljs-string">&#39;Constituion&#39;</span>,
+	<span class="hljs-string">&#39;Dexterity&#39;</span>,
+	<span class="hljs-string">&#39;Intelligence&#39;</span>,
+	<span class="hljs-string">&#39;Wisdom&#39;</span>,
+	<span class="hljs-string">&#39;Charisma&#39;</span>
+]</code></pre></div></div>
+<p>The result of calling <code>rollCharacter</code> should work like this:</p>
+<div class="highlighter-rouge language-javascript"><div class="highlight"><pre class="highlight"><code><span class="hljs-title function_">rollCharacter</span>()
+<span class="hljs-comment">// [[ &#39;Strength&#39;, 17 ],</span>
+<span class="hljs-comment">//  [ &#39;Constituion&#39;, 6 ],</span>
+<span class="hljs-comment">//  [ &#39;Dexterity&#39;, 15 ],</span>
+<span class="hljs-comment">//  [ &#39;Intelligence&#39;, 12 ],</span>
+<span class="hljs-comment">//  [ &#39;Wisdom&#39;, 8 ],</span>
+<span class="hljs-comment">//  [ &#39;Charisma&#39;, 11 ]]</span></code></pre></div></div>
+<h2>Infinite random number generator</h2>
+<p>The dice can be simulated as an infinite generator where each call to <code>next()</code> simulates a roll. Our generator function will be called <code>randomInt(lower, upper, seed)</code> and take a lower value, an upper value and a seed.</p>
+<div class="highlighter-rouge language-javascript"><div class="highlight"><pre class="highlight"><code><span class="hljs-keyword">const</span> <span class="hljs-title function_">randomSeed</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">1000</span>)
+
+<span class="hljs-keyword">function</span>* <span class="hljs-title function_">randomInts</span>(<span class="hljs-params">lower, upper, seed = randomSeed()</span>) {
+	<span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
+		<span class="hljs-keyword">const</span> x = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">sin</span>(seed++) * <span class="hljs-number">10000</span>
+		<span class="hljs-keyword">const</span> random = x - <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(x)
+		<span class="hljs-keyword">yield</span> <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">round</span>(lower + random * (upper - lower))
+	}
+}
+
+<span class="hljs-keyword">const</span> d20 = <span class="hljs-title function_">randomInts</span>(<span class="hljs-number">1</span>, <span class="hljs-number">20</span>)
+d20.<span class="hljs-title function_">next</span>().<span class="hljs-property">value</span> <span class="hljs-comment">// 13</span>
+d20.<span class="hljs-title function_">next</span>().<span class="hljs-property">value</span> <span class="hljs-comment">// 1 - oh no, a fumble!</span></code></pre></div></div>
+<p>One benefit of defining a <code>randomInt</code> as a generator instead of a normal function is that we can produce a reproducable stream of values by giving the generator the same seed value, since it’s keeping all it’s state internal. This is great for testing.</p>
+<h2>Combining iterators</h2>
+<p>Since both arrays (our <code>characterAttributes</code>) and generators are <em>Iterable</em> it would be nice if we could simply iterate them together and create pairs like <code>[&#39;Strength&#39;, 13]</code>. One pair for each attribute.</p>
+<p>Many functional languages have a function called <code>zip</code> that does just that. While Javascript doesn’t come with <code>zip</code> by default, <a href="https://lodash.com/" rel="nofollow">Lodash</a> has it. Unfortunately the Lodash version does not support iterators so let’s define our own.</p>
+<p><code>zip</code> will take any number of Iterables and generate groups until any of the iterations are exhausted.</p>
+<div class="highlighter-rouge language-javascript"><div class="highlight"><pre class="highlight"><code>;[...<span class="hljs-title function_">zip</span>([<span class="hljs-string">&#39;a&#39;</span>, <span class="hljs-string">&#39;b&#39;</span>, <span class="hljs-string">&#39;c&#39;</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>])] <span class="hljs-comment">// =&gt; [[&#39;a&#39;, 1], [&#39;b&#39;, 2], [&#39;c&#39;, 3]]</span></code></pre></div></div>
+<p>The <code>...</code> in front of <code>zip</code> is the <em>spread operator</em> (also part of ES6) which will <em>“spread out”</em> all values generated by <code>zip</code>.</p>
+<p>We’ll start by implementing two helper generators, <code>produceWhile</code> and <code>mappedGenerator</code>.</p>
+<h3>produceWhile</h3>
+<p>The generator <code>produceWhile</code> will continue to generate values through the <code>produce</code> function until the <code>predicate</code> returns <code>false</code>.</p>
+<div class="highlighter-rouge language-javascript"><div class="highlight"><pre class="highlight"><code><span class="hljs-keyword">function</span>* <span class="hljs-title function_">produceWhile</span>(<span class="hljs-params">produce, predicate</span>) {
+	<span class="hljs-keyword">let</span> value = <span class="hljs-title function_">produce</span>()
+	<span class="hljs-keyword">while</span> (<span class="hljs-title function_">predicate</span>(value)) {
+		<span class="hljs-keyword">yield</span> value
+		value = <span class="hljs-title function_">produce</span>()
+	}
+}</code></pre></div></div>
+<h3>mappedGenerator</h3>
+<p><code>mappedGenerator</code> wraps another generator by mapping the values it produces with the <code>mapper</code> function:</p>
+<div class="highlighter-rouge language-javascript"><div class="highlight"><pre class="highlight"><code><span class="hljs-keyword">function</span>* <span class="hljs-title function_">mappedGenerator</span>(<span class="hljs-params">generator, mapper</span>) {
+	<span class="hljs-keyword">let</span> result = generator.<span class="hljs-title function_">next</span>()
+	<span class="hljs-keyword">while</span> (!result.<span class="hljs-property">done</span>) {
+		<span class="hljs-keyword">yield</span> <span class="hljs-title function_">mapper</span>(result.<span class="hljs-property">value</span>)
+		result = generator.<span class="hljs-title function_">next</span>()
+	}
+}</code></pre></div></div>
+<h3>zip</h3>
+<p>With these two helpers in place we are ready to implement our <code>zip</code> generator function.</p>
+<div class="highlighter-rouge language-javascript"><div class="highlight"><pre class="highlight"><code><span class="hljs-keyword">function</span>* <span class="hljs-title function_">zip</span>(<span class="hljs-params">...iterables</span>) {
+	<span class="hljs-comment">// Get Iterators for each Iterable</span>
+	<span class="hljs-keyword">const</span> iterators = iterables.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">iterable</span>) =&gt;</span> iterable[<span class="hljs-title class_">Symbol</span>.<span class="hljs-property">iterator</span>]())
+
+	<span class="hljs-comment">// Produce groups of iterator results [IterResult1, IterResult2, ...] where each</span>
+	<span class="hljs-comment">// IterResult is an object like { value: x, done: true|false }. Stop when any</span>
+	<span class="hljs-comment">// IterResult is marked as done.</span>
+	<span class="hljs-keyword">const</span> producer = <span class="hljs-title function_">produceWhile</span>(
+		<span class="hljs-function">() =&gt;</span> iterators.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">iterator</span>) =&gt;</span> iterator.<span class="hljs-title function_">next</span>()),
+		<span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> value.<span class="hljs-title function_">every</span>(<span class="hljs-function">(<span class="hljs-params">v</span>) =&gt;</span> !v.<span class="hljs-property">done</span>)
+	)
+
+	<span class="hljs-comment">// Unbox the value from the iterator results</span>
+	<span class="hljs-keyword">yield</span>* <span class="hljs-title function_">mappedGenerator</span>(producer, <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> value.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">v</span>) =&gt;</span> v.<span class="hljs-property">value</span>))
+}</code></pre></div></div>
+<p>Notice that <code>zip</code> makes use of the <code>yield*</code> construct. This delegates generation to a another iterator, in this case the mapped generator.</p>
+<h2>Putting it all together</h2>
+<p>With the <code>zip</code> implementation we can define our function as follows:</p>
+<div class="highlighter-rouge language-javascript"><div class="highlight"><pre class="highlight"><code><span class="hljs-keyword">const</span> zip = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#39;./zip&#39;</span>)
+<span class="hljs-keyword">const</span> randomInts = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#39;./randomInts&#39;</span>)
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">rollCharacter</span>(<span class="hljs-params"></span>) {
+	<span class="hljs-keyword">const</span> attributes = [<span class="hljs-string">&#39;Strength&#39;</span>, <span class="hljs-string">&#39;Constituion&#39;</span>, <span class="hljs-string">&#39;Dexterity&#39;</span>, <span class="hljs-string">&#39;Intelligence&#39;</span>, <span class="hljs-string">&#39;Wisdom&#39;</span>, <span class="hljs-string">&#39;Charisma&#39;</span>]
+
+	<span class="hljs-keyword">return</span> [...<span class="hljs-title function_">zip</span>(attributes, <span class="hljs-title function_">randomInts</span>(<span class="hljs-number">3</span>, <span class="hljs-number">18</span>))]
+}
+
+<span class="hljs-title function_">rollCharacter</span>()
+<span class="hljs-comment">// [[ &#39;Strength&#39;, 17 ],</span>
+<span class="hljs-comment">//  [ &#39;Constituion&#39;, 6 ],</span>
+<span class="hljs-comment">//  [ &#39;Dexterity&#39;, 15 ],</span>
+<span class="hljs-comment">//  [ &#39;Intelligence&#39;, 12 ],</span>
+<span class="hljs-comment">//  [ &#39;Wisdom&#39;, 8 ],</span>
+<span class="hljs-comment">//  [ &#39;Charisma&#39;, 11 ]]</span></code></pre></div></div>
+<p>Here we combine a finite <em>Iteratable</em> <code>attributes</code> with an infinite one <code>randomInts</code>. Since <code>zip</code> stops when either is exhausted, it’s safe to use it together with the infinite one and the spread operator.</p></article></div></main>
+
+<footer class="site-footer svelte-1h9y0mo"><div class="author svelte-1h9y0mo"><img class="author-photo svelte-1h9y0mo" src="/images/hallski.jpg" width="192" height="192" alt="Author">
+		<div><p class="author-name svelte-1h9y0mo">Mikael Hallendal</p>
+			<p class="author-info svelte-1h9y0mo">Developer who loves to learn new things.</p>
+			<p class="author-interests svelte-1h9y0mo">Current focus: <span class="interest svelte-1h9y0mo">React</span>,
+				<span class="interest svelte-1h9y0mo">Javascript/Typescript</span> and
+				<span class="interest svelte-1h9y0mo">Elixir</span></p>
+			<nav class="find-me svelte-1h9y0mo"><a href="http://github.com/hallski/" class="svelte-1h9y0mo">Github</a>
+				<a href="http://twitter.com/mhallendal/" class="svelte-1h9y0mo">Twitter</a>
+				<a href="http://www.linkedin.com/in/mhallendal" class="svelte-1h9y0mo">LinkedIn</a></nav></div></div>
+</footer>
+
+
+
+			
+		</div>
+	</body>
+</html>

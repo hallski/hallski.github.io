@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed"><link rel="stylesheet" href="/css/style.css" type="text/css">
+
+		
+
+		<link rel="stylesheet" href="/_app/assets/start-61d1577b.css">
+		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-67097d95.css">
+
+		
+	</head>
+	<body>
+		<div id="svelte">
+
+
+
+
+<header><nav role="navigation" class="navbar svelte-d1vz7p"><a class="nav-link svelte-d1vz7p" href="/">Home</a>
+		<ul class="svelte-d1vz7p">
+			<li class="svelte-d1vz7p"><a href="/blog/" class="nav-link svelte-d1vz7p">Articles</a></li>
+			
+			<li class="svelte-d1vz7p"><a href="/about" class="nav-link svelte-d1vz7p">About</a></li></ul></nav>
+</header>
+
+<main class="main"><div class="content"><article class="post"><header><h1>Initial release of MHConvore</h1>
+		<span class="post-date">February 16, 2011</span></header>
+	<p>Just pushed the first cut of a small framework to connect with the newly launched chatservice <a href="http://convore.com/" rel="nofollow">Convore</a>. In short Convore is an attempt to create a better way to chat than IRC and also support a web frontend while making it possible to connect with native clients.</p>
+<p>The API will likely change a bit and it’s fresh out of the editor so might be a bit flaky still.</p>
+<p>The API makes heavy use of blocks for actions initiated from your code and a client listener for notifications initiated from the server.</p>
+<p>A small example of how you use the API, I will add a better example later.</p>
+<div class="highlighter-rouge language-objc"><div class="highlight"><pre class="highlight"><code>- (<span class="hljs-keyword">void</span>)connectToServer
+{
+    MHConvoreClient *client = [MHConvoreClient clientWithUsername:<span class="hljs-string">@&quot;u&quot;</span> password:<span class="hljs-string">@&quot;p&quot;</span>];
+    client.listener = <span class="hljs-keyword">self</span>;
+
+    [client verifyAccount:^ (MHConvoreUser *user, <span class="hljs-built_in">NSError</span> *error) {
+        <span class="hljs-keyword">if</span> (error == <span class="hljs-literal">nil</span>) {
+            <span class="hljs-comment">//   [self doSomething];</span>
+            [client listen];
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;Error while verifying account: %@&quot;</span>, error);
+        }
+    }];
+}
+
+<span class="hljs-comment">/* Called when the client receives a new message */</span>
+- (<span class="hljs-keyword">void</span>)newMessage:(MHConvoreMessage *)message
+{
+    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;[%@]: %@&quot;</span>, message.user.name, message.message);
+}</code></pre></div></div>
+<p>To connect to Convore you first need to create an account through their website.</p>
+<p>There still is work that needs to be done to it so feel free to fork and hack on it. For example there is currently no way to cancel the listener.</p>
+<p><a href="https://github.com/hallski/mhconvore" rel="nofollow">The code at Github</a></p></article></div></main>
+
+<footer class="site-footer svelte-1h9y0mo"><div class="author svelte-1h9y0mo"><img class="author-photo svelte-1h9y0mo" src="/images/hallski.jpg" width="192" height="192" alt="Author">
+		<div><p class="author-name svelte-1h9y0mo">Mikael Hallendal</p>
+			<p class="author-info svelte-1h9y0mo">Developer who loves to learn new things.</p>
+			<p class="author-interests svelte-1h9y0mo">Current focus: <span class="interest svelte-1h9y0mo">React</span>,
+				<span class="interest svelte-1h9y0mo">Javascript/Typescript</span> and
+				<span class="interest svelte-1h9y0mo">Elixir</span></p>
+			<nav class="find-me svelte-1h9y0mo"><a href="http://github.com/hallski/" class="svelte-1h9y0mo">Github</a>
+				<a href="http://twitter.com/mhallendal/" class="svelte-1h9y0mo">Twitter</a>
+				<a href="http://www.linkedin.com/in/mhallendal" class="svelte-1h9y0mo">LinkedIn</a></nav></div></div>
+</footer>
+
+
+
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed"><link rel="stylesheet" href="/css/style.css" type="text/css">
+
+		
+
+		<link rel="stylesheet" href="/_app/assets/start-61d1577b.css">
+		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-67097d95.css">
+
+		
+	</head>
+	<body>
+		<div id="svelte">
+
+
+
+
+<header><nav role="navigation" class="navbar svelte-d1vz7p"><a class="nav-link svelte-d1vz7p" href="/">Home</a>
+		<ul class="svelte-d1vz7p">
+			<li class="svelte-d1vz7p"><a href="/blog/" class="nav-link svelte-d1vz7p">Articles</a></li>
+			
+			<li class="svelte-d1vz7p"><a href="/about" class="nav-link svelte-d1vz7p">About</a></li></ul></nav>
+</header>
+
+<main class="main"><div class="content"><article class="post"><header><h1>Expanding NSOutlineView nodes at application start</h1>
+		<span class="post-date">April 06, 2009</span></header>
+	<p>A problem when you want to expand some items in an <em>NSOutlineView</em> programatically at application start is that the <em>NSTreeController</em> prepares it’s content after <code>awakeFromNib</code> is called on your controller.</p>
+<p>To ensure that the data is loaded before you try to expand the items you can observe the <code>content</code> key on the tree controller and expand the nodes as you receive the the <code>observeValueForKeyPath:</code> message as shown below:</p>
+<div class="highlighter-rouge language-objc"><div class="highlight"><pre class="highlight"><code>- (<span class="hljs-keyword">void</span>)observeValueForKeyPath:(<span class="hljs-built_in">NSString</span> *)keyPath
+                      ofObject:(<span class="hljs-keyword">id</span>)object
+                        change:(<span class="hljs-built_in">NSDictionary</span> *)change
+                       context:(<span class="hljs-keyword">void</span> *)context
+{
+    <span class="hljs-keyword">if</span> (object == treeController) {
+        <span class="hljs-comment">// Expand the first row (which is our section header)</span>
+        [sourceList expandItem:[sourceList itemAtRow:<span class="hljs-number">0</span>]
+                expandChildren:<span class="hljs-literal">NO</span>];
+        [treeController removeObserver:<span class="hljs-keyword">self</span>
+                            forKeyPath:<span class="hljs-string">@&quot;content&quot;</span>];
+    }
+}
+
+- (<span class="hljs-keyword">void</span>)awakeFromNib
+{
+    <span class="hljs-comment">// Listen on the treeController to expand the root node</span>
+    <span class="hljs-comment">// when it has prepared it&#39;s content.</span>
+    [treeController addObserver:<span class="hljs-keyword">self</span>
+                     forKeyPath:<span class="hljs-string">@&quot;content&quot;</span>
+                        options:<span class="hljs-number">0</span>
+                        context:<span class="hljs-literal">nil</span>];
+}</code></pre></div></div></article></div></main>
+
+<footer class="site-footer svelte-1h9y0mo"><div class="author svelte-1h9y0mo"><img class="author-photo svelte-1h9y0mo" src="/images/hallski.jpg" width="192" height="192" alt="Author">
+		<div><p class="author-name svelte-1h9y0mo">Mikael Hallendal</p>
+			<p class="author-info svelte-1h9y0mo">Developer who loves to learn new things.</p>
+			<p class="author-interests svelte-1h9y0mo">Current focus: <span class="interest svelte-1h9y0mo">React</span>,
+				<span class="interest svelte-1h9y0mo">Javascript/Typescript</span> and
+				<span class="interest svelte-1h9y0mo">Elixir</span></p>
+			<nav class="find-me svelte-1h9y0mo"><a href="http://github.com/hallski/" class="svelte-1h9y0mo">Github</a>
+				<a href="http://twitter.com/mhallendal/" class="svelte-1h9y0mo">Twitter</a>
+				<a href="http://www.linkedin.com/in/mhallendal" class="svelte-1h9y0mo">LinkedIn</a></nav></div></div>
+</footer>
+
+
+
+			
+		</div>
+	</body>
+</html>
