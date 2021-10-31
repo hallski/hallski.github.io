@@ -1,11 +1,12 @@
 <script>
-	import { base } from '$app/paths'
-	import { posts } from '$lib/posts'
-	import moment from 'moment'
+	import { base } from '$app/paths';
+	import { posts } from '$lib/posts';
+	import moment from 'moment';
 
-	$: [latest, ...highlighted] = posts.slice(0, 4)
+	$: [latest, ...highlighted] = posts.slice(0, 4);
+	$: console.log('Latest path', latest.path);
 
-	const format = (date) => moment(date).format('MMMM DD, YYYY')
+	const format = (date) => moment(date).format('MMMM DD, YYYY');
 </script>
 
 <section class="latest-post">
@@ -18,7 +19,7 @@
 	</header>
 	<p>{latest.excerpt}</p>
 	<footer>
-		<a href={`${base}/${latest.path}`}>Read more...</a>
+		<a href={`${base}${latest.path}`}>Read more...</a>
 	</footer>
 </section>
 
@@ -27,7 +28,7 @@
 	{#each highlighted as post}
 		<!--  {% for post in site.posts limit:3 offset:1 %}-->
 		<article>
-			<a class="article-list-link" href={`${base}/${post.path}`}>{post.title}</a>
+			<a class="article-list-link" href={`${base}${post.path}`}>{post.title}</a>
 			<span class="post-date">{format(post.date)}</span>
 		</article>
 	{/each}

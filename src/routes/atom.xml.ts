@@ -1,8 +1,8 @@
+import { posts } from '$lib/posts'
 export async function get(): Promise<{
 	headers: string
 	body: string
 }> {
-	const posts = []
 	const body = xml(posts)
 
 	const headers = JSON.stringify({
@@ -23,7 +23,7 @@ const xml = (posts) => `
   <title>Mikael Hallendal</title>
   <link href="http://hallski.org/"/>
   <link type="application/atom+xml" rel="self" href="http://hallski.org/atom.xml"/>
-  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <updated>${posts[0].date}</updated>
   <id>http://hallski.org/</id>
   <author>
     <name>Mikael Hallendal</name>
@@ -32,8 +32,8 @@ const xml = (posts) => `
   ${posts.map(
 		(post) => `
   <entry>
-    <id>http://hallski.org{{ post.id }}</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org{{ post.url }}"/>
+    <id>http://hallski.org${post.path}</id>
+    <link type="text/html" rel="alternate" href="http://hallski.org${post.path}"/>
     <title>${post.title}</title>
     <published>${post.date}</published>
     <updated>${post.date}</updated>

@@ -1,5 +1,5 @@
 ---
-date: '2021-02-21T00:00:00Z'
+date: 2021-02-21
 section: blog
 title: Back to GH Pages
 excerpt: Moved my blog back to Github Pages after a few years of running it from Google Platform.
