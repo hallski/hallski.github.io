@@ -3,10 +3,10 @@ name: GitHub Pages
 on:
   push:
     branches:
-      - svelte
+      - main
 
 jobs:
-  test:
+  Deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
