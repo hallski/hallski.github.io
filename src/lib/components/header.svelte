@@ -3,11 +3,11 @@
 </script>
 
 <script lang="ts">
-	$: activePage = $page.path
+	$: activePage = $page.url.pathname
 </script>
 
 <header>
-	<nav role="navigation" class="navbar">
+	<nav class="navbar">
 		<a class="nav-link" class:active={activePage === '/'} href="/">Home</a>
 		<ul>
 			<!--li class="{% if page.section == 'blog' %}active{% endif %}"-->

@@ -12,14 +12,18 @@ const config = {
 	preprocess: [preprocess(), mdsvex(mdsvexConfig)],
 
 	kit: {
-		hydrate: false,
-		router: false,
-		target: '#svelte',
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
 			fallback: null
-		})
+		}),
+		browser: {
+			hydrate: false,
+			router: false
+		},
+		prerender: {
+			default: true
+		}
 	}
 }
 

@@ -1,6 +1,9 @@
 <script>
 	import { base } from '$app/paths'
 	import { posts } from '$lib/posts'
+	import moment from 'moment'
+
+	const format = (date) => moment(date).format('MMMM DD, YYYY')
 </script>
 
 <h1>Blog archive</h1>
@@ -11,7 +14,7 @@
 				{post.title}
 			</a>
 			<time class="post-date" datetime="2002">
-				{post.date}
+				{format(post.date)}
 			</time>
 		</article>
 	{/each}
