@@ -12,7 +12,7 @@
 		<ul>
 			<!--li class="{% if page.section == 'blog' %}active{% endif %}"-->
 			<li class:active={activePage === '/blog'}>
-				<a href="/blog/" class="nav-link">Articles</a>
+				<a href="/blog" class="nav-link">Articles</a>
 			</li>
 			<!--li class="{% if page.section == 'about' %}active{% endif %}"-->
 			<li class:active={activePage === '/about'}>
