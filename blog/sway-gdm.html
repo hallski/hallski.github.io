@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="content-security-policy" content=""><link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed"><link rel="stylesheet" href="/css/style.css" type="text/css">
+	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-3ab4768d.css">
+	</head>
+	<body>
+		<div id="svelte">
+
+
+
+
+<header><nav class="navbar svelte-d1vz7p"><a class="nav-link svelte-d1vz7p" href="/">Home</a>
+		<ul class="svelte-d1vz7p">
+			<li class="svelte-d1vz7p"><a href="/blog/" class="nav-link svelte-d1vz7p">Articles</a></li>
+			
+			<li class="svelte-d1vz7p"><a href="/about" class="nav-link svelte-d1vz7p">About</a></li></ul></nav>
+</header>
+
+<main class="main"><div class="content"><article class="post"><header><h1>Sway on Fedora 31 with GDM</h1>
+		<span class="post-date">November 04, 2019</span></header>
+	<h2>Running Sway on Fedora 31 with GDM</h2>
+<p>After upgrading to Fedora 31 a crucial extension <a href="https://github.com/timbertson/slinger" rel="nofollow">Slinger</a>, stopped working. Luckily the <a href="https://swaywm.org/" rel="nofollow">Sway</a> package had been updated to 1.1 so figured I’d try it out.</p>
+<p>In summary it’s been working really well however in order to use the GNOME Keyring Daemon as SSH Agent I needed to pass an environment variable to the Sway process. Turns out something changed in how Wayland sessions (compared to X) were started and the old <code>~/.profile</code> solution didn’t work any longer.</p>
+<p>After some Googling I found out that the gnome-shell came with a workaround for this where it runs a custom script before actually starting the shell.</p>
+<p>Copying that setup here is what I did in order to get it to work.</p>
+<p>Make a copy of <code>sway.desktop</code> in <code>/usr/share/wayland-sessions</code> to <code>sway-shell.desktop</code> and make sure it has the same mods.</p>
+<div class="highlighter-rouge language-text"><div class="highlight"><pre class="highlight"><code>[Desktop Entry]
+Name=Sway Shell
+Comment=An i3-compatible Wayland compositor
+Exec=/usr/bin/sway-shell
+TryExec=/usr/bin/sway-shell
+Type=Application</code></pre></div></div>
+<p>Copy <code>/usr/bin/gnome-session</code> to <code>/usr/bin/sway-shell</code> and replace the last like with</p>
+<div class="highlighter-rouge language-bash"><div class="highlight"><pre class="highlight"><code><span class="hljs-built_in">exec</span> /usr/bin/sway <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span></code></pre></div></div>
+<p>Edit <code>~/.profile</code> (or in my case <code>~/.zprofile</code>) to setup the environment.</p>
+<div class="highlighter-rouge language-bash"><div class="highlight"><pre class="highlight"><code><span class="hljs-keyword">if</span> [ -n <span class="hljs-string">&quot;<span class="hljs-variable">$DESKTOP_SESSION</span>&quot;</span> ];<span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">eval</span> $(gnome-keyring-daemon --start --components=ssh)
+  <span class="hljs-built_in">export</span> SSH_AUTH_SOCK
+  <span class="hljs-built_in">export</span> GTK_THEME=<span class="hljs-string">&quot;Adwaita-dark&quot;</span>
+<span class="hljs-keyword">fi</span></code></pre></div></div>
+<p>After that I simply logged out, changed to use <strong>Sway Shell</strong> in GDM and logged back in.</p></article></div></main>
+
+<footer class="site-footer svelte-1h9y0mo"><div class="author svelte-1h9y0mo"><img class="author-photo svelte-1h9y0mo" src="/images/hallski.jpg" width="192" height="192" alt="Author">
+		<div><p class="author-name svelte-1h9y0mo">Mikael Hallendal</p>
+			<p class="author-info svelte-1h9y0mo">Developer who loves to learn new things.</p>
+			<p class="author-interests svelte-1h9y0mo">Current focus: <span class="interest svelte-1h9y0mo">React</span>,
+				<span class="interest svelte-1h9y0mo">Javascript/Typescript</span> and
+				<span class="interest svelte-1h9y0mo">Elixir</span></p>
+			<nav class="find-me svelte-1h9y0mo"><a href="http://github.com/hallski/" class="svelte-1h9y0mo">Github</a>
+				<a href="http://twitter.com/mhallendal/" class="svelte-1h9y0mo">Twitter</a>
+				<a href="http://www.linkedin.com/in/mhallendal" class="svelte-1h9y0mo">LinkedIn</a></nav></div></div>
+</footer>
+
+</div>
+	</body>
+</html>

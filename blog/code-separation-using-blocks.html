@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="content-security-policy" content=""><link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed"><link rel="stylesheet" href="/css/style.css" type="text/css">
+	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-3ab4768d.css">
+	</head>
+	<body>
+		<div id="svelte">
+
+
+
+
+<header><nav class="navbar svelte-d1vz7p"><a class="nav-link svelte-d1vz7p" href="/">Home</a>
+		<ul class="svelte-d1vz7p">
+			<li class="svelte-d1vz7p"><a href="/blog/" class="nav-link svelte-d1vz7p">Articles</a></li>
+			
+			<li class="svelte-d1vz7p"><a href="/about" class="nav-link svelte-d1vz7p">About</a></li></ul></nav>
+</header>
+
+<main class="main"><div class="content"><article class="post"><header><h1>Code Separation Using Blocks</h1>
+		<span class="post-date">January 24, 2011</span></header>
+	<p>This is a short blog entry to describe how you can use blocks to seperate a generic code from problem specific using blocks. Those that have been looking at <a href="http://projecteuler.net" rel="nofollow">Project Euler</a> might recognize this problem description.</p>
+<p>The program is supposed to calculate the sum of all even-valued <a href="http://en.wikipedia.org/wiki/Fibonacci_number" rel="nofollow">Fibonacci numbers</a> that doesn’t exceed a <tt>STOP_VALUE</tt>.</p>
+<p>To keep the Fibonacci calculations generic I wanted to separate the problem specific logic from the code calculating the Fibonacci sequence. Blocks can be really helpful for that which is shown below.</p>
+<div class="highlighter-rouge language-objc"><div class="highlight"><pre class="highlight"><code>+ sequenceWithBlock:^ <span class="hljs-type">void</span> (<span class="hljs-built_in">NSInteger</span> value, <span class="hljs-type">BOOL</span> *stop);</code></pre></div></div>
+<p>This method accepts a block that is called for every Fibonacci number in the sequence until the blocks sets the <tt>stop</tt> flag. The problem specific code is then placed inside the block.</p>
+<div class="highlighter-rouge language-objc"><div class="highlight"><pre class="highlight"><code>__block <span class="hljs-type">int</span> total = <span class="hljs-number">0</span>;
+
+[Fibonacci sequenceWithBlock:^ <span class="hljs-type">void</span> (<span class="hljs-built_in">NSInteger</span> value, <span class="hljs-type">BOOL</span> *stop) {
+    <span class="hljs-keyword">if</span> (value &gt; STOP_VALUE) {
+        *stop = <span class="hljs-literal">YES</span>;
+    }
+
+    <span class="hljs-keyword">if</span> (value % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) {
+        total += value;
+    }
+}];</code></pre></div></div></article></div></main>
+
+<footer class="site-footer svelte-1h9y0mo"><div class="author svelte-1h9y0mo"><img class="author-photo svelte-1h9y0mo" src="/images/hallski.jpg" width="192" height="192" alt="Author">
+		<div><p class="author-name svelte-1h9y0mo">Mikael Hallendal</p>
+			<p class="author-info svelte-1h9y0mo">Developer who loves to learn new things.</p>
+			<p class="author-interests svelte-1h9y0mo">Current focus: <span class="interest svelte-1h9y0mo">React</span>,
+				<span class="interest svelte-1h9y0mo">Javascript/Typescript</span> and
+				<span class="interest svelte-1h9y0mo">Elixir</span></p>
+			<nav class="find-me svelte-1h9y0mo"><a href="http://github.com/hallski/" class="svelte-1h9y0mo">Github</a>
+				<a href="http://twitter.com/mhallendal/" class="svelte-1h9y0mo">Twitter</a>
+				<a href="http://www.linkedin.com/in/mhallendal" class="svelte-1h9y0mo">LinkedIn</a></nav></div></div>
+</footer>
+
+</div>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="content-security-policy" content=""><link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed"><link rel="stylesheet" href="/css/style.css" type="text/css">
+	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-3ab4768d.css">
+	</head>
+	<body>
+		<div id="svelte">
+
+
+
+
+<header><nav class="navbar svelte-d1vz7p"><a class="nav-link svelte-d1vz7p" href="/">Home</a>
+		<ul class="svelte-d1vz7p">
+			<li class="svelte-d1vz7p"><a href="/blog/" class="nav-link svelte-d1vz7p">Articles</a></li>
+			
+			<li class="svelte-d1vz7p"><a href="/about" class="nav-link svelte-d1vz7p">About</a></li></ul></nav>
+</header>
+
+<main class="main"><div class="content"><article class="post"><header><h1>Testing with chai-http and Mocha 4</h1>
+		<span class="post-date">October 28, 2017</span></header>
+	<p><a href="http://chaijs.com/plugins/chai-http/" rel="nofollow">Chai-http</a> makes it very easy to test Node.js HTTP applications without having to to go through the hassle of finding a free port and start the service manually. By simply passing the server function to the <code>request</code> call it will take care of that for you.</p>
+<div class="highlighter-rouge language-javascript"><div class="highlight"><pre class="highlight"><code><span class="hljs-keyword">const</span> chai = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#39;chai&#39;</span>)
+<span class="hljs-keyword">const</span> chaiHttp = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#39;chai-http&#39;</span>)
+<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#39;express&#39;</span>)
+
+chai.<span class="hljs-title function_">use</span>(chaiHttp)
+
+<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>()
+<span class="hljs-comment">// configure app with middleware and routes...</span>
+
+chai
+	.<span class="hljs-title function_">request</span>(app)
+	.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#39;/&#39;</span>)
+	.<span class="hljs-title function_">end</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">error, result</span>) {
+		<span class="hljs-comment">// Verify error and result</span>
+	})</code></pre></div></div>
+<p>At first I thought it simulated HTTP requests by generating the request/response objects and passing them to the handler function directly. However it seems Chai-http actually finds a free port, starts the service as normal and uses <a href="https://github.com/visionmedia/superagent" rel="nofollow">Superagent</a> to send HTTP requests against it.</p>
+<p>This lead to an issue when switching to Mocha 4.</p>
+<h2>Mocha 4 changed exit behaviour</h2>
+<p>As I started a new project the other day I ran into a problem where the test runner never finishes and initially thought I had messed up my tests. After some investigation it seemed like Node.js never exits the event loop due to the HTTP server still listening to the socket.</p>
+<p>It turns out that Mocha 4 changed the default exit behaviour to no longer force shutdown the event loop after all tests ran. Using the <code>--exit</code> flags brings back the old behaviour which Chai-http is relying on to shutdown the HTTP server it started.</p>
+<div class="highlighter-rouge language-json"><div class="highlight"><pre class="highlight"><code>  <span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;test&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;mocha --exit&quot;</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span></code></pre></div></div>
+<p>This solves the problem but as discussed in <a href="https://github.com/chaijs/chai-http/issues/178" rel="nofollow">Issue #178</a>, a better long term solution would be to get more control over the server instance and shut it down when appropriate from the test code.</p></article></div></main>
+
+<footer class="site-footer svelte-1h9y0mo"><div class="author svelte-1h9y0mo"><img class="author-photo svelte-1h9y0mo" src="/images/hallski.jpg" width="192" height="192" alt="Author">
+		<div><p class="author-name svelte-1h9y0mo">Mikael Hallendal</p>
+			<p class="author-info svelte-1h9y0mo">Developer who loves to learn new things.</p>
+			<p class="author-interests svelte-1h9y0mo">Current focus: <span class="interest svelte-1h9y0mo">React</span>,
+				<span class="interest svelte-1h9y0mo">Javascript/Typescript</span> and
+				<span class="interest svelte-1h9y0mo">Elixir</span></p>
+			<nav class="find-me svelte-1h9y0mo"><a href="http://github.com/hallski/" class="svelte-1h9y0mo">Github</a>
+				<a href="http://twitter.com/mhallendal/" class="svelte-1h9y0mo">Twitter</a>
+				<a href="http://www.linkedin.com/in/mhallendal" class="svelte-1h9y0mo">LinkedIn</a></nav></div></div>
+</footer>
+
+</div>
+	</body>
+</html>

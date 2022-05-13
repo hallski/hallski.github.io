@@ -6,7 +6,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta http-equiv="content-security-policy" content=""><link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed"><link rel="stylesheet" href="/css/style.css" type="text/css">
 	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-3ab4768d.css">
-	<link rel="stylesheet" href="/_app/assets/pages/index.svelte-82b2dfd5.css">
 	</head>
 	<body>
 		<div id="svelte">
@@ -14,33 +13,35 @@
 
 
 
-<header><nav class="navbar svelte-d1vz7p"><a class="nav-link svelte-d1vz7p active" href="/">Home</a>
+<header><nav class="navbar svelte-d1vz7p"><a class="nav-link svelte-d1vz7p" href="/">Home</a>
 		<ul class="svelte-d1vz7p">
 			<li class="svelte-d1vz7p"><a href="/blog/" class="nav-link svelte-d1vz7p">Articles</a></li>
 			
 			<li class="svelte-d1vz7p"><a href="/about" class="nav-link svelte-d1vz7p">About</a></li></ul></nav>
 </header>
 
-<main class="main"><div class="content"><section class="latest-post svelte-12q6ir9"><p class="section-title">latest</p>
-	<header class="svelte-12q6ir9"><h1 class="svelte-12q6ir9">Back to GH Pages</h1>
-		<span class="post-date">February 21, 2021</span></header>
-	<p>Moved my blog back to Github Pages after a few years of running it from Google Platform.</p>
-	<footer><a href="/blog/back-to-ghpages">Read more...</a></footer></section>
+<main class="main"><div class="content"><article class="post"><header><h1>Debug Method in Xcode</h1>
+		<span class="post-date">August 18, 2010</span></header>
+	<p>I often find myself add a bunch of <tt>#ifdef</tt>s for code that I only want executed during the development but not in the shipped products. In order to make the code a bit easier to read I decided to make a small method that takes a C block (available in iOS 4.0 and Mac OS X 10.6) instead.</p>
+<p>You would use it like this:</p>
+<div class="highlighter-rouge language-objc"><div class="highlight"><pre class="highlight"><code><span class="hljs-comment">/*
+ * Simple example of usage
+ */</span>
 
-<section class="article-list"><p class="section-title">previous posts</p>
-	
-		<article><a class="article-list-link" href="/blog/sway-gdm">Sway on Fedora 31 with GDM</a>
-			<span class="post-date">November 04, 2019</span>
-		</article>
-		<article><a class="article-list-link" href="/blog/async-await-with-generators">Async/Await with Generators and Promises</a>
-			<span class="post-date">November 15, 2017</span>
-		</article>
-		<article><a class="article-list-link" href="/blog/working-with-generators">Working with Generators</a>
-			<span class="post-date">November 13, 2017</span>
-		</article></section>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;debug.h&quot;</span></span>
 
-<footer class="page-footer">Visit the <a href="/blog/">blog archive</a> for a full list of posts.
-</footer></div></main>
+<span class="hljs-type">int</span>
+main(<span class="hljs-type">int</span> argc, **argv)
+{
+    debug(^ {
+        <span class="hljs-comment">// Your debug code here</span>
+    });
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}</code></pre></div></div>
+<p>You can download <tt>debug.[ch]</tt> from <a href="http://gist.github.com/534487">GitHub</a> and simply add them to your project. You also need to edit your project settings for the Debug configuration to set the <tt>DEBUG</tt> macro.</p>
+<p><img src="/images/posts/project-settings-debug.png" alt="Project Settings Dialog"></p>
+<p><a href="http://gist.github.com/534487" rel="nofollow">http://gist.github.com/534487</a></p></article></div></main>
 
 <footer class="site-footer svelte-1h9y0mo"><div class="author svelte-1h9y0mo"><img class="author-photo svelte-1h9y0mo" src="/images/hallski.jpg" width="192" height="192" alt="Author">
 		<div><p class="author-name svelte-1h9y0mo">Mikael Hallendal</p>
