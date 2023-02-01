@@ -9,12 +9,12 @@ const feedOptions: FeedOptions = {
 	link: 'https://hallski.org/',
 	language: 'en',
 	favicon: 'https://hallski.org/favicon.png',
-	copyright: `All rights reserved ${new Date().getFullYear}, Mikael Hallendal`,
+	copyright: `All rights reserved 2008-${new Date().getFullYear()}, Mikael Hallendal`,
 	updated: new Date(), // optional, default = today
 	generator: 'awesome', // optional, default = 'Feed for Node.js'
 	feedLinks: {
-		json: 'https://hallski.org/json',
-		atom: 'https://hallski.org/atom.xml',
+		json: 'https://hallski.org/feed/json',
+		atom: 'https://hallski.org/feed/atom',
 		rss2: 'https://hallski.org/feed'
 	},
 	author: {
@@ -30,7 +30,7 @@ export const getFeed = async () => {
 	const feed = new Feed(feedOptions)
 
 	allPosts.forEach((post) => {
-		const url = `${baseUrl}/${post.path}`
+		const url = `${baseUrl}${post.path}`
 		feed.addItem({
 			title: post.meta.title,
 			id: url,
