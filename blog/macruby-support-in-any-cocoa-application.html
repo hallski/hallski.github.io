@@ -2,10 +2,10 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.png" />
+		<link rel="icon" href="../favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta http-equiv="content-security-policy" content=""><link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed"><link rel="stylesheet" href="/css/style.css" type="text/css">
-	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-3ab4768d.css">
+		<meta http-equiv="content-security-policy" content="">
+		<link href="../_app/immutable/assets/_layout-49e432a2.css" rel="stylesheet"><!-- HEAD_svelte-oin7dn_START --><link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed"><link rel="stylesheet" href="/css/style.css" type="text/css"><!-- HEAD_svelte-oin7dn_END -->
 	</head>
 	<body>
 		<div id="svelte">
@@ -25,13 +25,13 @@
 	<p>Yesterday I published a post about <a href="/blog/cocoa-prototyping-with-webview">Cocoa Prototyping with Webview</a> and today I found out about <a href="http://www.macruby.org/" rel="nofollow">Macruby</a> thanks to <a href="http://twitter.com/sarnesjo" rel="nofollow">@sarnesjo</a>. Already looking for ways of prototyping in Cocoa it’s hard to not find Macruby very interesting.</p>
 <p>Macruby turns out to be a very powerful tool for prototyping (as well as writing entire applications in) as it fits perfectly fine in a normal Objective-C code base. What I wanted was something like this:</p>
 <div class="highlighter-rouge language-ruby"><div class="highlight"><pre class="highlight"><code><span class="hljs-keyword">class</span> <span class="hljs-title class_">SimpleController</span>
-    <span class="hljs-keyword">attr_accessor</span> <span class="hljs-symbol">:label</span>
-    <span class="hljs-keyword">attr_accessor</span> <span class="hljs-symbol">:button</span>
-    <span class="hljs-keyword">attr_accessor</span> <span class="hljs-symbol">:my_view</span>
+    <span class="hljs-built_in">attr_accessor</span> <span class="hljs-symbol">:label</span>
+    <span class="hljs-built_in">attr_accessor</span> <span class="hljs-symbol">:button</span>
+    <span class="hljs-built_in">attr_accessor</span> <span class="hljs-symbol">:my_view</span>
 
     <span class="hljs-keyword">def</span> <span class="hljs-title function_">buttonPressed</span>(<span class="hljs-params">sender</span>)
         label.setStringValue(<span class="hljs-string">&quot;I am (im)pressed!&quot;</span>)
-        my_view.backgroundColor = NSColor.redColor
+        my_view.backgroundColor = <span class="hljs-title class_">NSColor</span>.redColor
     <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span></code></pre></div></div>
 <p>Where the view <code>:my_view</code> is implemented in Objective-C.</p>
@@ -47,15 +47,15 @@
 framework <span class="hljs-string">&#39;Cocoa&#39;</span>
 
 <span class="hljs-comment"># Loading all the Ruby project files.</span>
-dir_path = NSBundle.mainBundle.resourcePath.fileSystemRepresentation
-Dir.entries(dir_path).each <span class="hljs-keyword">do</span> |<span class="hljs-params">path</span>|
-  <span class="hljs-keyword">if</span> path != File.basename(<span class="hljs-variable constant_">__FILE__</span>) <span class="hljs-keyword">and</span> path[-<span class="hljs-number">3</span>..-<span class="hljs-number">1</span>] == <span class="hljs-string">&#39;.rb&#39;</span>
+dir_path = <span class="hljs-title class_">NSBundle</span>.mainBundle.resourcePath.fileSystemRepresentation
+<span class="hljs-title class_">Dir</span>.entries(dir_path).each <span class="hljs-keyword">do</span> |<span class="hljs-params">path</span>|
+  <span class="hljs-keyword">if</span> path != <span class="hljs-title class_">File</span>.basename(<span class="hljs-variable constant_">__FILE__</span>) <span class="hljs-keyword">and</span> path[-<span class="hljs-number">3</span>..-<span class="hljs-number">1</span>] == <span class="hljs-string">&#39;.rb&#39;</span>
     <span class="hljs-keyword">require</span>(path)
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 
 <span class="hljs-comment"># Starting the Cocoa main loop.</span>
-NSApplicationMain(<span class="hljs-number">0</span>, <span class="hljs-literal">nil</span>)</code></pre></div></div>
+<span class="hljs-title class_">NSApplicationMain</span>(<span class="hljs-number">0</span>, <span class="hljs-literal">nil</span>)</code></pre></div></div>
 <p>To start the actual Ruby interpreter the file <em>main.m</em> needs to be modified. Since the Ruby code now starts the Cocoa main loop we no longer need to do that in <code>main</code>. <em>Main.m</em> simply becomes:</p>
 <div class="highlighter-rouge language-c"><div class="highlight"><pre class="highlight"><code><span class="hljs-meta">#import <span class="hljs-string">&lt;MacRuby/MacRuby.h&gt;</span></span>
 
@@ -78,7 +78,6 @@ NSApplicationMain(<span class="hljs-number">0</span>, <span class="hljs-literal"
 				<span class="interest svelte-1h9y0mo">Javascript/Typescript</span> and
 				<span class="interest svelte-1h9y0mo">Elixir</span></p>
 			<nav class="find-me svelte-1h9y0mo"><a href="http://github.com/hallski/" class="svelte-1h9y0mo">Github</a>
-				<a href="http://twitter.com/mhallendal/" class="svelte-1h9y0mo">Twitter</a>
 				<a href="http://www.linkedin.com/in/mhallendal" class="svelte-1h9y0mo">LinkedIn</a></nav></div></div>
 </footer>
 

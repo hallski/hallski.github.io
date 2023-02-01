@@ -1,259 +1,183 @@
-
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-
-  <title>Mikael Hallendal</title>
-  <link href="http://hallski.org/"/>
-  <link type="application/atom+xml" rel="self" href="http://hallski.org/atom.xml"/>
-  <updated>2021-02-21T00:00:00.000Z</updated>
-  <id>http://hallski.org/</id>
-  <author>
-    <name>Mikael Hallendal</name>
-  </author>
-
-  
-  <entry>
-    <id>http://hallski.org/blog/back-to-ghpages</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/back-to-ghpages"/>
-    <title>Back to GH Pages</title>
-    <published>2021-02-21T00:00:00.000Z</published>
-    <updated>2021-02-21T00:00:00.000Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/sway-gdm</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/sway-gdm"/>
-    <title>Sway on Fedora 31 with GDM</title>
-    <published>2019-11-04T00:00:00Z</published>
-    <updated>2019-11-04T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/async-await-with-generators</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/async-await-with-generators"/>
-    <title>Async/Await with Generators and Promises</title>
-    <published>2017-11-15T00:00:00Z</published>
-    <updated>2017-11-15T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/working-with-generators</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/working-with-generators"/>
-    <title>Working with Generators</title>
-    <published>2017-11-13T00:00:00Z</published>
-    <updated>2017-11-13T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/intro-to-es6-iter-and-generators</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/intro-to-es6-iter-and-generators"/>
-    <title>Introduction to ES6 Iterators and Generators</title>
-    <published>2017-11-13T00:00:00Z</published>
-    <updated>2017-11-13T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/rop-with-promises</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/rop-with-promises"/>
-    <title>Railway oriented programming with Promises</title>
-    <published>2017-11-06T00:00:00Z</published>
-    <updated>2017-11-06T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/building-interactions-with-gcf</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/building-interactions-with-gcf"/>
-    <title>Building integrations with Google Cloud Functions</title>
-    <published>2017-11-03T00:00:00Z</published>
-    <updated>2017-11-03T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/chaihttp-mocha-4</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/chaihttp-mocha-4"/>
-    <title>Testing with chai-http and Mocha 4</title>
-    <published>2017-10-28T00:00:00Z</published>
-    <updated>2017-10-28T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/understanding-new-in-js</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/understanding-new-in-js"/>
-    <title>Understanding 'new' in JS</title>
-    <published>2017-09-20T00:00:00Z</published>
-    <updated>2017-09-20T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/getting-into-javascript</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/getting-into-javascript"/>
-    <title>Getting into Javascript</title>
-    <published>2017-09-19T00:00:00Z</published>
-    <updated>2017-09-19T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/default-arguments-in-swift</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/default-arguments-in-swift"/>
-    <title>Default arguments in Swift</title>
-    <published>2015-05-24T00:00:00Z</published>
-    <updated>2015-05-24T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/blog-moved</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/blog-moved"/>
-    <title>Blog moved</title>
-    <published>2013-11-03T00:00:00Z</published>
-    <updated>2013-11-03T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/mhconvore</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/mhconvore"/>
-    <title>Initial release of MHConvore</title>
-    <published>2011-02-16T00:00:00Z</published>
-    <updated>2011-02-16T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/code-separation-using-blocks</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/code-separation-using-blocks"/>
-    <title>Code Separation Using Blocks</title>
-    <published>2011-01-24T00:00:00Z</published>
-    <updated>2011-01-24T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/debug-method-in-xcode</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/debug-method-in-xcode"/>
-    <title>Debug Method in Xcode</title>
-    <published>2010-08-18T00:00:00Z</published>
-    <updated>2010-08-18T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/spacedust-xcode-theme-for-xcode-4</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/spacedust-xcode-theme-for-xcode-4"/>
-    <title>Spacedust Xcode Theme for Xcode 4</title>
-    <published>2010-08-16T00:00:00Z</published>
-    <updated>2010-08-16T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/spacedust-xcode-theme</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/spacedust-xcode-theme"/>
-    <title>Spacedust Xcode Theme</title>
-    <published>2010-01-30T00:00:00Z</published>
-    <updated>2010-01-30T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/core-animation-layered-clock</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/core-animation-layered-clock"/>
-    <title>Core Animation Layered Clock</title>
-    <published>2009-10-12T00:00:00Z</published>
-    <updated>2009-10-12T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/reverse-array-in-objc</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/reverse-array-in-objc"/>
-    <title>Reversing an array in Objective C</title>
-    <published>2009-10-09T00:00:00Z</published>
-    <updated>2009-10-09T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/macruby-support-in-any-cocoa-application</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/macruby-support-in-any-cocoa-application"/>
-    <title>Macruby Support in any Cocoa Application</title>
-    <published>2009-05-06T00:00:00Z</published>
-    <updated>2009-05-06T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/cocoa-prototyping-with-webview</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/cocoa-prototyping-with-webview"/>
-    <title>Cocoa Prototyping with Webview</title>
-    <published>2009-05-05T00:00:00Z</published>
-    <updated>2009-05-05T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/blog-at-github</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/blog-at-github"/>
-    <title>Blogging at Github</title>
-    <published>2009-04-20T00:00:00Z</published>
-    <updated>2009-04-20T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/source-list-with-core-data</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/source-list-with-core-data"/>
-    <title>Source List with Core Data</title>
-    <published>2009-04-06T00:00:00Z</published>
-    <updated>2009-04-06T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/expanding-nsoutlineview-nodes-at-application-start</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/expanding-nsoutlineview-nodes-at-application-start"/>
-    <title>Expanding NSOutlineView nodes at application start</title>
-    <published>2009-04-06T00:00:00Z</published>
-    <updated>2009-04-06T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/nstreecontroller-wrapping-object</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/nstreecontroller-wrapping-object"/>
-    <title>Retrieving the real object when using NSOutlineView with an NSTreeController</title>
-    <published>2009-04-04T00:00:00Z</published>
-    <updated>2009-04-04T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/removing-a-remote-branch-in-git</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/removing-a-remote-branch-in-git"/>
-    <title>Removing a remote branch in Git</title>
-    <published>2008-06-21T00:00:00Z</published>
-    <updated>2008-06-21T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  ,
-  <entry>
-    <id>http://hallski.org/blog/using-twitter4r-on-mac-os-x</id>
-    <link type="text/html" rel="alternate" href="http://hallski.org/blog/using-twitter4r-on-mac-os-x"/>
-    <title>Using Twitter4R on Mac OS X</title>
-    <published>2008-05-31T00:00:00Z</published>
-    <updated>2008-05-31T00:00:00Z</updated>
-    <content type="html">undefined</content>
-  </entry>
-  
-
+    <id>http://hallski.org/</id>
+    <title>Mikael Hallendal</title>
+    <updated>2023-02-01T22:55:56.034Z</updated>
+    <generator>awesome</generator>
+    <author>
+        <name>Mikael Hallendal</name>
+    </author>
+    <link rel="alternate" href="https://hallski.org/"/>
+    <link rel="self" href="https://hallski.org/atom.xml"/>
+    <icon>https://hallski.org/favicon.png</icon>
+    <rights>All rights reserved function getFullYear() { [native code] }, Mikael Hallendal</rights>
+    <entry>
+        <title type="html"><![CDATA[Back to GH Pages]]></title>
+        <id>https://hallski.org//blog/back-to-ghpages</id>
+        <link href="https://hallski.org//blog/back-to-ghpages"/>
+        <updated>2021-02-21T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Moved my blog back to Github Pages after a few years of running it from Google Platform.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Sway on Fedora 31 with GDM]]></title>
+        <id>https://hallski.org//blog/sway-gdm</id>
+        <link href="https://hallski.org//blog/sway-gdm"/>
+        <updated>2019-11-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Setting up Sway to work on Fedora 31 with GDM as desktop manager and gnome-keyring-daemon.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Async/Await with Generators and Promises]]></title>
+        <id>https://hallski.org//blog/async-await-with-generators</id>
+        <link href="https://hallski.org//blog/async-await-with-generators"/>
+        <updated>2017-11-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this third post about generators we'll be implementing async/await for ES6 with the help of generators and Promises.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Introduction to ES6 Iterators and Generators]]></title>
+        <id>https://hallski.org//blog/intro-to-es6-iter-and-generators</id>
+        <link href="https://hallski.org//blog/intro-to-es6-iter-and-generators"/>
+        <updated>2017-11-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this first article about generators we'll have a quick look at the basics of Iterator, Iterable and Generators.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Working with Generators]]></title>
+        <id>https://hallski.org//blog/working-with-generators</id>
+        <link href="https://hallski.org//blog/working-with-generators"/>
+        <updated>2017-11-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In the second article about generators we'll explore infinite generators and why they can be useful.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Railway oriented programming with Promises]]></title>
+        <id>https://hallski.org//blog/rop-with-promises</id>
+        <link href="https://hallski.org//blog/rop-with-promises"/>
+        <updated>2017-11-06T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Building integrations with Google Cloud Functions]]></title>
+        <id>https://hallski.org//blog/building-interactions-with-gcf</id>
+        <link href="https://hallski.org//blog/building-interactions-with-gcf"/>
+        <updated>2017-11-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Google Cloud Functions are currently in beta but can already provide a great solution for integrating between different services triggered by various events.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Testing with chai-http and Mocha 4]]></title>
+        <id>https://hallski.org//blog/chaihttp-mocha-4</id>
+        <link href="https://hallski.org//blog/chaihttp-mocha-4"/>
+        <updated>2017-10-28T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[With Mocha 4, tests using Chai-http will cause the test run to never exit.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Understanding 'new' in JS]]></title>
+        <id>https://hallski.org//blog/understanding-new-in-js</id>
+        <link href="https://hallski.org//blog/understanding-new-in-js"/>
+        <updated>2017-09-20T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Getting into Javascript]]></title>
+        <id>https://hallski.org//blog/getting-into-javascript</id>
+        <link href="https://hallski.org//blog/getting-into-javascript"/>
+        <updated>2017-09-19T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Default arguments in Swift]]></title>
+        <id>https://hallski.org//blog/default-arguments-in-swift</id>
+        <link href="https://hallski.org//blog/default-arguments-in-swift"/>
+        <updated>2015-05-24T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Blog moved]]></title>
+        <id>https://hallski.org//blog/blog-moved</id>
+        <link href="https://hallski.org//blog/blog-moved"/>
+        <updated>2013-11-03T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Initial release of MHConvore]]></title>
+        <id>https://hallski.org//blog/mhconvore</id>
+        <link href="https://hallski.org//blog/mhconvore"/>
+        <updated>2011-02-16T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Code Separation Using Blocks]]></title>
+        <id>https://hallski.org//blog/code-separation-using-blocks</id>
+        <link href="https://hallski.org//blog/code-separation-using-blocks"/>
+        <updated>2011-01-24T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Debug Method in Xcode]]></title>
+        <id>https://hallski.org//blog/debug-method-in-xcode</id>
+        <link href="https://hallski.org//blog/debug-method-in-xcode"/>
+        <updated>2010-08-18T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Spacedust Xcode Theme for Xcode 4]]></title>
+        <id>https://hallski.org//blog/spacedust-xcode-theme-for-xcode-4</id>
+        <link href="https://hallski.org//blog/spacedust-xcode-theme-for-xcode-4"/>
+        <updated>2010-08-16T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Spacedust Xcode Theme]]></title>
+        <id>https://hallski.org//blog/spacedust-xcode-theme</id>
+        <link href="https://hallski.org//blog/spacedust-xcode-theme"/>
+        <updated>2010-01-30T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Core Animation Layered Clock]]></title>
+        <id>https://hallski.org//blog/core-animation-layered-clock</id>
+        <link href="https://hallski.org//blog/core-animation-layered-clock"/>
+        <updated>2009-10-12T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reversing an array in Objective C]]></title>
+        <id>https://hallski.org//blog/reverse-array-in-objc</id>
+        <link href="https://hallski.org//blog/reverse-array-in-objc"/>
+        <updated>2009-10-09T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Macruby Support in any Cocoa Application]]></title>
+        <id>https://hallski.org//blog/macruby-support-in-any-cocoa-application</id>
+        <link href="https://hallski.org//blog/macruby-support-in-any-cocoa-application"/>
+        <updated>2009-05-06T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cocoa Prototyping with Webview]]></title>
+        <id>https://hallski.org//blog/cocoa-prototyping-with-webview</id>
+        <link href="https://hallski.org//blog/cocoa-prototyping-with-webview"/>
+        <updated>2009-05-05T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Blogging at Github]]></title>
+        <id>https://hallski.org//blog/blog-at-github</id>
+        <link href="https://hallski.org//blog/blog-at-github"/>
+        <updated>2009-04-20T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Expanding NSOutlineView nodes at application start]]></title>
+        <id>https://hallski.org//blog/expanding-nsoutlineview-nodes-at-application-start</id>
+        <link href="https://hallski.org//blog/expanding-nsoutlineview-nodes-at-application-start"/>
+        <updated>2009-04-06T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Source List with Core Data]]></title>
+        <id>https://hallski.org//blog/source-list-with-core-data</id>
+        <link href="https://hallski.org//blog/source-list-with-core-data"/>
+        <updated>2009-04-06T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Retrieving the real object when using NSOutlineView with an NSTreeController]]></title>
+        <id>https://hallski.org//blog/nstreecontroller-wrapping-object</id>
+        <link href="https://hallski.org//blog/nstreecontroller-wrapping-object"/>
+        <updated>2009-04-04T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Removing a remote branch in Git]]></title>
+        <id>https://hallski.org//blog/removing-a-remote-branch-in-git</id>
+        <link href="https://hallski.org//blog/removing-a-remote-branch-in-git"/>
+        <updated>2008-06-21T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Using Twitter4R on Mac OS X]]></title>
+        <id>https://hallski.org//blog/using-twitter4r-on-mac-os-x</id>
+        <link href="https://hallski.org//blog/using-twitter4r-on-mac-os-x"/>
+        <updated>2008-05-31T00:00:00.000Z</updated>
+    </entry>
 </feed>

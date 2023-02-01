@@ -1,0 +1,7 @@
+import{S as w,i as P,s as k,a as c,k as m,q as f,H as C,h as t,c as v,l as g,m as b,r as _,b as l,D as x,B as d}from"../../../chunks/index-57d6417f.js";function E(y){let a,o,i,s,n,p;return{c(){a=c(),o=m("h1"),i=f("About this blog"),s=c(),n=m("p"),p=f(`Personal blog about development, architecture and other code related topics. I have a strong
+	interest in learning new languages and explore various aspects of programming. Currently I'm
+	working primarily in Javascript on Google Cloud Platform but have in the past worked 8 years as an
+	iOS developer and prior to that about 10 years of GNOME/Linux development.`),this.h()},l(e){C("svelte-62xwc3",document.head).forEach(t),a=v(e),o=g(e,"H1",{});var h=b(o);i=_(h,"About this blog"),h.forEach(t),s=v(e),n=g(e,"P",{});var u=b(n);p=_(u,`Personal blog about development, architecture and other code related topics. I have a strong
+	interest in learning new languages and explore various aspects of programming. Currently I'm
+	working primarily in Javascript on Google Cloud Platform but have in the past worked 8 years as an
+	iOS developer and prior to that about 10 years of GNOME/Linux development.`),u.forEach(t),this.h()},h(){document.title="About this blog"},m(e,r){l(e,a,r),l(e,o,r),x(o,i),l(e,s,r),l(e,n,r),x(n,p)},p:d,i:d,o:d,d(e){e&&t(a),e&&t(o),e&&t(s),e&&t(n)}}}class I extends w{constructor(a){super(),P(this,a,null,E,k,{})}}export{I as default};
