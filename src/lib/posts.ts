@@ -11,13 +11,13 @@ type Post = {
 
 // TODO: Check proper type of Mdsvex imported file
 export const fetchMarkdownPosts = async ({ sorted }: { sorted: boolean }) => {
-	const allPostFiles = import.meta.glob('/src/routes/blog/*.md')
+	const allPostFiles = import.meta.glob('/posts/*.md')
 	const iterablePostFiles = Object.entries(allPostFiles)
 
 	const allPosts = await Promise.all(
 		iterablePostFiles.map(async ([path, resolver]) => {
 			const { metadata } = (await resolver()) as { metadata: Metadata }
-			const postPath = path.slice(11, -3)
+			const postPath = `/blog/${path.slice(7, -3)}`
 
 			return {
 				meta: metadata,
