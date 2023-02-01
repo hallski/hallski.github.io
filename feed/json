@@ -1,0 +1,180 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Mikael Hallendal",
+    "home_page_url": "https://hallski.org/",
+    "feed_url": "https://hallski.org/feed/json",
+    "author": {
+        "name": "Mikael Hallendal"
+    },
+    "items": [
+        {
+            "id": "https://hallski.org/blog/back-to-ghpages",
+            "url": "https://hallski.org/blog/back-to-ghpages",
+            "title": "Back to GH Pages",
+            "summary": "Moved my blog back to Github Pages after a few years of running it from Google Platform.",
+            "date_modified": "2021-02-21T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/sway-gdm",
+            "url": "https://hallski.org/blog/sway-gdm",
+            "title": "Sway on Fedora 31 with GDM",
+            "summary": "Setting up Sway to work on Fedora 31 with GDM as desktop manager and gnome-keyring-daemon.",
+            "date_modified": "2019-11-04T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/async-await-with-generators",
+            "url": "https://hallski.org/blog/async-await-with-generators",
+            "title": "Async/Await with Generators and Promises",
+            "summary": "In this third post about generators we'll be implementing async/await for ES6 with the help of generators and Promises.",
+            "date_modified": "2017-11-15T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/intro-to-es6-iter-and-generators",
+            "url": "https://hallski.org/blog/intro-to-es6-iter-and-generators",
+            "title": "Introduction to ES6 Iterators and Generators",
+            "summary": "In this first article about generators we'll have a quick look at the basics of Iterator, Iterable and Generators.",
+            "date_modified": "2017-11-13T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/working-with-generators",
+            "url": "https://hallski.org/blog/working-with-generators",
+            "title": "Working with Generators",
+            "summary": "In the second article about generators we'll explore infinite generators and why they can be useful.",
+            "date_modified": "2017-11-13T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/rop-with-promises",
+            "url": "https://hallski.org/blog/rop-with-promises",
+            "title": "Railway oriented programming with Promises",
+            "date_modified": "2017-11-06T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/building-interactions-with-gcf",
+            "url": "https://hallski.org/blog/building-interactions-with-gcf",
+            "title": "Building integrations with Google Cloud Functions",
+            "summary": "Google Cloud Functions are currently in beta but can already provide a great solution for integrating between different services triggered by various events.",
+            "date_modified": "2017-11-03T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/chaihttp-mocha-4",
+            "url": "https://hallski.org/blog/chaihttp-mocha-4",
+            "title": "Testing with chai-http and Mocha 4",
+            "summary": "With Mocha 4, tests using Chai-http will cause the test run to never exit.",
+            "date_modified": "2017-10-28T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/understanding-new-in-js",
+            "url": "https://hallski.org/blog/understanding-new-in-js",
+            "title": "Understanding 'new' in JS",
+            "date_modified": "2017-09-20T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/getting-into-javascript",
+            "url": "https://hallski.org/blog/getting-into-javascript",
+            "title": "Getting into Javascript",
+            "date_modified": "2017-09-19T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/default-arguments-in-swift",
+            "url": "https://hallski.org/blog/default-arguments-in-swift",
+            "title": "Default arguments in Swift",
+            "date_modified": "2015-05-24T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/blog-moved",
+            "url": "https://hallski.org/blog/blog-moved",
+            "title": "Blog moved",
+            "date_modified": "2013-11-03T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/mhconvore",
+            "url": "https://hallski.org/blog/mhconvore",
+            "title": "Initial release of MHConvore",
+            "date_modified": "2011-02-16T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/code-separation-using-blocks",
+            "url": "https://hallski.org/blog/code-separation-using-blocks",
+            "title": "Code Separation Using Blocks",
+            "date_modified": "2011-01-24T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/debug-method-in-xcode",
+            "url": "https://hallski.org/blog/debug-method-in-xcode",
+            "title": "Debug Method in Xcode",
+            "date_modified": "2010-08-18T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/spacedust-xcode-theme-for-xcode-4",
+            "url": "https://hallski.org/blog/spacedust-xcode-theme-for-xcode-4",
+            "title": "Spacedust Xcode Theme for Xcode 4",
+            "date_modified": "2010-08-16T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/spacedust-xcode-theme",
+            "url": "https://hallski.org/blog/spacedust-xcode-theme",
+            "title": "Spacedust Xcode Theme",
+            "date_modified": "2010-01-30T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/core-animation-layered-clock",
+            "url": "https://hallski.org/blog/core-animation-layered-clock",
+            "title": "Core Animation Layered Clock",
+            "date_modified": "2009-10-12T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/reverse-array-in-objc",
+            "url": "https://hallski.org/blog/reverse-array-in-objc",
+            "title": "Reversing an array in Objective C",
+            "date_modified": "2009-10-09T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/macruby-support-in-any-cocoa-application",
+            "url": "https://hallski.org/blog/macruby-support-in-any-cocoa-application",
+            "title": "Macruby Support in any Cocoa Application",
+            "date_modified": "2009-05-06T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/cocoa-prototyping-with-webview",
+            "url": "https://hallski.org/blog/cocoa-prototyping-with-webview",
+            "title": "Cocoa Prototyping with Webview",
+            "date_modified": "2009-05-05T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/blog-at-github",
+            "url": "https://hallski.org/blog/blog-at-github",
+            "title": "Blogging at Github",
+            "date_modified": "2009-04-20T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/expanding-nsoutlineview-nodes-at-application-start",
+            "url": "https://hallski.org/blog/expanding-nsoutlineview-nodes-at-application-start",
+            "title": "Expanding NSOutlineView nodes at application start",
+            "date_modified": "2009-04-06T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/source-list-with-core-data",
+            "url": "https://hallski.org/blog/source-list-with-core-data",
+            "title": "Source List with Core Data",
+            "date_modified": "2009-04-06T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/nstreecontroller-wrapping-object",
+            "url": "https://hallski.org/blog/nstreecontroller-wrapping-object",
+            "title": "Retrieving the real object when using NSOutlineView with an NSTreeController",
+            "date_modified": "2009-04-04T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/removing-a-remote-branch-in-git",
+            "url": "https://hallski.org/blog/removing-a-remote-branch-in-git",
+            "title": "Removing a remote branch in Git",
+            "date_modified": "2008-06-21T00:00:00.000Z"
+        },
+        {
+            "id": "https://hallski.org/blog/using-twitter4r-on-mac-os-x",
+            "url": "https://hallski.org/blog/using-twitter4r-on-mac-os-x",
+            "title": "Using Twitter4R on Mac OS X",
+            "date_modified": "2008-05-31T00:00:00.000Z"
+        }
+    ]
+}
