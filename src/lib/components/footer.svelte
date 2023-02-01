@@ -11,7 +11,6 @@
 			</p>
 			<nav class="find-me">
 				<a href="http://github.com/hallski/">Github</a>
-				<a href="http://twitter.com/mhallendal/">Twitter</a>
 				<a href="http://www.linkedin.com/in/mhallendal">LinkedIn</a>
 			</nav>
 		</div>

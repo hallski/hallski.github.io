@@ -3,8 +3,9 @@
 </script>
 
 <script>
-	export let title
-	export let date
+	export let data
+
+	const { title, date, content } = data
 
 	$: formattedDate = moment(date).format('MMMM DD, YYYY')
 </script>
@@ -14,5 +15,5 @@
 		<h1>{title}</h1>
 		<span class="post-date">{formattedDate}</span>
 	</header>
-	<slot />
+	<svelte:component this={content} />
 </article>

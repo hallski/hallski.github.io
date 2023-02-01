@@ -1,7 +1,10 @@
 <script>
 	import { base } from '$app/paths'
-	import { posts } from '$lib/posts'
 	import moment from 'moment'
+
+	export let data
+
+	const { posts } = data
 
 	$: [latest, ...highlighted] = posts.slice(0, 4)
 	$: console.log('Latest path', latest.path)
@@ -12,12 +15,12 @@
 <section class="latest-post">
 	<p class="section-title">latest</p>
 	<header>
-		<h1>{latest.title}</h1>
+		<h1>{latest.meta.title}</h1>
 		<span class="post-date">
-			{format(latest.date)}
+			{format(latest.meta.date)}
 		</span>
 	</header>
-	<p>{latest.excerpt}</p>
+	<p>{latest.meta.excerpt}</p>
 	<footer>
 		<a href={`${base}${latest.path}`}>Read more...</a>
 	</footer>
@@ -28,8 +31,8 @@
 	{#each highlighted as post}
 		<!--  {% for post in site.posts limit:3 offset:1 %}-->
 		<article>
-			<a class="article-list-link" href={`${base}${post.path}`}>{post.title}</a>
-			<span class="post-date">{format(post.date)}</span>
+			<a class="article-list-link" href={`${base}${post.path}`}>{post.meta.title}</a>
+			<span class="post-date">{format(post.meta.date)}</span>
 		</article>
 	{/each}
 </section>
