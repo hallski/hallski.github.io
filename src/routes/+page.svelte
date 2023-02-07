@@ -38,7 +38,7 @@
 </section>
 
 <footer class="page-footer">
-	Visit the <a href="/blog/">blog archive</a> for a full list of posts.
+	Visit the <a href="/blog">blog archive</a> for a full list of posts.
 </footer>
 
 <style>
