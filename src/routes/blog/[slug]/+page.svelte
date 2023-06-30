@@ -10,6 +10,10 @@
 	$: formattedDate = moment(date).format('MMMM DD, YYYY')
 </script>
 
+<svelte:head>
+	<title>Hallski: {title}</title>	
+</svelte:head>
+
 <article class="post">
 	<header>
 		<h1>{title}</h1>

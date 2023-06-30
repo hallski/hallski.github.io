@@ -9,6 +9,10 @@
 	const format = (date) => moment(date).format('MMMM DD, YYYY')
 </script>
 
+<svelte:head>
+	<title>Hallskis Blog archive</title>
+</svelte:head>
+
 <h1>Blog archive</h1>
 <div class="article-list">
 	{#each posts as post}

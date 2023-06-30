@@ -12,6 +12,11 @@
 	const format = (date) => moment(date).format('MMMM DD, YYYY')
 </script>
 
+<svelte:head>
+	<title>Hallskis blog</title>	
+</svelte:head>
+
+
 <section class="latest-post">
 	<p class="section-title">latest</p>
 	<header>
