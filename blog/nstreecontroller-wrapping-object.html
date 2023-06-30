@@ -5,7 +5,7 @@
 		<link rel="icon" href="../favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta http-equiv="content-security-policy" content="">
-		<link href="../_app/immutable/assets/_layout-49e432a2.css" rel="stylesheet"><!-- HEAD_svelte-1q3t53y_START --><link rel="alternate" type="application/atom+xml" href="https://hallski.org/atom.xml"><link rel="alternate" type="application/rss+xml" href="https://hallski.org/feed/rss"><link rel="alternate" type="application/json" href="https://hallski.org/feed/json"><link rel="stylesheet" href="/css/style.css" type="text/css"><!-- HEAD_svelte-1q3t53y_END -->
+		<link href="../_app/immutable/assets/_layout-49e432a2.css" rel="stylesheet"><title>Hallski: Retrieving the real object when using NSOutlineView with an NSTreeController</title><!-- HEAD_svelte-1q3t53y_START --><link rel="alternate" type="application/atom+xml" href="https://hallski.org/atom.xml"><link rel="alternate" type="application/rss+xml" href="https://hallski.org/feed/rss"><link rel="alternate" type="application/json" href="https://hallski.org/feed/json"><link rel="stylesheet" href="/css/style.css" type="text/css"><!-- HEAD_svelte-1q3t53y_END --><!-- HEAD_svelte-4z5wxp_START --><!-- HEAD_svelte-4z5wxp_END -->
 	</head>
 	<body>
 		<div id="svelte">
@@ -20,7 +20,9 @@
 			<li class="svelte-d1vz7p"><a href="/about" class="nav-link svelte-d1vz7p">About</a></li></ul></nav>
 </header>
 
-<main class="main"><div class="content"><article class="post"><header><h1>Retrieving the real object when using NSOutlineView with an NSTreeController</h1>
+<main class="main"><div class="content">
+
+<article class="post"><header><h1>Retrieving the real object when using NSOutlineView with an NSTreeController</h1>
 		<span class="post-date">April 04, 2009</span></header>
 	<p>As I just started out with Cocoa and started looking into the NSTreeController and NSOutlineView I realized that the objects seen by the outline view isn’t the same as the ones you see when working with the tree controller.</p>
 <p>The NSTreeController wraps your objects into another object and it took me some digging before I realized that you need to call <code>representedObject</code> to fetch the <em>real</em> object.</p>
