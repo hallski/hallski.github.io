@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://hallski.org/</id>
     <title>Mikael Hallendal</title>
-    <updated>2023-06-30T18:35:52.858Z</updated>
+    <updated>2024-12-18T14:12:07.838Z</updated>
     <generator>awesome</generator>
     <author>
         <name>Mikael Hallendal</name>
@@ -10,7 +10,7 @@
     <link rel="alternate" href="https://hallski.org/"/>
     <link rel="self" href="https://hallski.org/feed/atom"/>
     <icon>https://hallski.org/favicon.png</icon>
-    <rights>All rights reserved 2008-2023, Mikael Hallendal</rights>
+    <rights>All rights reserved 2008-2024, Mikael Hallendal</rights>
     <entry>
         <title type="html"><![CDATA[Back to GH Pages]]></title>
         <id>https://hallski.org/blog/back-to-ghpages</id>
